@@ -1,12 +1,21 @@
 import React from 'react';
-import FirstMenu from './components/FirstMenu/FirstMenu'
+import FirstMenu from './components/FirstMenu/FirstMenu';
+import SecondMenu from './components/SecondMenu/SecondMenu';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css'
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <React.Fragment>
       <FirstMenu />
-    </div>
+      <SecondMenu />
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={} />
+
+        </div>
+      </Router >
+    </React.Fragment>
   );
 }
 
