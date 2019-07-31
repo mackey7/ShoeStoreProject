@@ -2,6 +2,9 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+const Section = styled.div`
+padding:10px;
+`
 const Icon = styled.i`
 font-size:24px;
 `
@@ -18,10 +21,10 @@ text-align:center;
 
 const FavouriteSection: React.SFC = () => {
     return (
-        <div>
+        <Section>
             <Icon className="far fa-star"></Icon>
             <Span> 30</Span>
-        </div>
+        </Section>
     )
 }
 
