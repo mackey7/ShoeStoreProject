@@ -4,7 +4,7 @@ import React from 'react'
 
 const Image: React.SFC = () => {
     return (
-        <p>IMAGE</p>
+        <img src="" alt="" />
     )
 }
 
