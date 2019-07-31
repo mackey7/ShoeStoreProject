@@ -4,8 +4,10 @@ import React from 'react'
 const LeftSection: React.SFC = () => {
     return (
         <section>
-            LeftSection
-        </section>
+            <span>Copyright Fooseshoes 2013</span>
+            <br />
+            <span>Designed by Enzolivolti</span>
+        </section >
     )
 }
 
