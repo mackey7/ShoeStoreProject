@@ -1,12 +1,13 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import FavouriteSection from './FavouriteSection'
+import FavouriteSection from './FavouriteSection';
+import BasketSection from './BasketSection'
 const NavWrapper = styled.nav`
 `
 
 const Nav = styled.div`
-
+display:flex;
 `
 
 
@@ -16,6 +17,7 @@ const RightMenu: React.SFC = () => {
         <NavWrapper>
             <Nav>
                 <FavouriteSection />
+                <BasketSection />
 
             </Nav>
         </NavWrapper>
