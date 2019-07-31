@@ -18,10 +18,12 @@ class MenuListItem extends React.Component<Iprops, IState> {
     readonly state = {
         menu: ["Home", "Products", "About", "Pages", "Blog", "Contact"]
     };
+
     render() {
         return (
             <ul>
-                {this.state.menu.map(x => <li><Link to={`"${x}"`}>{x}</Link>`</li>)}
+                {this.state.menu.map(x => <li><Link to={`/${x}`}>{x}</Link></li>)}
+
             </ul>
         )
     }

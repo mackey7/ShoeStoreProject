@@ -8,11 +8,15 @@ import './App.css'
 const App: React.FC = () => {
   return (
     <React.Fragment>
-      <FirstMenu />
-      <SecondMenu />
+
       <Router>
         <div className="App">
+
+          <FirstMenu />
+          <SecondMenu />
           <Route exact path="/" component={Home} />
+
+
 
         </div>
       </Router >
