@@ -4,10 +4,10 @@ import Styled from 'styled-components'
 
 const UL = Styled.ul`
 display:flex;
+flex-wrap:wrap;
 `
 const LI = Styled.li`
 list-style:none
-
 `
 const LINK = Styled(Link)`
 color:#979797;
