@@ -1,4 +1,12 @@
 import React from 'react'
+import Styled from 'styled-components'
+
+const Titile = Styled.h2`
+text-transform:uppercase;
+font-weight:400;
+padding-bottom:10px;
+`
+
 
 interface IProps {
     title: string
@@ -6,7 +14,7 @@ interface IProps {
 
 const WidgetTitle: React.SFC<IProps> = ({ title }) => {
     return (
-        <h2>{title}</h2>
+        <Titile>{title}</Titile>
     )
 }
 
