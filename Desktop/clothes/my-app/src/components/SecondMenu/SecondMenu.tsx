@@ -4,8 +4,8 @@ import RightSection from './RightSection';
 import styled from 'styled-components'
 
 const NavWrapper = styled.nav`
-width:100%;
-height:100px;
+/* width:100%;
+height:100px; */
 `
 
 const Nav = styled.div`

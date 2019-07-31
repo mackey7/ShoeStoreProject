@@ -18,7 +18,6 @@ const RightMenu: React.SFC = () => {
             <Nav>
                 <FavouriteSection />
                 <BasketSection />
-
             </Nav>
         </NavWrapper>
     )

@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import MenuListItem from './MenuListItem'
 
 const NavWrapper = styled.nav`
+
 `
 
 const Nav = styled.div`
-
+height:100%;
 `
 
 

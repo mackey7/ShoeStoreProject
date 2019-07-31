@@ -2,12 +2,30 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const NavWrapper = styled.nav`
+const UL = styled.ul`
+
+display:flex;
+text-decoration: none;
+height:100%;
+
+`
+const LINK = styled(Link)`
+color:#000;
+text-decoration: none;
+`
+const LI = styled.li`
+list-style:none;
+padding:10px 15px;
+text-decoration: none;
+font-size:20px;
+border-left:2px solid #dedede;
+&:nth-last-child(1){
+    border-right:2px solid #dedede;
+}
 `
 
-const Nav = styled.div`
 
-`
+
 interface Iprops {
 
 }
@@ -21,10 +39,10 @@ class MenuListItem extends React.Component<Iprops, IState> {
 
     render() {
         return (
-            <ul>
-                {this.state.menu.map(x => <li><Link to={`/${x}`}>{x}</Link></li>)}
+            <UL>
+                {this.state.menu.map(x => <LI><LINK to={`/${x}`}>{x}</LINK></LI>)}
 
-            </ul>
+            </UL>
         )
     }
 
