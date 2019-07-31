@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import CarouselContainer from '../CarouselContainer/CarouselContainer'
 import styled from 'styled-components'
 
 const NavWrapper = styled.nav`
@@ -18,7 +18,7 @@ class Home extends React.Component<Iprops, IState> {
 
     render() {
         return (
-            <div> Home</div>
+            <div> <CarouselContainer /></div>
         )
     }
 
