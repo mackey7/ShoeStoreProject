@@ -1,11 +1,16 @@
 import React from 'react'
 import NewsItem from './NewsItem'
 
-const BlogNews: React.SFC = () => {
+interface IProps {
+    data: Array<Object>,
+}
+
+const BlogNews: React.SFC<IProps> = ({ data }) => {
     return (
         <div>
-            <NewsItem />
-            <NewsItem />
+
+            {data.map(item => <NewsItem data={item} />)}
+
         </div>
     )
 }

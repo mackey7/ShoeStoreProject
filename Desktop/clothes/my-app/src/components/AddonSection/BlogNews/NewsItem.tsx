@@ -1,11 +1,16 @@
 import React from 'react'
 
+interface IProps {
+    data: any
+}
 
-const NewsItem: React.SFC = () => {
+const NewsItem: React.SFC<IProps> = ({ data }) => {
     return (
         <div>
-            NewsItem
-       </div>
+            {data.title}
+            {data.content}
+            {data.date}
+        </div>
     )
 }
 

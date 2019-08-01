@@ -1,11 +1,16 @@
 import React from 'react'
 
+interface IProps {
+    data: any
+}
 
-const TextBox: React.SFC = () => {
+const TextBox: React.SFC<IProps> = ({ data }) => {
     return (
         <div>
-            TextBox
-       </div>
+            {data.titile}
+            {data.content}
+            {data.author}
+        </div>
     )
 }
 
