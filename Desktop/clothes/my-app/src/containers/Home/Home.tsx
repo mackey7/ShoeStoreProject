@@ -1,5 +1,6 @@
 import React from 'react'
 import CarouselContainer from '../CarouselContainer/CarouselContainer'
+import AddonSection from '../../components/AddonSection/AddonSection'
 import styled from 'styled-components'
 
 const NavWrapper = styled.nav`
@@ -18,7 +19,10 @@ class Home extends React.Component<Iprops, IState> {
 
     render() {
         return (
-            <div> <CarouselContainer /></div>
+            <div> <CarouselContainer />
+
+                <AddonSection />
+            </div>
         )
     }
 
