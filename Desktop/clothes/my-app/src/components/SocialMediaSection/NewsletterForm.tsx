@@ -4,10 +4,11 @@ import React from 'react'
 
 const NewsletterForm: React.SFC = () => {
     return (
-        <div>
+        <form action="" method="post">
+            <input type="text" placeholder="Enter email for newsletter" />
+            <input type="button" value=">" />
 
-            NewsletterForm
-       </div>
+        </form>
     )
 }
 
