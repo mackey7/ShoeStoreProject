@@ -1,17 +1,34 @@
 import React from 'react'
 import BlogNews from './BlogNews/BlogNews'
 import TextBox from './TextBox/TextBox'
-import styled from 'styled-components'
+import Styled from 'styled-components'
+
+const SectionWrapper = Styled.section`
+background:#ebe7df;
+`;
 
 
-interface Iprops {
-
+const Section = Styled.section`
+display:flex;
+flex-direction:column;
+width:90%;
+margin:0 auto;
+padding:30px 0;
+border-top:1px solid black;
+@media only screen and (min-width: 900px) {
+    width:80%;
+ display:flex;
+ flex-direction:row;
+ 
 }
+
+`
+
 interface IState {
     BlogNewsContent: Array<Object>,
     TextBoxContent: Array<Object>,
 }
-class AddonSection extends React.Component<Iprops, IState> {
+class AddonSection extends React.Component<{}, IState> {
     state = {
         TextBoxContent: [
             { titile: "Free Shipping", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quae perferendis quo qui eum recusandae harum dignissimos eligendi aspernatur ipsam! Fugiat aut facere esse nobis illum labore nam suscipit placeat!", author: "" },
@@ -27,11 +44,12 @@ class AddonSection extends React.Component<Iprops, IState> {
         const { BlogNewsContent, TextBoxContent } = this.state;
         const TextBoxs = TextBoxContent.map(item => <TextBox data={item} />)
         return (
-            <section>
-                {TextBoxs}
-                <BlogNews data={BlogNewsContent} />
-
-            </section>
+            <SectionWrapper>
+                <Section>
+                    {TextBoxs}
+                    <BlogNews data={BlogNewsContent} />
+                </Section>
+            </SectionWrapper>
         )
     }
 
