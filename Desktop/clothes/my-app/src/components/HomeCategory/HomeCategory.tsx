@@ -22,7 +22,10 @@ flex-direction:row;
 justify-content:space-between;
 }
 `
-const ProductsItems = Styled.div``
+const ProductsItems = Styled.div`
+padding:40px 0px;
+
+`
 const Button = Styled.input`
 background:inherit;
 border:1px solid #bcb5a7;
