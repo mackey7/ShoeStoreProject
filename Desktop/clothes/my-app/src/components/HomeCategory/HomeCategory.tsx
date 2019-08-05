@@ -1,5 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
+import ProductItem from '../ProductItem/ProductItem'
 
 const CategoryWrapper = Styled.section`
 padding: 0px 20px;
@@ -51,7 +52,7 @@ const HomeCategory: React.SFC<IProps> = ({ title }) => {
                 </CategoryHeader>
 
                 <ProductsItems>
-
+                    <ProductItem />
 
                 </ProductsItems>
 
