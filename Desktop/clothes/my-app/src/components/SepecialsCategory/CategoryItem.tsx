@@ -1,8 +1,16 @@
 import React from 'react'
-
-const CategoryItem: React.SFC = () => {
+interface IProps {
+    alt: string;
+    src: string;
+    name: string;
+}
+const CategoryItem: React.SFC<IProps> = ({ alt, src, name }) => {
     return (
-        <div>CategoryItem</div>
+        <figure>
+            <img src={src}
+                alt={alt} />
+            <figcaption>{name}</figcaption>
+        </figure>
     )
 }
 
