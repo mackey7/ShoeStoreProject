@@ -52,7 +52,7 @@ const HomeCategory: React.SFC<IProps> = ({ title }) => {
                 </CategoryHeader>
 
                 <ProductsItems>
-                    <ProductItem />
+                    <ProductItem src="https://2.allegroimg.com/original/0c6d28/ce72656046488deb944b8f9a6912" alt="alt" price="145.99" productName="Duffalo" />
 
                 </ProductsItems>
 
