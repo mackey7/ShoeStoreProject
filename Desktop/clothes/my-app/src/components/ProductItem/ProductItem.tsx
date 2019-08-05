@@ -8,10 +8,10 @@ const ProductDetails = Styled.div``
 const ProductItem: React.SFC = ({ }) => {
     return (
         <section>
-            <ProductImage />
+            <ProductImage src="https://2.allegroimg.com/original/0c6d28/ce72656046488deb944b8f9a6912" alt="alt" />
             <ProductDetails>
-                <ProductPrice />
-                <ProductInfo />
+                <ProductPrice price="145.99" />
+                <ProductInfo productName="Duffalo delecto" />
             </ProductDetails>
         </section>
     )

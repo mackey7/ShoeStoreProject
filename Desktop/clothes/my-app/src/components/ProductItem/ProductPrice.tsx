@@ -1,14 +1,19 @@
 import React from 'react'
 import Styled from 'styled-components'
 
+const PriceWrapper = Styled.span``
+
+interface IProps {
+    price: string
+}
 
 
-const ProductPrice: React.SFC = ({ }) => {
+const ProductPrice: React.SFC<IProps> = ({ price }) => {
     return (
-        <section>
-            ProductPrice
+        <PriceWrapper>
+            $ {price}
 
-        </section>
+        </PriceWrapper>
     )
 }
 

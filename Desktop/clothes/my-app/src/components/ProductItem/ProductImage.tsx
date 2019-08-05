@@ -1,13 +1,18 @@
 import React from 'react'
 import Styled from 'styled-components'
 
+const Image = Styled.figure``
 
+interface Iprops {
+    src: string;
+    alt: string;
+}
 
-const ProductImage: React.SFC = ({ }) => {
+const ProductImage: React.SFC<Iprops> = ({ src, alt }) => {
     return (
-        <section>
-            ProductImage
-        </section>
+        <Image>
+            <img src={src} alt={alt} width="100%" height="100%" />
+        </Image>
     )
 }
 
