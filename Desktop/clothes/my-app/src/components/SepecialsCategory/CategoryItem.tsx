@@ -12,11 +12,13 @@ height:200px;
 figcaption{
 position:absolute;
 top:50%;
+background:rgb(0.00,0.00,0.00, 0.5);
+padding:10px 20px;
+margin-left:8%;
 text-align: center; 
 max-width:100%;
 color:#fff;
-background:rgb(0.00,0.00,0.00, 0.5);
-padding:10px 20px;
+
 text-transform:uppercase;
 font-weight:400;
 }
