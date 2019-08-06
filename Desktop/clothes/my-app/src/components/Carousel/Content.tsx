@@ -1,14 +1,18 @@
 import React from 'react'
 
+interface Iprops {
+    price: string;
+    title: string;
+    description: string;
+}
 
 
-
-const Content: React.SFC = () => {
+const Content: React.SFC<Iprops> = ({ price, title, description }) => {
     return (
         <section>
-            <span>$145.99</span>
-            <h2>Pink Shoes 2013 Collection</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores repellendus cum aperiam eos, quibusdam consequatur . </p>
+            <span>{price}</span>
+            <h2>{title}</h2>
+            <p>{description} </p>
             <div>
                 <i className="far fa-eye"></i>
                 <i className="far fa-star"></i>
