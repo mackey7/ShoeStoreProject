@@ -7,6 +7,7 @@ import SocialMediaSection from './components/SocialMediaSection/SocialMediaSecti
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './containers/Home/Home'
 import Products from './containers/Products/Products'
+import About from './containers/About/About'
 import './App.css'
 
 const App: React.FC = () => {
@@ -19,7 +20,9 @@ const App: React.FC = () => {
           <FirstMenu />
           <SecondMenu />
           <Route exact path="/" component={Home} />
+          <Route exact path="/Home" component={Home} />
           <Route exact path="/products" component={Products} />
+          <Route exact path="/about" component={About} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
