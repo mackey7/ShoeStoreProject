@@ -2,7 +2,8 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const CategoryWrapper = Styled.section`
-padding: 0px 20px;
+
+padding: 30px 20px;
 background:#ebe7df;
 `
 const Category = Styled.section`
