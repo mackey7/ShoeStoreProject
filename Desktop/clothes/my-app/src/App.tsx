@@ -11,6 +11,7 @@ import About from './containers/About/About'
 import Pages from './containers/Pages/Pages'
 import Blog from './containers/Blog/Blog'
 import Support from './containers/Support/Support'
+import Terms from './containers/Terms/Terms'
 import './App.css'
 
 const App: React.FC = () => {
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           <Route exact path="/pages" component={Pages} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/support" component={Support} />
+          <Route exact path="/terms" component={Terms} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
