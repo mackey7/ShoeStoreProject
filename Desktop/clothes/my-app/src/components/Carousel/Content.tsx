@@ -1,5 +1,25 @@
 import React from 'react'
+import Styled from 'styled-components'
 
+const ContentWrapper = Styled.section`
+
+width:80%;
+
+
+@media only screen and (min-width: 300px) {
+ 
+}
+@media only screen and (min-width: 600px) {
+ 
+}
+@media only screen and (min-width: 900px) {
+    display:flex;
+ flex-direction:column;
+padding-left:30px;
+justify-content:center;
+ width:50%;
+}
+`
 interface Iprops {
     price: string;
     title: string;
@@ -9,7 +29,7 @@ interface Iprops {
 
 const Content: React.SFC<Iprops> = ({ price, title, description }) => {
     return (
-        <section>
+        <ContentWrapper>
             <span>{price}</span>
             <h2>{title}</h2>
             <p>{description} </p>
@@ -18,7 +38,7 @@ const Content: React.SFC<Iprops> = ({ price, title, description }) => {
                 <i className="far fa-star"></i>
                 <i className="fas fa-shopping-cart"></i>
             </div>
-        </section>
+        </ContentWrapper>
     )
 }
 

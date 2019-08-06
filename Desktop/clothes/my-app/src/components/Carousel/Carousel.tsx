@@ -1,15 +1,19 @@
 import React from 'react'
 import Slide from './Slide'
 import CarouselDots from './CarouselDots'
+import Styled from 'styled-components'
 
+const CarouselWrpper = Styled.header`
+
+`
 
 
 const Carousel: React.SFC = () => {
     return (
-        <React.Fragment>
+        <CarouselWrpper>
             <Slide />
             <CarouselDots />
-        </React.Fragment>
+        </CarouselWrpper>
     )
 }
 
