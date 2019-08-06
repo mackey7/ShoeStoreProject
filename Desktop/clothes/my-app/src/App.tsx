@@ -10,6 +10,7 @@ import Products from './containers/Products/Products'
 import About from './containers/About/About'
 import Pages from './containers/Pages/Pages'
 import Blog from './containers/Blog/Blog'
+import Contact from './containers/Contact/Contact'
 import './App.css'
 
 const App: React.FC = () => {
@@ -27,6 +28,7 @@ const App: React.FC = () => {
           <Route exact path="/about" component={About} />
           <Route exact path="/pages" component={Pages} />
           <Route exact path="/blog" component={Blog} />
+          <Route exact path="/Contact" component={Contact} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
