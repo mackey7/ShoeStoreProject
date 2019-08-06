@@ -6,6 +6,7 @@ import Widgets from './components/Widgets/Widgets'
 import SocialMediaSection from './components/SocialMediaSection/SocialMediaSection'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './containers/Home/Home'
+import Products from './containers/Products/Products'
 import './App.css'
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <FirstMenu />
           <SecondMenu />
           <Route exact path="/" component={Home} />
+          <Route exact path="/products" component={Products} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
