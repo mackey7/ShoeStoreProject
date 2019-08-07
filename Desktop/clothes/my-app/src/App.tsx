@@ -10,8 +10,12 @@ import Products from './containers/Products/Products'
 import About from './containers/About/About'
 import Pages from './containers/Pages/Pages'
 import Blog from './containers/Blog/Blog'
+<<<<<<< HEAD
 import Support from './containers/Support/Support'
 import Faq from './containers/Faq/Faq'
+=======
+import Contact from './containers/Contact/Contact'
+>>>>>>> contact
 import './App.css'
 
 const App: React.FC = () => {
@@ -29,8 +33,12 @@ const App: React.FC = () => {
           <Route exact path="/about" component={About} />
           <Route exact path="/pages" component={Pages} />
           <Route exact path="/blog" component={Blog} />
+<<<<<<< HEAD
           <Route exact path="/support" component={Support} />
           <Route exact path="/faqs" component={Faq} />
+=======
+          <Route exact path="/Contact" component={Contact} />
+>>>>>>> contact
           <Widgets />
           <SocialMediaSection />
           <Footer />
