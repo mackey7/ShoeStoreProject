@@ -14,26 +14,25 @@ display:flex;
 flex-direction:row;
 `
 const Menu: any = Styled.div`
-display: flex;
-flex-direction:column;
-width:100%;
-align-items:center;
-@media only screen and (min-width: 900px) {
-display:flex;
-justify-content:space-between;
-flex-direction:row;
+    display: ${(props: any) => (props.HideMenu ? 'none' : 'flex')}
+    /* display:flex; */
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    @media only screen and (min-width: 900px) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
 
-}
+    }
 `
 const HamburgerIcon = Styled.i`
-display:block;
-font-size:30px;
-cursor:pointer;
-@media only screen and (min-width: 900px) {
-display:none;
-
-}
-
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+   @media only screen and (min-width: 900px) {
+        display: none;
+    }
 `
 
 
@@ -70,7 +69,7 @@ class SecondMenu extends Component<IProps, IState> {
             <NavWrapper>
                 <Nav>
                     <HamburgerIcon onClick={SwitchHideMenu} className="fas fa-bars"></HamburgerIcon>
-                    <Menu >
+                    <Menu HideMenu={this.state.HideMenu}>
                         <LeftSection />
                         <RightSection />
                     </Menu>
