@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import MenuListItem from './MenuListItem'
 
 const NavWrapper = styled.nav`
-
+order:2;
+@media only screen and (min-width: 900px) {
+order:1;
+}
 `
 
 const Nav = styled.div`
 height:100%;
+
 `
 
 
