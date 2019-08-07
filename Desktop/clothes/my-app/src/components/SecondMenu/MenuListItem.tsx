@@ -22,6 +22,12 @@ border-left:2px solid #dedede;
 &:nth-last-child(1){
     border-right:2px solid #dedede;
 }
+&:hover{
+    background:#ebe7df;
+}
+&:active{
+     background:#ebe7df;
+}
 `
 
 

@@ -4,8 +4,7 @@ import RightSection from './RightSection';
 import styled from 'styled-components'
 
 const NavWrapper = styled.nav`
-/* width:100%;
-height:100px; */
+border-bottom:4px solid #ebe7df;
 `
 
 const Nav = styled.div`
@@ -14,6 +13,7 @@ margin:0 auto;
 display:flex;
 flex-direction:auto;
 justify-content:space-between;
+
 `
 
 
@@ -22,6 +22,7 @@ const SecondMenu: React.SFC = () => {
     return (
         <NavWrapper>
             <Nav>
+                <i className="fas fa-bars"></i>
                 <LeftSection />
                 <RightSection />
             </Nav>

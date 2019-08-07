@@ -13,18 +13,20 @@ cursor: pointer;
 position:relative;
 
 `
+interface IState {
+    OpenSearch: boolean;
+}
 
-
-class Search extends Component {
+class Search extends Component<{}, IState> {
     state = {
         OpenSearch: false
     }
 
     switchOpenSearch = () => {
-        this.setState((state) => {
+        this.setState((prevState) => {
             return {
-                OpenSearch: !this.state.OpenSearch
-            }
+                OpenSearch: !prevState.OpenSearch
+            };
         });
         console.log(this.state.OpenSearch)
     }
