@@ -3,11 +3,7 @@ import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import Styled from 'styled-components'
 
-<<<<<<< HEAD
-const NavWrapper = styled.nav`
-=======
 const NavWrapper = Styled.nav`
->>>>>>> secondMenu
 border-bottom:4px solid #ebe7df;
 `
 
@@ -15,13 +11,7 @@ const Nav = Styled.div`
 width:80%;
 margin:0 auto;
 display:flex;
-<<<<<<< HEAD
-flex-direction:auto;
-justify-content:space-between;
-
-=======
 flex-direction:row;
->>>>>>> secondMenu
 `
 const Menu: any = Styled.div`
     display: ${(props: any) => (props.HideMenu ? 'none' : 'flex')}
@@ -73,18 +63,6 @@ class SecondMenu extends Component<IProps, IState> {
 
     }
 
-<<<<<<< HEAD
-const SecondMenu: React.SFC = () => {
-    return (
-        <NavWrapper>
-            <Nav>
-                <i className="fas fa-bars"></i>
-                <LeftSection />
-                <RightSection />
-            </Nav>
-        </NavWrapper>
-    )
-=======
     render() {
         const { SwitchHideMenu } = this
         return (
@@ -99,7 +77,6 @@ const SecondMenu: React.SFC = () => {
             </NavWrapper >
         )
     }
->>>>>>> secondMenu
 }
 
 export default SecondMenu

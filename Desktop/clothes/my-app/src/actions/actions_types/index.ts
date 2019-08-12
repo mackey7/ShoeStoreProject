@@ -1,0 +1,1 @@
+export const FETCH_POSTS_SUCCESS: string = "FETCH_POSTS_SUCCESS";
