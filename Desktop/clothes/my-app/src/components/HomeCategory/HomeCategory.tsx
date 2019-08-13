@@ -42,10 +42,12 @@ font-weight:700;
 
 `
 interface IProps {
-    title: string
+    title: string,
+    data?: any;
+
 }
 
-const HomeCategory: React.SFC<IProps> = ({ title }) => {
+const HomeCategory: React.SFC<IProps> = ({ title, data }) => {
     return (
         <CategoryWrapper>
             <Category>
@@ -56,7 +58,12 @@ const HomeCategory: React.SFC<IProps> = ({ title }) => {
                 </CategoryHeader>
 
                 <ProductsItems>
-                    <ProductItem src="https://2.allegroimg.com/original/0c6d28/ce72656046488deb944b8f9a6912" alt="alt" price="145.99" productName="Duffalo" />
+                    {data.map((item: any) =>
+
+                        <ProductItem src={item.src} alt={item.alt} price={item.price} productName={item.name} />
+
+                    )}
+
 
                 </ProductsItems>
 
