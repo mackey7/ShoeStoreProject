@@ -4,13 +4,13 @@ import RightSection from './RightSection';
 import Styled from 'styled-components'
 
 const NavWrapper = Styled.nav`
-border - bottom: 4px solid #ebe7df;
+border-bottom:4px solid #ebe7df;
 `
 
 const Nav = Styled.div`
-width: 80 %;
-margin: 0 auto;
-display: flex;
+width:80%;
+margin:0 auto;
+display:flex;
 flex-direction:row;
 `
 const Menu: any = Styled.div`
