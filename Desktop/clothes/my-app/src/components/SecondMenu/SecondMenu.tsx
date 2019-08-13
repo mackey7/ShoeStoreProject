@@ -6,7 +6,6 @@ import Styled from 'styled-components'
 const NavWrapper = Styled.nav`
 border-bottom:4px solid #ebe7df;
 `
-
 const Nav = Styled.div`
 width:80%;
 margin:0 auto;
@@ -14,23 +13,21 @@ display:flex;
 flex-direction:row;
 `
 const Menu: any = Styled.div`
-display: ${ (props: any) => (props.HideMenu ? 'none' : 'flex')}
-/* display:flex; */
-flex - direction: column;
-width: 100 %;
-align - items: center;
-@media only screen and(min - width: 900px) {
-    display: flex;
-    justify - content: space - between;
-    flex - direction: row;
-
-}
+    display: ${(props: any) => (props.HideMenu ? 'none' : 'flex')}
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    @media only screen and (min-width: 900px) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
 `
 const HamburgerIcon = Styled.i`
 display: block;
-font - size: 30px;
+font-size: 30px;
 cursor: pointer;
-@media only screen and(min - width: 900px) {
+@media only screen and (min-width: 900px) {
     display: none;
 }
 `
@@ -42,7 +39,6 @@ interface IState {
 
 interface IProps {
     HideMenu?: boolean;
-    // props?: any;
 }
 class SecondMenu extends Component<IProps, IState> {
     constructor(props: any) {
