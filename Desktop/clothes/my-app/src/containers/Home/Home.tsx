@@ -26,7 +26,7 @@ class Home extends React.Component<Iprops, IState> {
     render() {
         return (
             <div> <CarouselContainer />
-                {console.log(this.props.products)}
+                {console.log(this.props.products.products)}
                 <SpecialsCategory />
                 <HomeCategory title="New arrivals on FooseShoes" />
                 <HomeCategory title="Best sellers of the month" />
