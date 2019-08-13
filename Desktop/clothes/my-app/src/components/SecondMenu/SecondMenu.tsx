@@ -3,46 +3,36 @@ import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import Styled from 'styled-components'
 
-<<<<<<< HEAD
-const NavWrapper = styled.nav`
-=======
 const NavWrapper = Styled.nav`
->>>>>>> secondMenu
-border-bottom:4px solid #ebe7df;
+border - bottom: 4px solid #ebe7df;
 `
 
 const Nav = Styled.div`
-width:80%;
-margin:0 auto;
-display:flex;
-<<<<<<< HEAD
-flex-direction:auto;
-justify-content:space-between;
-
-=======
+width: 80 %;
+margin: 0 auto;
+display: flex;
 flex-direction:row;
->>>>>>> secondMenu
 `
 const Menu: any = Styled.div`
-    display: ${(props: any) => (props.HideMenu ? 'none' : 'flex')}
-    /* display:flex; */
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    @media only screen and (min-width: 900px) {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
+display: ${ (props: any) => (props.HideMenu ? 'none' : 'flex')}
+/* display:flex; */
+flex - direction: column;
+width: 100 %;
+align - items: center;
+@media only screen and(min - width: 900px) {
+    display: flex;
+    justify - content: space - between;
+    flex - direction: row;
 
-    }
+}
 `
 const HamburgerIcon = Styled.i`
-    display: block;
-    font-size: 30px;
-    cursor: pointer;
-   @media only screen and (min-width: 900px) {
-        display: none;
-    }
+display: block;
+font - size: 30px;
+cursor: pointer;
+@media only screen and(min - width: 900px) {
+    display: none;
+}
 `
 
 
@@ -73,18 +63,6 @@ class SecondMenu extends Component<IProps, IState> {
 
     }
 
-<<<<<<< HEAD
-const SecondMenu: React.SFC = () => {
-    return (
-        <NavWrapper>
-            <Nav>
-                <i className="fas fa-bars"></i>
-                <LeftSection />
-                <RightSection />
-            </Nav>
-        </NavWrapper>
-    )
-=======
     render() {
         const { SwitchHideMenu } = this
         return (
@@ -99,7 +77,6 @@ const SecondMenu: React.SFC = () => {
             </NavWrapper >
         )
     }
->>>>>>> secondMenu
 }
 
 export default SecondMenu
