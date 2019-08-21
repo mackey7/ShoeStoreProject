@@ -4,7 +4,7 @@ import AddonSection from '../../components/AddonSection/AddonSection'
 import styled from 'styled-components'
 import HomeCategory from '../../components/HomeCategory/HomeCategory';
 import SpecialsCategory from '../../components/SepecialsCategory/SpecialsCategory'
-
+import { fetchProductsResponse } from '../../actions/products'
 import { connect } from "react-redux";
 
 
@@ -16,13 +16,16 @@ const Nav = styled.div`
 
 `
 interface Iprops {
-    products: any
+    products: any;
+    fetchProductsResponse: any;
 }
 interface IState {
 
 }
 class Home extends React.Component<Iprops, IState> {
-
+    componentWillMount() {
+        this.props.fetchProductsResponse();
+    }
     render() {
         return (
             <div> <CarouselContainer />
@@ -37,10 +40,16 @@ class Home extends React.Component<Iprops, IState> {
 
 }
 
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        fetchProductsResponse: () => dispatch(fetchProductsResponse()),
+    }
+}
+
 const mapStateToProps = (state: any) => {
     return {
         products: state.products
     }
 }
 
-export default connect(mapStateToProps)(Home) 
+export default connect(mapStateToProps, mapDispatchToProps)(Home) 
