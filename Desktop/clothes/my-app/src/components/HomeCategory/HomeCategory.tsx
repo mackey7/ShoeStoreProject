@@ -44,8 +44,11 @@ font-weight:700;
  background:#bcb5a7;
  cursor: pointer;
 }
+`
 
-
+const EmptyArray = Styled.p`
+font-size:50px;
+text-align:center;
 `
 interface IProps {
     title: string,
@@ -54,6 +57,17 @@ interface IProps {
 }
 
 const HomeCategory: React.SFC<IProps> = ({ title, data }) => {
+    const products =
+        data.length > 0 ?
+            data.slice(0, 3).map((item: any) =>
+                <ProductItem src={item.src} alt={item.alt} price={item.price} productName={item.name} />
+            )
+            :
+
+            <EmptyArray> No products</EmptyArray>;
+
+
+
     return (
         <CategoryWrapper>
             <Category>
@@ -64,18 +78,12 @@ const HomeCategory: React.SFC<IProps> = ({ title, data }) => {
                 </CategoryHeader>
 
                 <ProductsItems>
-                    {data.slice(0, 3).map((item: any) =>
-
-                        <ProductItem src={item.src} alt={item.alt} price={item.price} productName={item.name} />
-
-                    )}
-
-
+                    {products}
                 </ProductsItems>
 
             </Category >
 
-        </CategoryWrapper>
+        </CategoryWrapper >
     )
 }
 
