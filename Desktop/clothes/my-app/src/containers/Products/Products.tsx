@@ -1,23 +1,39 @@
 import React from 'react'
 import { connect } from "react-redux";
+import { fetchProductsResponse } from '../../actions/products'
+import ProductItem from '../../components/ProductItem/ProductItem'
 
 interface Iprops {
-    products: any
+    products: any;
+    fetchProductsResponse: any;
 }
 interface IState {
 
 }
 class Products extends React.Component<Iprops, IState> {
-
+    componentWillMount() {
+        this.props.fetchProductsResponse();
+    }
     render() {
+        const { products } = this.props.products;
         return (
             <div>
-                {console.log(this.props.products.products)}
-                Products
+                {products.map((item: any) =>
+
+
+                    <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name}></ProductItem>
+
+                )}
+
             </div>
         )
     }
 
+}
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        fetchProductsResponse: () => dispatch(fetchProductsResponse()),
+    }
 }
 const mapStateToProps = (state: any) => {
     return {
@@ -26,4 +42,4 @@ const mapStateToProps = (state: any) => {
 }
 
 
-export default connect(mapStateToProps)(Products) 
+export default connect(mapStateToProps, mapDispatchToProps)(Products) 
