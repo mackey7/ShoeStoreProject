@@ -3,7 +3,6 @@ import Styled from 'styled-components'
 import ProductItem from '../ProductItem/ProductItem'
 
 const CategoryWrapper = Styled.section`
-
 padding: 30px 20px;
 background:#ebe7df;
 `
@@ -11,7 +10,6 @@ const Category = Styled.section`
  margin:0 auto;
 @media screen and (min-width: 600px) {
  width:80%; 
-
 }
 `
 const CategoryHeader = Styled.div`
@@ -25,6 +23,7 @@ justify-content:space-between;
 `
 const ProductsItems = Styled.div`
 padding:40px 0px;
+
 
 `
 const Button = Styled.input`
@@ -58,7 +57,7 @@ const HomeCategory: React.SFC<IProps> = ({ title, data }) => {
                 </CategoryHeader>
 
                 <ProductsItems>
-                    {data.map((item: any) =>
+                    {data.slice(0, 3).map((item: any) =>
 
                         <ProductItem src={item.src} alt={item.alt} price={item.price} productName={item.name} />
 
