@@ -16,14 +16,16 @@ class Products extends React.Component<Iprops, IState> {
     }
     render() {
         const { products } = this.props.products;
+        const mapProducts = products.map((item: any) =>
+
+
+            <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name}></ProductItem>
+
+        )
+
         return (
             <div>
-                {products.map((item: any) =>
-
-
-                    <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name}></ProductItem>
-
-                )}
+                {mapProducts}
 
             </div>
         )
