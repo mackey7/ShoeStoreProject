@@ -23,7 +23,14 @@ justify-content:space-between;
 `
 const ProductsItems = Styled.div`
 padding:40px 0px;
-
+  display:flex;
+flex-direction:column;
+justify-content:space-between;
+@media screen and (min-width: 600px) {
+  display:flex;
+flex-direction:row;
+justify-content:space-between;
+}
 
 `
 const Button = Styled.input`
