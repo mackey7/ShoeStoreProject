@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ContactCategory from '../../components/ContactCategory/ContactCategory'
 interface Iprops {
 
 }
@@ -11,7 +11,7 @@ class Contact extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                Contact
+                <ContactCategory />
             </div>
         )
     }
