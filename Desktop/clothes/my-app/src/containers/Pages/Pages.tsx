@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PageCategory from '../../components/PageCategory/PageCategory'
 interface Iprops {
 
 }
@@ -11,7 +11,7 @@ class Pages extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                Pages
+                <PageCategory />
             </div>
         )
     }
