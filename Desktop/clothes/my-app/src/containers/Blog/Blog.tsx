@@ -1,5 +1,5 @@
 import React from 'react'
-
+import BlogCategory from '../../components/BlogCategory/BlogCategory'
 interface Iprops {
 
 }
@@ -11,7 +11,7 @@ class Blog extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                Blog
+                <BlogCategory />
             </div>
         )
     }
