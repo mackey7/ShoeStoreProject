@@ -1,5 +1,5 @@
 import React from 'react'
-
+import TermsCategory from '../../components/TermsCategory/TermsCategory'
 interface Iprops {
 
 }
@@ -11,7 +11,7 @@ class Terms extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                Terms
+                <TermsCategory />
             </div>
         )
     }
