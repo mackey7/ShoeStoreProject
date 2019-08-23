@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FaqCategory from '../../components/FaqCategory/FaqCategory'
 interface Iprops {
 
 }
@@ -11,7 +11,7 @@ class Faq extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                Faq
+                <FaqCategory />
             </div>
         )
     }
