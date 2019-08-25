@@ -14,16 +14,34 @@ const Form = Styled.form`
 display:flex;
 flex-direction:column;
 padding:20px 0;
-
-width:700px;
-
-input, textarea{
-    margin:20px;
-    width:100%;
-}
+width:100%;
+`
+const ContactInput = Styled.input`
+padding:20px;
+margin:10px 0px;
+border:2px solid #c5c9bd;
+`
+const ContactTextArea = Styled.textarea`
+padding:20px;
+margin:10px 0px;
+border:2px solid #c5c9bd;
+min-height:200px;
 
 `
-
+const ContactButton = Styled.input`
+margin:10px 0px;
+padding:20px;
+font-size:30px;
+background:#7db71e;
+border:2px solid #c5c9bd;
+cursor:pointer;
+color:#fff;
+font-weight:700;
+&:hover{
+    background:#08b438;
+    border:2px solid #7db71e;
+}
+`
 const H2 = Styled.h2`
 text-align:center;
 padding:20px 0;
@@ -57,18 +75,14 @@ const ContactCategory: React.SFC<{}> = () => {
                         errors,
                         handleChange,
                         handleSubmit
-
-
-
                     }) => (
                             <Form onSubmit={handleSubmit}>
-                                <input type="text" name="email" onChange={handleChange} value={values.email} />
-                                <input type="text" name="subject" onChange={handleChange} value={values.subject} />
-                                <textarea name="content" onChange={handleChange} value={values.content} ></textarea>
-                                <input type="submit" value="Send" />
+                                <ContactInput placeholder="E-mail" type="text" name="email" onChange={handleChange} value={values.email} />
+                                <ContactInput placeholder="Subject" type="text" name="subject" onChange={handleChange} value={values.subject} />
+                                <ContactTextArea placeholder="Content..." name="content" onChange={handleChange} value={values.content} ></ContactTextArea>
+                                <ContactButton type="submit" value="Send" />
                             </Form>
                         )
-
                     }
                 />
 
