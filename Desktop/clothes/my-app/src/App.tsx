@@ -14,6 +14,7 @@ import Support from './containers/Support/Support'
 import Terms from './containers/Terms/Terms'
 import Faq from './containers/Faq/Faq'
 import Contact from './containers/Contact/Contact'
+import LoginPage from './containers/LoginPage/LoginPage'
 import './App.css'
 
 const App: React.FC = () => {
@@ -35,6 +36,7 @@ const App: React.FC = () => {
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/terms" component={Terms} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/login" component={LoginPage} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
