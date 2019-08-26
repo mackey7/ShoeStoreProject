@@ -13,6 +13,7 @@ const LINK = Styled(Link)`
 color:white;
 text-decoration:none;
 margin-left:10px;
+margin-right:10px;
 font-size:24px;
 `
 
@@ -20,8 +21,8 @@ font-size:24px;
 const LogSection: React.SFC = () => {
     return (
         <LoginWrapper>
-
-            LOGIN or <LINK to="/register" >REGISTER</LINK>
+            <LINK to="/login" >Login</LINK>
+            or <LINK to="/register" >REGISTER</LINK>
 
         </LoginWrapper>
     )
