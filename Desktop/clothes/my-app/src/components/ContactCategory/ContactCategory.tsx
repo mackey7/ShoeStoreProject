@@ -45,6 +45,7 @@ font-weight:700;
 const H2 = Styled.h2`
 text-align:center;
 padding:20px 0;
+font-size:40px;
 `
 
 interface FormValues {
