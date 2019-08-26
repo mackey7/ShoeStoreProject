@@ -2,7 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 import { Formik } from 'formik'
 
-const LoginPagesection = Styled.section`
+const RegisterPageSection = Styled.section`
 background:#ebe7df;
 width:100%;
 height:100%;
@@ -10,7 +10,7 @@ display: flex;
   align-items: center;
   justify-content: center;
 `
-const LoginPageWrapper = Styled.section`
+const RegisterPageWrapper = Styled.section`
 width:300px;
 border:2px solid #9a9a9a;
 padding:20px;
@@ -57,9 +57,36 @@ font-weight:700;
 const RegisterPageComponent: React.SFC = () => {
 
     return (
-        <div>
-            RegisterPageComponent
-        </div>
+        <RegisterPageSection>
+            <RegisterPageWrapper>
+                <H2>Register</H2>
+                <Formik
+
+                    initialValues={{ name: '', surname: "", email: "", login: "", password: "", retypePassword: "" }}
+                    onSubmit={values => {
+                        console.log(values);
+                    }}
+
+                    render={({
+                        values,
+                        errors,
+                        handleChange,
+                        handleSubmit
+                    }) => (
+                            <Form onSubmit={handleSubmit}>
+                                <Input placeholder="Name" type="text" name="name" onChange={handleChange} value={values.name} />
+                                <Input placeholder="Surname" type="text" name="surname" onChange={handleChange} value={values.surname} />
+                                <Input placeholder="Email" type="text" name="email" onChange={handleChange} value={values.email} />
+                                <Input placeholder="Login" type="text" name="login" onChange={handleChange} value={values.login} />
+                                <Input placeholder="Password" type="password" name="password" onChange={handleChange} value={values.password} />
+                                <Input placeholder="Retype password" type="password" name="retypePassword" onChange={handleChange} value={values.retypePassword} />
+                                <Button type="submit" value="Register" />
+                            </Form>
+                        )
+                    }
+                />
+            </RegisterPageWrapper>
+        </RegisterPageSection>
     )
 }
 

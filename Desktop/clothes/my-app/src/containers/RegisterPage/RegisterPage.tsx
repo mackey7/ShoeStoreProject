@@ -8,6 +8,7 @@ const RegisterPage: React.SFC = () => {
     return (
         <div>
             <RegisterPageComponent />
+
         </div>
     )
 }
