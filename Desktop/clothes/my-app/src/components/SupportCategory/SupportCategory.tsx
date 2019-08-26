@@ -19,6 +19,7 @@ margin:40px 0px;
 const H2 = Styled.h2`
 text-align:center;
 margin:0px 0px 20px 0px;
+font-size:40px;
 `
 const OL = Styled.ol`
 margin: 20px 0px  0px 40px;
