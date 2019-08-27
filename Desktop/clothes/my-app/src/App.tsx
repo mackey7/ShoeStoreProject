@@ -16,6 +16,7 @@ import Faq from './containers/Faq/Faq'
 import Contact from './containers/Contact/Contact'
 import LoginPage from './containers/LoginPage/LoginPage'
 import RegisterPage from './containers//RegisterPage/RegisterPage'
+import ArticlePage from './containers/ArticlePage/ArticlePage'
 import './App.css'
 
 const App: React.FC = () => {
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/blog/article/:id" component={ArticlePage} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
