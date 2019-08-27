@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ArticlePageComponent from '../../components/ArticlePageComponent/ArticlePageComponent'
 interface Iprops {
 
 }
@@ -11,7 +11,7 @@ class ArticlePage extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                ArticlePage
+                <ArticlePageComponent />
             </div>
         )
     }
