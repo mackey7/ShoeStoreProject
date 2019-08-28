@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FavouritePageComponent from "../../components/FavouritePageComponent/FavouritePageComponent"
 
 
 interface Iprops {
@@ -13,8 +13,8 @@ class FavouritePage extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-              FavouritePage
-  
+                <FavouritePageComponent />
+
             </div>
         )
     }
