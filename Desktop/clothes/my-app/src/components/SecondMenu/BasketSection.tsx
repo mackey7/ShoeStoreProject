@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import { Link } from 'react-router-dom'
 const PIC = "https://n1.sdlcdn.com/imgs/h/1/7/Wdl-Sneakers-Red-Casual-Shoes-SDL039762466-1-2a564.jpg"
 const Section = Styled.div`
 padding:10px;
@@ -71,13 +71,17 @@ cursor: pointer;
 border:0px;
 font-weight:600;
 color:#fff;
+
 &:hover{
 
     background:#ea0f0f;
 }
 `
 
-
+const LINK = Styled(Link)`
+        text-decoration: none;
+        color:#fff;
+`
 
 
 
@@ -143,7 +147,7 @@ class BasketSection extends React.Component<Iprops, IState> {
                             <i className="fas fa-trash-alt"></i>
                         </DeleteProduct >
                     </ProductItem>
-                    <More>More</More>
+                    <More><LINK to="/cart">More</LINK> </More>
                 </Box>
             </Section>
         )
