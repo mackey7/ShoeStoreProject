@@ -10,7 +10,7 @@ interface IState {
 
 }
 class Products extends React.Component<Iprops, IState> {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchProductsResponse();
     }
     render() {
