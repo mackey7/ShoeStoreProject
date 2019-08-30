@@ -15,7 +15,11 @@ const ProductItemWrapper = Styled.section`
 background:#fff;
 width:300px;
 height:300px;
+margin: 0px 30px 30px 0px;
+
 `
+
+
 
 
 interface Iprops {
