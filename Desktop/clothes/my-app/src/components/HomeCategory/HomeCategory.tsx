@@ -74,21 +74,21 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName }) => {
             <Category>
                 < CategoryHeader >
                     <h2> {title}</h2>
-                    <>
-                        <Button>
-                            <Link to={RouteName}>Show All</Link>
 
-                        </Button>
-                    </CategoryHeader>
+                    <Button>
+                        <Link to={RouteName}>Show All</Link>
 
-                    <ProductsItems>
-                        {products}
-                    </ProductsItems>
+                    </Button>
+                </CategoryHeader>
+
+                <ProductsItems>
+                    {products}
+                </ProductsItems>
 
             </Category >
 
         </CategoryWrapper >
-            )
-        }
-        
+    )
+}
+
 export default HomeCategory
