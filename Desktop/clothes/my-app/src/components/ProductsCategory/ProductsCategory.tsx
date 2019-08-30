@@ -30,16 +30,17 @@ font-size:40px;
 
 interface IProps {
     data: any;
+    CategoryTitle: string;
 }
 
-const ProductsCategory: React.SFC<IProps> = ({ data }) => {
+const ProductsCategory: React.SFC<IProps> = ({ data, CategoryTitle }) => {
     const mapProducts = data.map((item: any) =>
         <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name}></ProductItem>
     )
 
     return (
         <ProductsCategoryWrapper>
-            <H2> Products </H2>
+            <H2> {CategoryTitle} </H2>
             <ProductsCategorySection>
                 {mapProducts}
             </ProductsCategorySection>
