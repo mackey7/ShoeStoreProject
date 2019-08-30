@@ -60,7 +60,7 @@ class ProductItem extends React.Component<Iprops, IState> {
         const { src, alt, price, productName } = this.props
         return (
             <ProductItemWrapper>
-                <ProductImage src={src} alt={alt} />
+                <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} />
                 <ProductDetails>
                     <ProductPrice price={price} />
                     <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} />

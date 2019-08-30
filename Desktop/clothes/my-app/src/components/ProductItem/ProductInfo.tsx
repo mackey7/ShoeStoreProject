@@ -9,7 +9,9 @@ align-items:center;
 justify-content:center;
 `
 const Icons = Styled.div`
-
+display:flex;
+align-items:center;
+justify-content:center;
 i{
     color:#c0c0c0;
     cursor:pointer;
@@ -25,7 +27,9 @@ i{
 const P = Styled.p`
 font-weight:700;
 `
-
+const Icon = Styled.i`
+font-size:25px;
+`
 
 interface Iprops {
     productName: string;
@@ -38,10 +42,10 @@ const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove }) =>
 
     const conatiner = isMove ?
         <Icons>
-            <i className="far fa-eye"></i>
-            <i className="far fa-star"></i>
-            <i className="far fa-share-square"></i>
-            <i className="fas fa-shopping-cart"></i>
+            <Icon className="far fa-eye"></Icon>
+            <Icon className="far fa-star"></Icon>
+            <Icon className="far fa-share-square"></Icon>
+            <Icon className="fas fa-shopping-cart"></Icon>
         </Icons>
         :
         <P>  {productName}  </P>

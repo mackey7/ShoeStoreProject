@@ -12,6 +12,7 @@ padding:20px 20px;
 margin-left:15px;
 margin-top:-25px;
 margin-right:20px;
+z-index:2;
 
 
 
