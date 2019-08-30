@@ -31,8 +31,8 @@ class Home extends React.Component<Iprops, IState> {
             <div> <CarouselContainer />
                 {console.log(this.props.products.products)}
                 <SpecialsCategory />
-                <HomeCategory title="New arrivals on FooseShoes" data={this.props.products.products} RouteName="/products" />
-                <HomeCategory title="Best sellers of the month" data={this.props.products.products} RouteName="/products" />
+                <HomeCategory title="New arrivals on FooseShoes" data={this.props.products.products} RouteName="/newArrivals" />
+                <HomeCategory title="Best sellers of the month" data={this.props.products.products} RouteName="/bestSellers" />
                 <AddonSection />
             </div>
         )

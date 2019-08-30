@@ -1,7 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components';
 import ProductItem from '../ProductItem/ProductItem'
-
+import SortComponent from '../SortComponent/SortComponent'
 const ProductsCategorySection = Styled.section`
     width:90%;
     margin:0 auto;
@@ -40,11 +40,13 @@ const ProductsCategory: React.SFC<IProps> = ({ data, CategoryTitle }) => {
 
     return (
         <ProductsCategoryWrapper>
+            <SortComponent />
             <H2> {CategoryTitle} </H2>
+
             <ProductsCategorySection>
                 {mapProducts}
             </ProductsCategorySection>
-        </ProductsCategoryWrapper>
+        </ProductsCategoryWrapper >
     )
 }
 
