@@ -17,7 +17,7 @@ class Products extends React.Component<Iprops, IState> {
         const { products } = this.props.products;
         return (
             <div>
-                < ProductsCategory data={products} />
+                < ProductsCategory data={products} CategoryTitle="Products" />
             </div>
         )
     }
