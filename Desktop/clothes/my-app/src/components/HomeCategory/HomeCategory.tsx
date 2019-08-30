@@ -1,7 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
 import ProductItem from '../ProductItem/ProductItem'
-
+import { Link } from 'react-router-dom'
 const CategoryWrapper = Styled.section`
 padding: 30px 20px;
 background:#ebe7df;
@@ -33,7 +33,7 @@ justify-content:space-between;
 }
 
 `
-const Button = Styled.input`
+const Button = Styled.button`
 background:inherit;
 border:1px solid #bcb5a7;
 padding:5px 20px;
@@ -53,10 +53,11 @@ text-align:center;
 interface IProps {
     title: string,
     data?: any;
+    RouteName: string,
 
 }
 
-const HomeCategory: React.SFC<IProps> = ({ title, data }) => {
+const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName }) => {
     const products =
         data.length > 0 ?
             data.slice(0, 3).map((item: any) =>
@@ -73,18 +74,21 @@ const HomeCategory: React.SFC<IProps> = ({ title, data }) => {
             <Category>
                 < CategoryHeader >
                     <h2> {title}</h2>
+                    <>
+                        <Button>
+                            <Link to={RouteName}>Show All</Link>
 
-                    <Button type="button" value="Show All" />
-                </CategoryHeader>
+                        </Button>
+                    </CategoryHeader>
 
-                <ProductsItems>
-                    {products}
-                </ProductsItems>
+                    <ProductsItems>
+                        {products}
+                    </ProductsItems>
 
             </Category >
 
         </CategoryWrapper >
-    )
-}
-
+            )
+        }
+        
 export default HomeCategory
