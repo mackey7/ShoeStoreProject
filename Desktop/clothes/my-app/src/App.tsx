@@ -21,6 +21,7 @@ import ProductPage from './containers/ProductPage/ProductPage'
 import CartPage from './containers/CartPage/CartPage'
 import FavouritePage from './containers/FavouritePage/FavouritePage'
 import BestSellers from './containers/BestSellers/BestSellers'
+import NewArrivals from './containers/NewArrivals/NewArrivals'
 import './App.css'
 
 const App: React.FC = () => {
@@ -49,6 +50,7 @@ const App: React.FC = () => {
           <Route exact path="/cart" component={CartPage} />
           <Route exact path="/favourite" component={FavouritePage} />
           <Route exact path="/bestSellers" component={BestSellers} />
+          <Route exact path="/newArrivals" component={NewArrivals} />
           <Widgets />
           <SocialMediaSection />
           <Footer />
