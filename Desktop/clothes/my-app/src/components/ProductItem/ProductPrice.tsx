@@ -1,27 +1,32 @@
 import React from 'react'
 import Styled from 'styled-components'
 
-const PriceWrapper = Styled.span`
+const PriceWrapper = Styled.div`
 color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
 font-weight:600;
 background:#57c5a0;
-padding:30px 10px;
+padding:20px 20px;
 margin-left:15px;
 margin-top:-25px;
 margin-right:20px;
-z-index:999;
+
+
 
 `
 
 interface IProps {
-    price: string
+    price: string;
+
 }
 
 
 const ProductPrice: React.SFC<IProps> = ({ price }) => {
     return (
-        <PriceWrapper>
-            $ {price}
+        <PriceWrapper >
+            <span> ${price} </span>
 
         </PriceWrapper>
     )
