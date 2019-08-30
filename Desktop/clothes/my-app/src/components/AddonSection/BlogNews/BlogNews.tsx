@@ -6,6 +6,10 @@ const Section = Styled.section`
 background:#dfdbd4;
 padding:20px;
 width:100%;
+margin:10px;
+
+
+
 h2{
 margin-bottom:15px;
 color:#535250;
