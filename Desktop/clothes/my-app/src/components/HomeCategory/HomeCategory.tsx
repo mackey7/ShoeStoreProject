@@ -33,23 +33,37 @@ justify-content:space-between;
 }
 
 `
-const Button = Styled.button`
-background:inherit;
-border:1px solid #bcb5a7;
-padding:5px 20px;
-color:#bcb5a7;
-font-weight:700;
-&:hover{
- color:#000;;   
- background:#bcb5a7;
- cursor: pointer;
-}
-`
+// const Button = Styled.button`
+
+// &:hover{
+//  color:#000;
+//  background:#bcb5a7;
+//  cursor: pointer;
+// }
+
+// `
 
 const EmptyArray = Styled.p`
 font-size:50px;
 text-align:center;
 `
+const LINK = Styled(Link)`
+border:0;
+background:inherit;
+border:1px solid #bcb5a7;
+padding:5px 20px;
+text-decoration:none;
+font-weight:700;
+ color:#bcb5a7;  
+&:hover{  
+ background:#bcb5a7;
+ cursor: pointer;
+ color:#000;
+}
+`
+
+
+
 interface IProps {
     title: string,
     data?: any;
@@ -75,10 +89,10 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName }) => {
                 < CategoryHeader >
                     <h2> {title}</h2>
 
-                    <Button>
-                        <Link to={RouteName}>Show All</Link>
+                    {/* <Button> */}
+                    <LINK to={RouteName}>Show All</LINK>
 
-                    </Button>
+                    {/* </Button> */}
                 </CategoryHeader>
 
                 <ProductsItems>
