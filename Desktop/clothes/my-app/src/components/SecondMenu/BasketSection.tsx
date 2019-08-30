@@ -35,6 +35,7 @@ background:#fff;
 width:300px;
 border:2px solid #9a9a9a;
 display: ${(props: any) => (props.isOpen ? "block" : "none")};
+z-index:3;
 `
 const ProductItem = Styled.div`
 display:flex;
