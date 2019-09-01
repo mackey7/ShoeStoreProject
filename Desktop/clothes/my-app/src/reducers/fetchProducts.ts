@@ -4,13 +4,15 @@ import { Reducer } from 'redux'
 
 interface IPropsState {
     products: any;
-    cart?: any;
+    cart: any;
+    favourite: any;
 }
 
 
 const initial: IPropsState = {
     products: [],
-    cart: ["cart"]
+    cart: ["cart"],
+    favourite: ["fav"],
 
 }
 
@@ -23,6 +25,7 @@ const fetchProducts: Reducer<IPropsState> = (state = initial, actions) => {
             return state.cart
 
         }
+
         default:
             return state;
     }
