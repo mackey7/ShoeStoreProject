@@ -40,7 +40,7 @@ interface IState {
 interface IProps {
     HideMenu?: boolean;
 }
-class SecondMenu extends Component<IProps, IState> {
+class SecondMenuComponent extends Component<IProps, IState> {
     constructor(props: any) {
         super(props);
 
@@ -75,4 +75,4 @@ class SecondMenu extends Component<IProps, IState> {
     }
 }
 
-export default SecondMenu
+export default SecondMenuComponent

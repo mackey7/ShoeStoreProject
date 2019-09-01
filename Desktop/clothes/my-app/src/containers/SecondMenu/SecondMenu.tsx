@@ -1,5 +1,5 @@
 import React from 'react'
-
+import SecondMenuComponent from '../../components/SecondMenuComonent/SecondMenuComponent'
 
 import { connect } from "react-redux";
 
@@ -17,7 +17,7 @@ class SecondMenu extends React.Component<Iprops, IState> {
     render() {
         return (
             <div>
-                SecondMenu
+                <SecondMenuComponent />
             </div>
         )
     }
