@@ -40,7 +40,7 @@ interface IState {
 interface IProps {
     HideMenu?: boolean;
 }
-class SecondMenuComponent extends Component<IProps, IState> {
+class SecondMenu extends Component<IProps, IState> {
     constructor(props: any) {
         super(props);
 
@@ -60,7 +60,7 @@ class SecondMenuComponent extends Component<IProps, IState> {
     }
 
     render() {
-        const { SwitchHideMenu } = this
+        const { SwitchHideMenu, } = this
         return (
             <NavWrapper>
                 <Nav>
@@ -75,4 +75,4 @@ class SecondMenuComponent extends Component<IProps, IState> {
     }
 }
 
-export default SecondMenuComponent
+export default SecondMenu

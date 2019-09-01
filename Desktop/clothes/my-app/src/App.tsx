@@ -1,6 +1,6 @@
 import React from 'react';
 import FirstMenu from './components/FirstMenu/FirstMenu';
-import SecondMenu from './containers/SecondMenu/SecondMenu';
+import SecondMenu from './components/SecondMenu/SecondMenu';
 import Footer from './components/Footer/Footer'
 import Widgets from './components/Widgets/Widgets'
 import SocialMediaSection from './components/SocialMediaSection/SocialMediaSection'
