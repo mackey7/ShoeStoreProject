@@ -1,54 +1,47 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+
 const PIC = "https://n1.sdlcdn.com/imgs/h/1/7/Wdl-Sneakers-Red-Casual-Shoes-SDL039762466-1-2a564.jpg"
 const Section = Styled.div`
-padding:10px;
-position:relative;
+    padding:10px;
+    position:relative;
 `
 
 const Icon = Styled.i`
-font-size:24px;
+    font-size:24px;
 `
 const Span = Styled.span`
-background:#57c5a0;
-border-radius:6px;
-padding:2px;
-font-size:20px;
-text-align:center;
-margin-left:5px;
-cursor:pointer;
+    background:#57c5a0;
+    border-radius:6px;
+    padding:2px;
+    font-size:20px;
+    text-align:center;
+    margin-left:5px;
+    cursor:pointer;
 `
-
-
-
-
-
-
-
 
 const Box: any = Styled.section`
-position:absolute;
-top:45px;
-right:-130px;
-background:#fff;
-width:300px;
-border:2px solid #9a9a9a;
-display: ${(props: any) => (props.isOpen ? "block" : "none")};
-z-index:3;
+    position:absolute;
+    top:45px;
+    right:-130px;
+    background:#fff;
+    width:300px;
+    border:2px solid #9a9a9a;
+    display: ${(props: any) => (props.isOpen ? "block" : "none")};
+    z-index:3;
 `
 const ProductItem = Styled.div`
-display:flex;
-align-items:center;
-justify-content: space-around;
-border-bottom:2px solid #9a9a9a;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    border-bottom:2px solid #9a9a9a;
 `
 const ProductImg = Styled.img`
-height:50px;
-width:50px;
+    height:50px;
+    width:50px;
 `
 const ProductName = Styled.p`
-
 `
 const DeleteProduct = Styled.button`
 background:inherit;
@@ -82,76 +75,47 @@ color:#fff;
 const LINK = Styled(Link)`
         text-decoration: none;
         color:#fff;
+        
 `
 
 
-
-interface Iprops {
-
-    isOpen?: boolean;
-}
-interface IState {
-    isOpen: boolean;
+interface IProps {
+    SwitchIsOpen: any;
+    isOpen: any;
+    cart: any;
 }
 
 
-class BasketSection extends React.Component<Iprops, IState> {
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-            isOpen: false
-        }
-    }
-    SwitchIsOpen = () => {
-        this.setState((PrevState) => {
-            return {
-                isOpen: !PrevState.isOpen
-            }
-        });
 
 
-    }
-    render() {
-        return (
-            <Section>
-                <div onClick={this.SwitchIsOpen}>
-                    <Icon className="fas fa-shopping-basket"></Icon>
-                    <Span> 0</Span>
-                </div>
+const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart }) => {
 
-                <Box isOpen={this.state.isOpen} >
-                    <ProductItem>
-                        <ProductImg src={PIC} />
+    return (
+        <Section>
+            <div onClick={SwitchIsOpen}>
+                <Icon className="fas fa-shopping-basket"></Icon>
+                <Span> 0</Span>
+            </div>
+            <Box isOpen={isOpen}>
+
+
+
+                {cart.map((item: any) =>
+                    <ProductItem key={item.id}>
+                        <ProductImg src={item.src} />
                         <ProductName >
-                            Wdl Sneakers Red Casual Shoes
+                            {item.name}
                         </ProductName >
                         <DeleteProduct >
                             <i className="fas fa-trash-alt"></i>
                         </DeleteProduct >
                     </ProductItem>
-                    <ProductItem>
-                        <ProductImg src={PIC} />
-                        <ProductName >
-                            Wdl Sneakers Red Casual Shoes
-                        </ProductName >
-                        <DeleteProduct >
-                            <i className="fas fa-trash-alt"></i>
-                        </DeleteProduct >
-                    </ProductItem>
-                    <ProductItem>
-                        <ProductImg src={PIC} />
-                        <ProductName >
-                            Wdl Sneakers Red Casual Shoes
-                        </ProductName >
-                        <DeleteProduct >
-                            <i className="fas fa-trash-alt"></i>
-                        </DeleteProduct >
-                    </ProductItem>
-                    <More><LINK to="/cart">More</LINK> </More>
-                </Box>
-            </Section>
-        )
-    }
+                )}
+
+
+                <More><LINK to="/cart">More</LINK> </More>
+            </Box>
+        </Section>
+    )
 }
 export default BasketSection

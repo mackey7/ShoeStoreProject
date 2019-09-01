@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+
 const PIC = "https://n1.sdlcdn.com/imgs/h/1/7/Wdl-Sneakers-Red-Casual-Shoes-SDL039762466-1-2a564.jpg"
 
 const Section = Styled.div`
@@ -48,6 +49,7 @@ background:inherit;
 border:0;
 font-size:20px;
 cursor: pointer;
+padding-right:10px;
 font-weight:400;
     i{
         color:red;
@@ -75,70 +77,41 @@ const LINK = Styled(Link)`
         color:#fff;
 `
 
-interface Iprops {
-
+interface IProps {
+    SwitchIsOpen: any;
     isOpen?: boolean;
+    favourite: any;
 }
-interface IState {
-    isOpen: boolean;
-}
-class FavouriteSection extends React.Component<Iprops, IState> {
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-            isOpen: false
-        }
-    }
-    SwitchIsOpen = () => {
-        this.setState((PrevState) => {
-            return {
-                isOpen: !PrevState.isOpen
-            }
-        });
 
 
-    }
-    render() {
-        return (
-            <Section>
-                <div onClick={this.SwitchIsOpen}>
-                    <Icon className="far fa-star"></Icon>
-                    <Span> 30</Span>
-                </div>
-                <Box isOpen={this.state.isOpen} >
-                    <ProductItem>
-                        <ProductImg src={PIC} />
+
+const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite }) => {
+
+    return (
+        <Section>
+            <div onClick={SwitchIsOpen}>
+                <Icon className="far fa-star"></Icon>
+                <Span> 30</Span>
+            </div>
+            <Box isOpen={isOpen} >
+                {favourite.map((item: any) =>
+                    <ProductItem key={item.id}>
+                        <ProductImg src={item.src} />
                         <ProductName >
-                            Wdl Sneakers Red Casual Shoes
+                            {item.name}
                         </ProductName >
                         <DeleteProduct >
                             <i className="fas fa-trash-alt"></i>
                         </DeleteProduct >
                     </ProductItem>
-                    <ProductItem>
-                        <ProductImg src={PIC} />
-                        <ProductName >
-                            Wdl Sneakers Red Casual Shoes
-                        </ProductName >
-                        <DeleteProduct >
-                            <i className="fas fa-trash-alt"></i>
-                        </DeleteProduct >
-                    </ProductItem>
-                    <ProductItem>
-                        <ProductImg src={PIC} />
-                        <ProductName >
-                            Wdl Sneakers Red Casual Shoes
-                        </ProductName >
-                        <DeleteProduct >
-                            <i className="fas fa-trash-alt"></i>
-                        </DeleteProduct >
-                    </ProductItem>
-                    <More><LINK to="/favourite">More</LINK> </More>
-                </Box>
-            </Section>
-        )
-    }
+                )}
+                {console.log("component")}
+                {console.log(favourite)}
+                <More><LINK to="/favourite">More</LINK> </More>
+            </Box>
+        </Section>
+    )
 }
+
 
 export default FavouriteSection

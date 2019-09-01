@@ -1,8 +1,8 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import FavouriteSection from './FavouriteSection';
-import BasketSection from './BasketSection'
+import FavouriteBox from '../../containers/FavouriteBox/FavouriteBox';
+import CartBox from '../../containers/CartBox/CartBox'
 const NavWrapper = styled.nav`
 order:1;
 @media only screen and (min-width: 900px) {
@@ -27,8 +27,8 @@ const RightMenu: React.SFC = () => {
     return (
         <NavWrapper>
             <Nav>
-                <FavouriteSection />
-                <BasketSection />
+                <FavouriteBox />
+                <CartBox />
             </Nav>
         </NavWrapper>
     )
