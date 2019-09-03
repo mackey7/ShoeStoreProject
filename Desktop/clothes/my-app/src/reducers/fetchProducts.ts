@@ -1,4 +1,4 @@
-import { FETCH_POSTS_SUCCESS, ADD_TO_CART } from '../actions/actions_types'
+import { FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE } from '../actions/actions_types'
 import { Reducer } from 'redux'
 
 
@@ -54,6 +54,17 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             return {
                 ...state,
                 cart: [...state.cart, addedProduct]
+
+            }
+
+        }
+        case ADD_TO_FAVOURITE: {
+
+            let addedProduct = state.products.find((item: any) => item.id === actions.id)
+
+            return {
+                ...state,
+                favourite: [...state.favourite, addedProduct]
 
             }
 

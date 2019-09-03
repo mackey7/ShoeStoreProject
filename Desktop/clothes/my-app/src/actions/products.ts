@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_POSTS_SUCCESS, ADD_TO_CART } from './actions_types'
+import { FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE } from './actions_types'
 
 const API = "https://api.myjson.com/bins/1ecajr"
 
@@ -25,6 +25,12 @@ export const fetchProducts = (payload: any) => {
 export const addToCart = (id: number) => {
     return {
         type: ADD_TO_CART,
+        id
+    }
+}
+export const addToFavourite = (id: number) => {
+    return {
+        type: ADD_TO_FAVOURITE,
         id
     }
 }
