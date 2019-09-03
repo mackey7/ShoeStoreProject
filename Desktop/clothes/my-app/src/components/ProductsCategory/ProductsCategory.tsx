@@ -35,7 +35,7 @@ interface IProps {
 
 const ProductsCategory: React.SFC<IProps> = ({ data, CategoryTitle }) => {
     const mapProducts = data.map((item: any) =>
-        <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name}></ProductItem>
+        <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name}  ></ProductItem>
     )
 
     return (

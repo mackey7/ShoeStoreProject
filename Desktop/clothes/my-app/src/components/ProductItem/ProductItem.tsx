@@ -31,7 +31,8 @@ interface Iprops {
 interface Iprops {
     src: string;
     alt: string;
-
+    addToCart?: any;
+    productId?: number;
 }
 interface IState {
     isMove: boolean;
@@ -57,13 +58,13 @@ class ProductItem extends React.Component<Iprops, IState> {
     }
 
     render() {
-        const { src, alt, price, productName } = this.props
+        const { src, alt, price, productName, addToCart, productId } = this.props
         return (
             <ProductItemWrapper>
-                <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} />
+                <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} addToCart={addToCart} productId={productId} />
                 <ProductDetails>
                     <ProductPrice price={price} />
-                    <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} />
+                    <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} addToCart={addToCart} productId={productId} />
                 </ProductDetails>
             </ProductItemWrapper>
         )

@@ -2,6 +2,8 @@ import React from 'react'
 import Styled from 'styled-components'
 import ProductItem from '../ProductItem/ProductItem'
 import { Link } from 'react-router-dom'
+// import uuid from 'uuid'
+
 const CategoryWrapper = Styled.section`
 padding: 30px 20px;
 background:#ebe7df;
@@ -31,18 +33,7 @@ justify-content:space-between;
 flex-direction:row;
 justify-content:space-between;
 }
-
 `
-// const Button = Styled.button`
-
-// &:hover{
-//  color:#000;
-//  background:#bcb5a7;
-//  cursor: pointer;
-// }
-
-// `
-
 const EmptyArray = Styled.p`
 font-size:50px;
 text-align:center;
@@ -68,14 +59,15 @@ interface IProps {
     title: string,
     data?: any;
     RouteName: string,
+    addToCart: any;
 
 }
 
-const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName }) => {
+const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart }) => {
     const products =
         data.length > 0 ?
             data.slice(0, 3).map((item: any) =>
-                <ProductItem src={item.src} alt={item.alt} price={item.price} productName={item.name} />
+                <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name} addToCart={addToCart} productId={item.id} />
             )
             :
 
@@ -88,11 +80,7 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName }) => {
             <Category>
                 < CategoryHeader >
                     <h2> {title}</h2>
-
-                    {/* <Button> */}
                     <LINK to={RouteName}>Show All</LINK>
-
-                    {/* </Button> */}
                 </CategoryHeader>
 
                 <ProductsItems>

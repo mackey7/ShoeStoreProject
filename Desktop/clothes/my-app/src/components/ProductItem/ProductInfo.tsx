@@ -35,17 +35,20 @@ interface Iprops {
     productName: string;
     onMouseMove: any;
     isMove: boolean;
+    productId?: number;
+    addToCart: any;
 
 }
 
-const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove }) => {
+const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove, productId, addToCart }) => {
 
     const conatiner = isMove ?
         <Icons>
+
             <Icon className="far fa-eye"></Icon>
             <Icon className="far fa-star"></Icon>
             <Icon className="far fa-share-square"></Icon>
-            <Icon className="fas fa-shopping-cart"></Icon>
+            <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
         </Icons>
         :
         <P>  {productName}  </P>

@@ -3,11 +3,15 @@ import { Reducer } from 'redux'
 
 
 interface IPropsState {
-    products: any;
-    cart: any;
-    favourite: any;
+    products?: any;
+    cart?: any;
+    favourite?: any;
 }
-
+interface IPropsAction {
+    id?: any;
+    type: any;
+    payload?: any;
+}
 
 const initial: IPropsState = {
     products: [],
@@ -38,13 +42,20 @@ const initial: IPropsState = {
 
 }
 
-const fetchProducts: Reducer<IPropsState> = (state = initial, actions) => {
+const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, actions) => {
     switch (actions.type) {
-        case FETCH_POSTS_SUCCESS:
-            return { products: actions.payload }
-
+        case FETCH_POSTS_SUCCESS: {
+            return { ...state, products: actions.payload }
+        }
         case ADD_TO_CART: {
-            return state.cart
+
+            let addedProduct = state.products.find((item: any) => item.id === actions.id)
+
+            return {
+                ...state,
+                cart: [...state.cart, addedProduct]
+
+            }
 
         }
 
