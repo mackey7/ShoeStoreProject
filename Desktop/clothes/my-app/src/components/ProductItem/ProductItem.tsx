@@ -33,6 +33,7 @@ interface Iprops {
     alt: string;
     addToCart?: any;
     productId?: number;
+    addToFavourite?: any;
 }
 interface IState {
     isMove: boolean;
@@ -58,13 +59,13 @@ class ProductItem extends React.Component<Iprops, IState> {
     }
 
     render() {
-        const { src, alt, price, productName, addToCart, productId } = this.props
+        const { src, alt, price, productName, addToCart, productId, addToFavourite } = this.props
         return (
             <ProductItemWrapper>
-                <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} addToCart={addToCart} productId={productId} />
+                <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} addToCart={addToCart} productId={productId} addToFavourite={addToFavourite} />
                 <ProductDetails>
                     <ProductPrice price={price} />
-                    <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} addToCart={addToCart} productId={productId} />
+                    <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} addToCart={addToCart} productId={productId} addToFavourite={addToFavourite} />
                 </ProductDetails>
             </ProductItemWrapper>
         )

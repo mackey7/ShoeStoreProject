@@ -60,14 +60,15 @@ interface IProps {
     data?: any;
     RouteName: string,
     addToCart: any;
+    addToFavourite: any;
 
 }
 
-const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart }) => {
+const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart, addToFavourite }) => {
     const products =
         data.length > 0 ?
             data.slice(0, 3).map((item: any) =>
-                <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name} addToCart={addToCart} productId={item.id} />
+                <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name} addToCart={addToCart} productId={item.id} addToFavourite={addToFavourite} />
             )
             :
 

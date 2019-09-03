@@ -40,9 +40,10 @@ interface Iprops {
     isMove: boolean;
     addToCart: any;
     productId?: number;
+    addToFavourite?: any;
 }
 
-const ProductImage: React.SFC<Iprops> = ({ src, alt, onMouseMove, isMove, addToCart, productId }) => {
+const ProductImage: React.SFC<Iprops> = ({ src, alt, onMouseMove, isMove, addToCart, productId, addToFavourite }) => {
 
 
     return (
@@ -50,7 +51,7 @@ const ProductImage: React.SFC<Iprops> = ({ src, alt, onMouseMove, isMove, addToC
             <img src={src} alt={alt} width="100%" height="100%" />
             {isMove ?
                 <Icons>
-                    <Icon className="far fa-star"></Icon>
+                    <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
                     <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
                 </Icons>
                 :
