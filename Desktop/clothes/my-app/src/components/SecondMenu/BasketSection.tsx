@@ -83,12 +83,13 @@ interface IProps {
     SwitchIsOpen: any;
     isOpen: any;
     cart: any;
+    removeItemFromCart: any;
 }
 
 
 
 
-const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart }) => {
+const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeItemFromCart }) => {
 
     return (
         <Section>
@@ -107,7 +108,7 @@ const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart }) => {
                             {item.name}
                         </ProductName >
                         <DeleteProduct >
-                            <i className="fas fa-trash-alt"></i>
+                            <i className="fas fa-trash-alt" onClick={() => removeItemFromCart(item.id)}></i>
                         </DeleteProduct >
                     </ProductItem>
                 )}

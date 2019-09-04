@@ -35,9 +35,9 @@ interface Iprops {
     productName: string;
     onMouseMove: any;
     isMove: boolean;
-    productId?: number;
-    addToCart?: any;
-    addToFavourite?: any;
+    productId: number;
+    addToCart: any;
+    addToFavourite: any;
 }
 
 const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove, productId, addToCart, addToFavourite }) => {

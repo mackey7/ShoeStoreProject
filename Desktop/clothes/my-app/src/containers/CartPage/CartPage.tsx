@@ -1,20 +1,25 @@
 import React from 'react'
 import CartPageComponent from "../../components/CartPageComponent/CartPageComponent";
 import { connect } from "react-redux";
-
+import { removeItemFromCart } from '../../actions/products'
 
 interface Iprops {
-    cart?: any
+    cart?: any;
+    removeItemFromCart: any;
 }
 interface IState {
 
 }
 class CartPage extends React.Component<Iprops, IState> {
+    handleRemove = (id: number) => {
+        this.props.removeItemFromCart(id)
+    }
     render() {
+        const { cart } = this.props
         return (
             <div>
-                {console.log(this.props.cart)}
-                <CartPageComponent />
+
+                <CartPageComponent cart={cart} removeItemFromCart={this.handleRemove} />
 
             </div>
         )
@@ -22,7 +27,7 @@ class CartPage extends React.Component<Iprops, IState> {
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-
+        removeItemFromCart: (id: number) => dispatch(removeItemFromCart(id)),
     }
 }
 

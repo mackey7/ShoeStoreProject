@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE } from './actions_types'
+import { FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from './actions_types'
 
 const API = "https://api.myjson.com/bins/1ecajr"
 
@@ -32,5 +32,29 @@ export const addToFavourite = (id: number) => {
     return {
         type: ADD_TO_FAVOURITE,
         id
+    }
+}
+export const removeItemFromCart = (id: number) => {
+    return {
+        type: REMOVE_ITEM_FROM_CART,
+        id
+    }
+}
+export const removeItemFromFavourite = (id: number) => {
+    return {
+        type: REMOVE_ITEM_FROM_FAVOURITE,
+        id
+    }
+}
+export const fetchBestSellers = () => {
+    return {
+        type: FETCH_BESTSELLERS
+
+    }
+}
+export const fetchNewArrivals = () => {
+    return {
+        type: FETCH_NEW_ARRIVALS,
+
     }
 }

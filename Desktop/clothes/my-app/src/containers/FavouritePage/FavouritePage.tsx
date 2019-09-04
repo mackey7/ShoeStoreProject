@@ -1,20 +1,24 @@
 import React from 'react'
 import FavouritePageComponent from "../../components/FavouritePageComponent/FavouritePageComponent"
 import { connect } from "react-redux";
-
+import { removeItemFromFavourite } from '../../actions/products'
 interface Iprops {
     favourite: any;
+    removeItemFromFavourite: any;
 }
 interface IState {
 
 }
 class FavouritePage extends React.Component<Iprops, IState> {
-
+    handleRemove = (id: number) => {
+        this.props.removeItemFromFavourite(id)
+    }
     render() {
+        const { favourite } = this.props
         return (
             <div>
-                <FavouritePageComponent />
-                {console.log(this.props.favourite)}
+                <FavouritePageComponent favourite={favourite} removeItemFromFavourite={this.handleRemove} />
+
             </div>
         )
     }
@@ -22,7 +26,7 @@ class FavouritePage extends React.Component<Iprops, IState> {
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-
+        removeItemFromFavourite: (id: number) => dispatch(removeItemFromFavourite(id)),
     }
 }
 

@@ -81,11 +81,12 @@ interface IProps {
     SwitchIsOpen: any;
     isOpen?: boolean;
     favourite: any;
+    removeItemFromFavourite: any;
 }
 
 
 
-const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite }) => {
+const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite, removeItemFromFavourite }) => {
 
     return (
         <Section>
@@ -101,12 +102,11 @@ const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite }
                             {item.name}
                         </ProductName >
                         <DeleteProduct >
-                            <i className="fas fa-trash-alt"></i>
+                            <i className="fas fa-trash-alt" onClick={() => removeItemFromFavourite(item.id)}></i>
                         </DeleteProduct >
                     </ProductItem>
                 )}
-                {console.log("component")}
-                {console.log(favourite)}
+
                 <More><LINK to="/favourite">More</LINK> </More>
             </Box>
         </Section>

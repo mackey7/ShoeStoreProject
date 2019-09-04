@@ -1,11 +1,13 @@
 import React from 'react'
 import BasketSection from '../../components/SecondMenu/BasketSection'
 import { connect } from "react-redux";
+import { removeItemFromCart } from '../../actions/products'
 
 
 interface Iprops {
     cart?: any;
     isOpen?: boolean;
+    removeItemFromCart: any;
 
 }
 interface IState {
@@ -18,6 +20,9 @@ class CartBox extends React.Component<Iprops, IState> {
         this.state = {
             isOpen: false
         }
+    }
+    handleRemove = (id: number) => {
+        this.props.removeItemFromCart(id)
     }
     SwitchIsOpen = () => {
         this.setState((PrevState) => {
@@ -33,7 +38,7 @@ class CartBox extends React.Component<Iprops, IState> {
         return (
             <div>
 
-                <BasketSection cart={cart} SwitchIsOpen={this.SwitchIsOpen} isOpen={isOpen} />
+                <BasketSection cart={cart} SwitchIsOpen={this.SwitchIsOpen} isOpen={isOpen} removeItemFromCart={this.handleRemove} />
 
             </div>
         )
@@ -43,7 +48,7 @@ class CartBox extends React.Component<Iprops, IState> {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-
+        removeItemFromCart: (id: number) => dispatch(removeItemFromCart(id)),
     }
 }
 

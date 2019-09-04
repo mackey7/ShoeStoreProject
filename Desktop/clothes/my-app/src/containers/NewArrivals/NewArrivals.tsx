@@ -1,24 +1,34 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { fetchProductsResponse } from '../../actions/products'
+import { fetchNewArrivals } from '../../actions/products'
 import ProductsCategory from '../../components/ProductsCategory/ProductsCategory'
+import { addToCart, addToFavourite } from '../../actions/products'
 interface Iprops {
     products: any;
-    fetchProductsResponse: any;
+    fetchNewArrivals: any;
+    addToCart: any;
+    addToFavourite: any;
+    newArrival: any;
 }
 
 interface IState {
 
 }
 class NewArrivals extends React.Component<Iprops, IState> {
+    handleAddToCart = (id: number) => {
+        this.props.addToCart(id)
+    }
+    handleAddToFavourite = (id: number) => {
+        this.props.addToFavourite(id)
+    }
     componentDidMount() {
-        this.props.fetchProductsResponse();
+        this.props.fetchNewArrivals();
     }
     render() {
-        const { products } = this.props.products;
+        const { newArrival } = this.props
         return (
             <div>
-                < ProductsCategory data={products} CategoryTitle="New Arrivals" />
+                < ProductsCategory data={newArrival} CategoryTitle="New Arrivals" addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} />
             </div>
         )
     }
@@ -26,12 +36,14 @@ class NewArrivals extends React.Component<Iprops, IState> {
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        fetchProductsResponse: () => dispatch(fetchProductsResponse()),
+        fetchNewArrivals: () => dispatch(fetchNewArrivals()),
+        addToCart: (id: number) => dispatch(addToCart(id)),
+        addToFavourite: (id: number) => dispatch(addToFavourite(id))
     }
 }
 const mapStateToProps = (state: any) => {
     return {
-        products: state.products
+        newArrival: state.products.cart
     }
 }
 

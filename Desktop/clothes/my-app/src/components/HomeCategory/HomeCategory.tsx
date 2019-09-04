@@ -2,7 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 import ProductItem from '../ProductItem/ProductItem'
 import { Link } from 'react-router-dom'
-// import uuid from 'uuid'
+import uuid from 'uuid'
 
 const CategoryWrapper = Styled.section`
 padding: 30px 20px;
@@ -68,7 +68,7 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart, ad
     const products =
         data.length > 0 ?
             data.slice(0, 3).map((item: any) =>
-                <ProductItem key={item.id} src={item.src} alt={item.alt} price={item.price} productName={item.name} addToCart={addToCart} productId={item.id} addToFavourite={addToFavourite} />
+                <ProductItem key={uuid.v4()} src={item.src} alt={item.alt} price={item.price} productName={item.name} addToCart={addToCart} productId={item.id} addToFavourite={addToFavourite} />
             )
             :
 

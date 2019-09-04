@@ -44,46 +44,30 @@ margin-rigHt:20px;
             }
 }
 `
-const FavouritePageComponent: React.SFC = () => {
+
+interface IProps {
+    removeItemFromFavourite: any;
+    favourite: any;
+}
+const FavouritePageComponent: React.SFC<IProps> = ({ removeItemFromFavourite, favourite }) => {
 
     return (
         <CartPageSection>
             <CartPageWrapper>
-                <ProductItem>
-                    <ProductImg src={PIC} />
 
-                    <ProductName>
+                {favourite.map((item: any) =>
+                    <ProductItem>
+                        <ProductImg src={item.src} />
+                        <ProductName>
+                            {item.name}
+                        </ProductName>
+                        <DeleteBtn>
+                            <i className="fas fa-trash-alt" onClick={() => removeItemFromFavourite(item.id)}></i>
+                        </DeleteBtn>
+                    </ProductItem>
+                )}
 
-                        Product name lorem
-                    </ProductName>
-                    <DeleteBtn>
-                        <i className="fas fa-trash-alt"></i>
-                    </DeleteBtn>
-                </ProductItem>
 
-                <ProductItem>
-                    <ProductImg src={PIC} />
-
-                    <ProductName>
-
-                        Product name lorem
-                    </ProductName>
-                    <DeleteBtn>
-                        <i className="fas fa-trash-alt"></i>
-                    </DeleteBtn>
-                </ProductItem>
-
-                <ProductItem>
-                    <ProductImg src={PIC} />
-
-                    <ProductName>
-
-                        Product name lorem
-                    </ProductName>
-                    <DeleteBtn>
-                        <i className="fas fa-trash-alt"></i>
-                    </DeleteBtn>
-                </ProductItem>
             </CartPageWrapper>
         </CartPageSection>
     )

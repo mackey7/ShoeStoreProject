@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled, { ThemeConsumer } from 'styled-components'
+import Styled from 'styled-components'
 import ProductImage from './ProductImage'
 import ProductPrice from './ProductPrice'
 import ProductInfo from './ProductInfo'
@@ -31,9 +31,9 @@ interface Iprops {
 interface Iprops {
     src: string;
     alt: string;
-    addToCart?: any;
-    productId?: number;
-    addToFavourite?: any;
+    addToCart: any;
+    productId: number;
+    addToFavourite: any;
 }
 interface IState {
     isMove: boolean;

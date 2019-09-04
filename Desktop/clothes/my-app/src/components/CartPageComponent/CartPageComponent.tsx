@@ -44,46 +44,28 @@ margin-rigHt:20px;
             }
 }
 `
-const CartPageComponent: React.SFC = () => {
+
+interface IProps {
+    removeItemFromCart: any;
+    cart: any;
+}
+
+const CartPageComponent: React.SFC<IProps> = ({ removeItemFromCart, cart }) => {
 
     return (
         <CartPageSection>
             <CartPageWrapper>
-                <ProductItem>
-                    <ProductImg src={PIC} />
-
-                    <ProductName>
-
-                        Product name lorem
-                    </ProductName>
-                    <DeleteBtn>
-                        <i className="fas fa-trash-alt"></i>
-                    </DeleteBtn>
-                </ProductItem>
-
-                <ProductItem>
-                    <ProductImg src={PIC} />
-
-                    <ProductName>
-
-                        Product name lorem
-                    </ProductName>
-                    <DeleteBtn>
-                        <i className="fas fa-trash-alt"></i>
-                    </DeleteBtn>
-                </ProductItem>
-
-                <ProductItem>
-                    <ProductImg src={PIC} />
-
-                    <ProductName>
-
-                        Product name lorem
-                    </ProductName>
-                    <DeleteBtn>
-                        <i className="fas fa-trash-alt"></i>
-                    </DeleteBtn>
-                </ProductItem>
+                {cart.map((item: any) =>
+                    <ProductItem>
+                        <ProductImg src={item.src} />
+                        <ProductName>
+                            {item.name}
+                        </ProductName>
+                        <DeleteBtn>
+                            <i className="fas fa-trash-alt" onClick={() => removeItemFromCart(item.id)}></i>
+                        </DeleteBtn>
+                    </ProductItem>
+                )}
             </CartPageWrapper>
         </CartPageSection>
     )
