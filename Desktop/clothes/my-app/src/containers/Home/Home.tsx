@@ -2,7 +2,7 @@ import React from 'react'
 import CarouselContainer from '../CarouselContainer/CarouselContainer'
 import AddonSection from '../../components/AddonSection/AddonSection'
 import HomeCategory from '../../components/HomeCategory/HomeCategory';
-import SpecialsCategory from '../../components/SepecialsCategory/SpecialsCategory'
+
 import { fetchProductsResponse } from '../../actions/products'
 import { connect } from "react-redux";
 import { addToCart, addToFavourite } from '../../actions/products'
@@ -32,7 +32,7 @@ class Home extends React.Component<Iprops, IState> {
     render() {
         return (
             <div> <CarouselContainer />
-                <SpecialsCategory />
+
                 <HomeCategory title="New arrivals on FooseShoes" data={this.props.products.products} RouteName="/newArrivals" addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} />
                 <HomeCategory title="Best sellers of the month" data={this.props.products.products} RouteName="/bestSellers" addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} />
                 <AddonSection />
