@@ -1,4 +1,4 @@
-import { FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from '../actions/actions_types'
+import { SORT_PRICE, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from '../actions/actions_types'
 import { Reducer } from 'redux'
 
 
@@ -13,7 +13,9 @@ interface IPropsAction {
     id?: any;
     type: any;
     payload?: any;
-
+    a: any;
+    key: any;
+    e: any;
 }
 
 const initial: IPropsState = {
@@ -125,6 +127,48 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
                 ...state, favourite: new_Array,
             }
         }
+        case SORT_PRICE: {
+            if (actions.e === "max-min") {
+
+                let sortFn = (a: any, b: any) => {
+                    if (a[actions.key] > b[actions.key]) return -1;
+                    if (a[actions.key] < b[actions.key]) return 1;
+                    return 0;
+                }
+                let priceColumn = state.products
+                let sortedColumn = priceColumn.sort(sortFn);
+                console.log(...sortedColumn)
+                return {
+                    ...state, products: [...sortedColumn]
+                }
+            } if (actions.e === "min-max") {
+
+                let sortFn = (a: any, b: any) => {
+                    if (a[actions.key] < b[actions.key]) return -1;
+                    if (a[actions.key] > b[actions.key]) return 1;
+                    return 0;
+                }
+                let priceColumn = state.products
+                let sortedColumn = priceColumn.sort(sortFn)
+                console.log(...sortedColumn)
+                return {
+                    ...state, products: [...sortedColumn]
+                }
+
+
+
+            }
+        } if (actions.e === " ") {
+            let product = state.products
+
+            return {
+                ...state, products: product
+            }
+
+
+
+        }
+
         default:
             return state;
     }

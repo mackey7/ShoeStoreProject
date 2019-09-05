@@ -6,8 +6,6 @@ const SortWrapper = Styled.section`
 background:#2e2e2e;
 width:100%;
 padding:50px 0px;
-margin-bottom:40px;
-
 `
 const SortSection = Styled.section`
 color:white;
@@ -56,7 +54,7 @@ cursor:pointer;
 `
 
 interface Iprops {
-
+    sortPrice: any
 }
 interface IState {
 
@@ -64,6 +62,7 @@ interface IState {
 class SortComponent extends React.Component<Iprops, IState> {
 
     render() {
+        const { sortPrice } = this.props
         return (
             <SortWrapper>
                 <SortSection>
@@ -80,10 +79,11 @@ class SortComponent extends React.Component<Iprops, IState> {
                         <Option> Categories</Option>
                         <Option> Categories</Option>
                     </Select>
-                    <Select>
-                        <Option> Price</Option>
-                        <Option> Price</Option>
-                        <Option> Price</Option>
+                    <Select onClick={(e) => sortPrice(e, 'price')}>
+
+                        <option value=" "> Price</option>
+                        <option value="min-max"> min-max</option>
+                        <option value="max-min"> max-min</option>
                     </Select>
 
                 </SortSection>

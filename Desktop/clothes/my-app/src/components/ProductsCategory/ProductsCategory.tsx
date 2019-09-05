@@ -43,7 +43,7 @@ const ProductsCategory: React.SFC<IProps> = ({ data, CategoryTitle, addToFavouri
 
     return (
         <ProductsCategoryWrapper>
-            <SortComponent />
+
             <H2> {CategoryTitle} </H2>
 
             <ProductsCategorySection>
