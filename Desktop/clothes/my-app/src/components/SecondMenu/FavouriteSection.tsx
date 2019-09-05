@@ -92,7 +92,7 @@ const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite, 
         <Section>
             <div onClick={SwitchIsOpen}>
                 <Icon className="far fa-star"></Icon>
-                <Span> 30</Span>
+                <Span> {favourite.length}</Span>
             </div>
             <Box isOpen={isOpen} >
                 {favourite.map((item: any) =>

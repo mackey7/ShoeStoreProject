@@ -48,11 +48,11 @@ class ProductItem extends React.Component<Iprops, IState> {
             isMove: false
         }
     }
-    handleMove = (bool: any) => {
+    handleMove = (arg: boolean) => {
 
-        this.setState((PrevState) => {
+        this.setState(() => {
             return {
-                isMove: bool
+                isMove: arg
             }
         });
 
