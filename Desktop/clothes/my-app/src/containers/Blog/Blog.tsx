@@ -1,23 +1,42 @@
 import React from 'react'
 import BlogCategory from '../../components/BlogCategory/BlogCategory'
-interface Iprops {
+import { fetchBlogResponse } from '../../actions/blog'
+import { connect } from "react-redux";
 
+
+interface Iprops {
+    posts: any;
+    fetchBlogResponse: any;
 }
 interface IState {
 
 }
 class Blog extends React.Component<Iprops, IState> {
-
+    componentDidMount() {
+        this.props.fetchBlogResponse();
+    }
     render() {
+        const { posts } = this.props
         return (
             <div>
-                <BlogCategory />
+                <BlogCategory data={posts} />
             </div>
         )
     }
 
 }
 
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        fetchBlogResponse: () => dispatch(fetchBlogResponse()),
+    }
+}
 
+const mapStateToProps = (state: any) => {
+    return {
+        posts: state.posts.posts
+    }
+}
 
-export default Blog
+export default connect(mapStateToProps, mapDispatchToProps)(Blog)
+

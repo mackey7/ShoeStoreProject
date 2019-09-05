@@ -9,3 +9,4 @@ export const SORT_PRICE: string = "SORT_PRICE";
 export const SORT_BRANDS: string = "SORT_BRANDS";
 export const SORT_CATEGORIES: string = "SORT_CATEGORIES";
 export const FETCH_SORTED: string = "FETCH_SORTED";
+export const FETCH_BLOG_POSTS_SUCCESS: string = "FETCH_SORTED";

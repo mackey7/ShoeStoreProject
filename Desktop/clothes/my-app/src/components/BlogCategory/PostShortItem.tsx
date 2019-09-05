@@ -31,14 +31,17 @@ cursor:pointer;
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
 }
 `
+interface IProps {
+    data: any
+}
 
-
-const PostShortItem: React.SFC = () => {
+const PostShortItem: React.SFC<IProps> = ({ data }) => {
 
     return (
         <PostShortItemWrapper>
-            <H2>Lorem, ipsum dolor.</H2>
-            <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni ullam sit quibusdam ipsam molestias. Quidem eum sint, corporis nostrum voluptas perspiciatis ea earum explicabo animi vel quo eos eaque tempora omnis laboriosam distinctio iusto rem ut minus aperiam soluta, sequi doloribus qui. Porro ratione molestiae est alias placeat recusandae?</P>
+
+            <H2>{data.title}</H2>
+            <P> {data.decs}</P>
             <MoreBtn type="button" value="More" />
         </PostShortItemWrapper>
 
