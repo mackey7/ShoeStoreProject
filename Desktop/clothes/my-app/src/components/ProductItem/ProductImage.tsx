@@ -47,7 +47,7 @@ const ProductImage: React.SFC<Iprops> = ({ src, alt, onMouseMove, isMove, addToC
 
 
     return (
-        <Image onMouseEnter={onMouseMove} onMouseLeave={onMouseMove}>
+        <Image onMouseEnter={() => onMouseMove(true)} onMouseLeave={() => onMouseMove(false)}>
             <img src={src} alt={alt} width="100%" height="100%" />
             {isMove ?
                 <Icons>

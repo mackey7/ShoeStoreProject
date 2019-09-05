@@ -53,7 +53,7 @@ const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove, prod
         <P>  {productName}  </P>
 
     return (
-        < ProductInfoWrapper onMouseEnter={onMouseMove} onMouseLeave={onMouseMove} >
+        < ProductInfoWrapper onMouseEnter={() => onMouseMove(true)} onMouseLeave={() => onMouseMove(false)} >
             {conatiner}
         </ProductInfoWrapper >
     )
