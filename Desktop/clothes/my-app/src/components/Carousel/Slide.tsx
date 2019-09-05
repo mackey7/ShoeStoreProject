@@ -2,6 +2,7 @@ import React from 'react'
 import Image from './Image'
 import Content from './Content'
 import Styled from 'styled-components'
+import uuid from 'uuid';
 
 const Wrapper = Styled.div`
 background:#e9e8e3;
@@ -25,15 +26,26 @@ flex-direction:column;
 }
 `
 
-const imgUrl = "https://i1.adis.ws/i/boohooamplience/agg94538_camel_xl?$product_page_main_magic_zoom$"
+interface IProps {
+    data: any;
+    addToFavourite: any;
+    addToCart: any;
 
-const Slide: React.SFC = () => {
+}
+
+
+
+const Slide: React.SFC<IProps> = ({ data, addToFavourite, addToCart }) => {
     return (
         <Wrapper>
-            <SlideWrapper>
-                <Image src={imgUrl} alt="skirt" />
-                <Content price="$145.99" title="Pink Shoes 2013 Collection" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores repellendus cum aperiam eos, quibusdam consequatur ." />
-            </SlideWrapper>,
+            {data.slice(0, 1).map((item: any) =>
+                <SlideWrapper key={uuid.v4()}>
+                    <Image src={item.src} alt={item.name} />
+                    <Content price={item.price} title={item.name} description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores repellendus cum aperiam eos, quibusdam consequatur ." addToFavourite={addToFavourite} addToCart={addToCart} productID={item.id} />
+                </SlideWrapper>
+
+            )}
+
         </Wrapper>
     )
 }

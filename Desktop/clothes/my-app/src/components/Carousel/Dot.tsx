@@ -3,10 +3,9 @@ import Styled from 'styled-components'
 
 
 const DotWrapper = Styled.div`
-margin-left:10px;
-
+margin-left:2px;
+width:100%;
 `
-
 
 const DotInfo = Styled.div`
  display:none;
@@ -16,11 +15,13 @@ const DotInfo = Styled.div`
 
 }
 @media only screen and (min-width: 600px) {
- 
+ display:flex;
+flex-direction:column;
+text-align:center;
+padding:5px 10px;
 }
 @media only screen and (min-width: 900px) {
-display:flex;
-flex-direction:column;
+
 
 }
 `
@@ -34,7 +35,12 @@ display:flex;
  
 }
 @media only screen and (min-width: 600px) {
- 
+ height:10px;
+width:100%;
+border-radius:0%;
+background:#000
+display:flex;
+margin:5px 10px;
 }
 @media only screen and (min-width: 900px) {
  
@@ -44,17 +50,21 @@ display:flex;
 const Slide = Styled.div`
 align-self:center;
 margin:0 auto;
-
 height:15px;
 width:15px;
 border-radius:50%;
-background:#57c5a0
+background:#57c5a0;
 
 @media only screen and (min-width: 300px) {
  
 }
 @media only screen and (min-width: 600px) {
- 
+ align-self:center;
+margin:0 auto;
+height:5px;
+width:95%;
+border-radius:0;
+background:#57c5a0;
 }
 @media only screen and (min-width: 900px) {
  

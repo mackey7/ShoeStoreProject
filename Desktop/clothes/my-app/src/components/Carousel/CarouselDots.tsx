@@ -25,15 +25,20 @@ width:80%;
 }
 `
 
-
-const CarouselDots: React.SFC = () => {
+interface IProps {
+    data: any;
+}
+const CarouselDots: React.SFC<IProps> = ({ data }) => {
     return (
         <CarouselDotsWrapper>
             <CarouselDotsSection>
-                <Dot DotTitle="Pink Shoes" DotDesc="Now %145.99" />
-                <Dot DotTitle="Pink Shoes" DotDesc="Now %145.99" />
-                <Dot DotTitle="Pink Shoes" DotDesc="Now %145.99" />
-                <Dot DotTitle="Pink Shoes" DotDesc="Now %145.99" />
+                {data.slice(3, 7).map((item: any) =>
+
+                    <Dot DotTitle={item.name} DotDesc={item.price} />
+
+                )}
+
+
             </CarouselDotsSection>
         </CarouselDotsWrapper>
     )

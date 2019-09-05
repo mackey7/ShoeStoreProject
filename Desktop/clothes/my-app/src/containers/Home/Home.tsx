@@ -3,9 +3,9 @@ import CarouselContainer from '../CarouselContainer/CarouselContainer'
 import AddonSection from '../../components/AddonSection/AddonSection'
 import HomeCategory from '../../components/HomeCategory/HomeCategory';
 
-import { fetchProductsResponse } from '../../actions/products'
+import { fetchProductsResponse, addToCart, addToFavourite } from '../../actions/products'
 import { connect } from "react-redux";
-import { addToCart, addToFavourite } from '../../actions/products'
+
 
 
 

@@ -2,8 +2,8 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const ImageProduct = Styled.img`
-
-width:80%;
+height:500px;
+width:100%;
 
 
 @media only screen and (min-width: 300px) {
@@ -24,7 +24,7 @@ interface IProps {
 
 const Image: React.SFC<IProps> = ({ src, alt }) => {
     return (
-        <ImageProduct src={src} alt={alt} width="300" />
+        <ImageProduct src={src} alt={alt} />
     )
 }
 
