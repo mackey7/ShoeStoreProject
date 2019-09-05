@@ -1,5 +1,6 @@
-import { SORT_PRICE, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from '../actions/actions_types'
+import { FETCH_SORTED, SORT_PRICE, SORT_BRANDS, SORT_CATEGORIES, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from '../actions/actions_types'
 import { Reducer } from 'redux'
+
 
 
 interface IPropsState {
@@ -8,6 +9,7 @@ interface IPropsState {
     favourite?: any;
     bestSellers?: any;
     newArrival?: any;
+    sorted?: any
 }
 interface IPropsAction {
     id?: any;
@@ -19,6 +21,7 @@ interface IPropsAction {
 }
 
 const initial: IPropsState = {
+    sorted: [],
     products: [],
     cart: [{
         "id": 1,
@@ -93,6 +96,9 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             let newProducts = state.products.find((item: any) => item.newArrivals == true)
             return { ...state, newArrival: newProducts }
         }
+        case FETCH_SORTED: {
+            return { ...state, sorted: actions.payload }
+        }
         case ADD_TO_CART: {
 
             let addedProduct = state.products.find((item: any) => item.id === actions.id)
@@ -135,11 +141,11 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
                     if (a[actions.key] < b[actions.key]) return 1;
                     return 0;
                 }
-                let priceColumn = state.products
+                let priceColumn = state.sorted
                 let sortedColumn = priceColumn.sort(sortFn);
-                console.log(...sortedColumn)
+                // console.log(...sortedColumn)
                 return {
-                    ...state, products: [...sortedColumn]
+                    ...state, sorted: [...sortedColumn]
                 }
             } if (actions.e === "min-max") {
 
@@ -148,11 +154,11 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
                     if (a[actions.key] > b[actions.key]) return 1;
                     return 0;
                 }
-                let priceColumn = state.products
+                let priceColumn = state.sorted
                 let sortedColumn = priceColumn.sort(sortFn)
-                console.log(...sortedColumn)
+                // console.log(...sortedColumn)
                 return {
-                    ...state, products: [...sortedColumn]
+                    ...state, sorted: [...sortedColumn]
                 }
 
 
@@ -162,9 +168,70 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             let product = state.products
 
             return {
-                ...state, products: product
+                ...state, sorted: product
             }
 
+
+
+        }
+        case SORT_BRANDS: {
+            console.log(" odpalenie SORT_BRANDS ")
+            if (state.products.length == true) {
+                if (actions.e !== " ") {
+                    console.log(" sort jest pelny")
+                    const selectedBrands = state.products.filter((item: any) => actions.e === item.brands)
+                    return {
+                        ...state, products: selectedBrands
+                    }
+
+                } else {
+                    let product = state.cart
+                    console.log(" sort jest pusty")
+                    return {
+                        ...state, products: product
+                    }
+                }
+
+            } else {
+                const initState = state.products
+                const selectedBrands = initState.filter(
+                    (item: any) => actions.e === item.brands
+                );
+                return {
+                    ...state,
+                    products: selectedBrands
+                };
+            }
+
+        }
+        case SORT_CATEGORIES: {
+            console.log(" odpalenie SORT_CATEGORIES ")
+            if (state.products.length == true) {
+                if (actions.e !== " ") {
+                    console.log(" sort jest pelny")
+                    const selectedCategories = state.products.filter((item: any) => actions.e === item.gender)
+                    return {
+                        ...state, products: selectedCategories
+                    }
+
+                } else {
+                    let product = state.cart
+                    console.log(" sort jest pusty")
+                    return {
+                        ...state, products: product
+                    }
+                }
+
+            } else {
+                const initState = state.products
+                const selectedCategories = initState.filter(
+                    (item: any) => actions.e === item.gender
+                );
+                return {
+                    ...state,
+                    products: selectedCategories
+                };
+            }
 
 
         }

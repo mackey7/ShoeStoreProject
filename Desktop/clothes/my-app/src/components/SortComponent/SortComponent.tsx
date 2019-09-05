@@ -54,7 +54,11 @@ cursor:pointer;
 `
 
 interface Iprops {
-    sortPrice: any
+    sortPrice: any;
+    sortCategories: any;
+    sortBrands: any;
+
+
 }
 interface IState {
 
@@ -62,22 +66,27 @@ interface IState {
 class SortComponent extends React.Component<Iprops, IState> {
 
     render() {
-        const { sortPrice } = this.props
+        const { sortPrice, sortCategories, sortBrands } = this.props
         return (
             <SortWrapper>
                 <SortSection>
 
                     <Span> Sort by  </Span>
-                    <Select>
-                        <Option>Brands</Option>
-                        <Option> Brands</Option>
-                        <Option> Brands</Option>
+                    <Select onClick={(e) => sortBrands(e)} >
+                        <option value=" "> Brands</option>
+                        <option value="All Star"> All Star</option>
+                        <option value="Big Star"> Big Star</option>
+                        <option value="Gucci"> Guccir</option>
+                        <option value="Reebok"> Reebok</option>
+                        <option value="Gucci"> Gucci</option>
+                        <option value="Nike"> Nike</option>
+
 
                     </Select>
-                    <Select>
-                        <Option> Categories</Option>
-                        <Option> Categories</Option>
-                        <Option> Categories</Option>
+                    <Select onClick={(e) => sortCategories(e)} >
+                        <option value=" "> Categories</option>
+                        <option value="woman"> woman</option>
+                        <option value="man"> man</option>
                     </Select>
                     <Select onClick={(e) => sortPrice(e, 'price')}>
 
