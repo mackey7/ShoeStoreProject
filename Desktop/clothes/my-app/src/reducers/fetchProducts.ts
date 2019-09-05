@@ -3,6 +3,7 @@ import { Reducer } from 'redux'
 
 
 
+
 interface IPropsState {
     products?: any;
     cart?: any;
@@ -89,12 +90,16 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             return { ...state, products: actions.payload }
         }
         case FETCH_BESTSELLERS: {
-            let newProducts = state.products.find((item: any) => item.bestSellers == true)
+            state.bestSellers = [...actions.payload]
+            let newProducts = state.bestSellers.filter((item: any) => item.bestSellers == true)
             return { ...state, bestSellers: newProducts }
+
         }
         case FETCH_NEW_ARRIVALS: {
-            let newProducts = state.products.find((item: any) => item.newArrivals == true)
+            state.newArrival = [...actions.payload]
+            let newProducts = state.newArrival.filter((item: any) => item.newArrivals == true)
             return { ...state, newArrival: newProducts }
+
         }
         case FETCH_SORTED: {
             return { ...state, sorted: actions.payload }

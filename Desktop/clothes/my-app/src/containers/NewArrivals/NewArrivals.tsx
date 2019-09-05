@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { fetchNewArrivals } from '../../actions/products'
 import ProductsCategory from '../../components/ProductsCategory/ProductsCategory'
-import { addToCart, addToFavourite } from '../../actions/products'
+import { addToCart, addToFavourite, fetchNewArrivalsSucces, fetchProductsResponse } from '../../actions/products'
+
 interface Iprops {
     products: any;
-    fetchNewArrivals: any;
+    fetchNewArrivalsSucces: any;
     addToCart: any;
     addToFavourite: any;
     newArrival: any;
+    fetchProductsResponse: any;
 }
 
 interface IState {
@@ -22,7 +23,8 @@ class NewArrivals extends React.Component<Iprops, IState> {
         this.props.addToFavourite(id)
     }
     componentDidMount() {
-        this.props.fetchNewArrivals();
+        this.props.fetchNewArrivalsSucces();
+        this.props.fetchProductsResponse();
     }
     render() {
         const { newArrival } = this.props
@@ -36,14 +38,18 @@ class NewArrivals extends React.Component<Iprops, IState> {
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        fetchNewArrivals: () => dispatch(fetchNewArrivals()),
+        fetchNewArrivalsSucces: () => dispatch(fetchNewArrivalsSucces()),
+        fetchProductsResponse: () => dispatch(fetchProductsResponse()),
         addToCart: (id: number) => dispatch(addToCart(id)),
         addToFavourite: (id: number) => dispatch(addToFavourite(id))
     }
 }
 const mapStateToProps = (state: any) => {
+    console.log(state)
+
     return {
-        newArrival: state.products.cart
+        newArrival: state.products.newArrival
+
     }
 }
 

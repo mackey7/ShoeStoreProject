@@ -40,6 +40,55 @@ export const fetchSorted = (payload: any) => {
         payload
     }
 }
+
+export const fetchBestSellersSucces = () => {
+    return (dispatch: any) => {
+        return axios.get(API)
+            .then(response => {
+                dispatch(fetchBestSellers(response.data));
+            })
+            .catch(error => {
+                throw error;
+            })
+    }
+}
+
+
+export const fetchBestSellers = (payload: any) => {
+    return {
+        type: FETCH_BESTSELLERS,
+        payload
+
+    }
+}
+
+export const fetchNewArrivalsSucces = () => {
+    return (dispatch: any) => {
+        return axios.get(API)
+            .then(response => {
+                dispatch(fetchNewArrivals(response.data));
+            })
+            .catch(error => {
+                throw error;
+            })
+    }
+}
+
+export const fetchNewArrivals = (payload: any) => {
+    return {
+        type: FETCH_NEW_ARRIVALS,
+        payload
+
+    }
+}
+
+
+
+
+
+
+
+
 export const addToCart = (id: number) => {
     return {
         type: ADD_TO_CART,
@@ -64,18 +113,7 @@ export const removeItemFromFavourite = (id: number) => {
         id
     }
 }
-export const fetchBestSellers = () => {
-    return {
-        type: FETCH_BESTSELLERS
 
-    }
-}
-export const fetchNewArrivals = () => {
-    return {
-        type: FETCH_NEW_ARRIVALS,
-
-    }
-}
 export const sortPrice = (e: any, key: any) => {
     return {
         type: SORT_PRICE,
