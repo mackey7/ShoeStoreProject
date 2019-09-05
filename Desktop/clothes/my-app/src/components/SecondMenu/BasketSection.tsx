@@ -95,7 +95,7 @@ const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeIt
         <Section>
             <div onClick={SwitchIsOpen}>
                 <Icon className="fas fa-shopping-basket"></Icon>
-                <Span> 0</Span>
+                <Span> {cart.length}</Span>
             </div>
             <Box isOpen={isOpen}>
 
