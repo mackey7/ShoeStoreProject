@@ -139,105 +139,96 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             }
         }
         case SORT_PRICE: {
-            if (actions.e === "max-min") {
+            if (state.sorted.length > 0) {
+                if (actions.e === "-") {
+                    const sortedTable = [...state.sorted]
+                    return {
+                        ...state, sorted: [...sortedTable]
+                    }
 
-                let sortFn = (a: any, b: any) => {
-                    if (a[actions.key] > b[actions.key]) return -1;
-                    if (a[actions.key] < b[actions.key]) return 1;
-                    return 0;
-                }
-                let priceColumn = state.sorted
-                let sortedColumn = priceColumn.sort(sortFn);
-                // console.log(...sortedColumn)
-                return {
-                    ...state, sorted: [...sortedColumn]
-                }
-            } if (actions.e === "min-max") {
+                } if (actions.e === "min-max") {
+                    let sortFn = (a: any, b: any) => {
+                        if (a[actions.key] < b[actions.key]) return -1;
+                        if (a[actions.key] > b[actions.key]) return 1;
+                        return 0;
+                    }
+                    let priceColumn = [...state.sorted]
+                    let sortedColumn = priceColumn.sort(sortFn)
+                    return {
+                        ...state, sorted: [...sortedColumn]
+                    }
 
-                let sortFn = (a: any, b: any) => {
-                    if (a[actions.key] < b[actions.key]) return -1;
-                    if (a[actions.key] > b[actions.key]) return 1;
-                    return 0;
-                }
-                let priceColumn = state.sorted
-                let sortedColumn = priceColumn.sort(sortFn)
-                // console.log(...sortedColumn)
-                return {
-                    ...state, sorted: [...sortedColumn]
-                }
+                } if (actions.e === "max-min") {
+                    let sortFn = (a: any, b: any) => {
+                        if (a[actions.key] > b[actions.key]) return -1;
+                        if (a[actions.key] < b[actions.key]) return 1;
+                        return 0;
+                    }
+                    let priceColumn = [...state.sorted]
+                    let sortedColumn = priceColumn.sort(sortFn);
+                    return {
+                        ...state, sorted: [...sortedColumn]
+                    }
 
-
+                }
 
             }
-        } if (actions.e === " ") {
-            let product = state.products
-
-            return {
-                ...state, sorted: product
-            }
-
-
 
         }
         case SORT_BRANDS: {
             console.log(" odpalenie SORT_BRANDS ")
-            if (state.products.length == true) {
-                if (actions.e !== " ") {
-                    console.log(" sort jest pelny")
-                    const selectedBrands = state.products.filter((item: any) => actions.e === item.brands)
+            if (state.sorted.length > 0) {
+                if (actions.e === "-") {
+                    console.log(actions.e)
+                    const sortedTable = [...state.sorted]
                     return {
-                        ...state, products: selectedBrands
+                        ...state, sorted: [...sortedTable]
                     }
-
                 } else {
-                    let product = state.cart
-                    console.log(" sort jest pusty")
+                    console.log(actions.e)
+
+                    const initState = state.sorted.slice()
+                    const selectedBrands = initState.filter(
+                        (item: any) => actions.e === item.brands
+                    );
+                    console.log("posortowana")
+                    console.log(initState)
+                    console.log("selected")
+                    console.log(selectedBrands)
+                    console.log("state")
+                    console.log(state.sorted)
+
                     return {
-                        ...state, products: product
-                    }
+                        ...state,
+                        sorted: selectedBrands
+                    };
                 }
-
             } else {
-                const initState = state.products
-                const selectedBrands = initState.filter(
-                    (item: any) => actions.e === item.brands
-                );
-                return {
-                    ...state,
-                    products: selectedBrands
-                };
+                return state;
             }
-
         }
         case SORT_CATEGORIES: {
             console.log(" odpalenie SORT_CATEGORIES ")
-            if (state.products.length == true) {
-                if (actions.e !== " ") {
-                    console.log(" sort jest pelny")
-                    const selectedCategories = state.products.filter((item: any) => actions.e === item.gender)
+            if (state.sorted.length > 0) {
+                if (actions.e === "-") {
+                    console.log(actions.e)
+                    const sortedTable = [...state.sorted]
                     return {
-                        ...state, products: selectedCategories
+                        ...state, sorted: sortedTable
                     }
-
                 } else {
-                    let product = state.cart
-                    console.log(" sort jest pusty")
+                    console.log(actions.e)
+                    const initState = [...state.sorted]
+                    const selectedCategories = initState.filter(
+                        (item: any) => actions.e === item.gender
+                    );
                     return {
-                        ...state, products: product
-                    }
+                        ...state,
+                        sorted: selectedCategories
+                    };
                 }
 
-            } else {
-                const initState = state.products
-                const selectedCategories = initState.filter(
-                    (item: any) => actions.e === item.gender
-                );
-                return {
-                    ...state,
-                    products: selectedCategories
-                };
             }
-
 
         }
 
