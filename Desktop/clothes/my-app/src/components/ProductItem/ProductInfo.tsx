@@ -1,5 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const ProductInfoWrapper = Styled.div`
 height:60px;
@@ -44,11 +45,15 @@ const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove, prod
 
     const conatiner = isMove ?
         <Icons>
+            <Link to={`/product/${productId}`}>
 
-            <Icon className="far fa-eye"></Icon>
+                <Icon className="far fa-eye"> </Icon>
+
+            </Link>
+
             <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
             <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
-        </Icons>
+        </Icons >
         :
         <P>  {productName}  </P>
 
