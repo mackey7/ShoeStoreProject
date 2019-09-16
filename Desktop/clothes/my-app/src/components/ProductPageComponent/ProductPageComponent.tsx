@@ -1,5 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
+import uuid from 'uuid'
+
 const IMG = "https://dsw.scene7.com/is/image/DSWShoes/404995_001_ss_01?$pdp-image$"
 
 const ProductName = Styled.h2`
@@ -57,31 +59,61 @@ font-weight:700;
     border:2px solid #7db71e;
 }
 `
-const ProductPageComponent: React.SFC = () => {
+interface IProps {
+    data: any;
+    addToCart: any;
+    postID: any
 
+}
+
+const ProductPageComponent: React.SFC<IProps> = ({ postID, addToCart, data }) => {
+    let elem1 = postID - 1
+    let elem2 = postID
+    console.log(elem1, elem2)
     return (
         <ProductPageSection>
             <ProductPageWrapper>
-                <Row>
-                    <Img src={IMG} />
-                    <Content>
-                        <ProductName>
-                            Vans classic skate shoe and the first to bear
-                        </ProductName>
-                        <Row>
-                            <Price>
-                                56.99$
-                        </Price>
-                            <BuyBtn>BUY </BuyBtn>
-                        </Row>
-                        <Desc>
+                {data.length > 0 ?
+                    data.slice(elem1, elem2).map((item: any) => {
 
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem sint aut debitis? Reiciendis hic delectus dicta provident. Minima magni maiores repellat reprehenderit, dolor rerum voluptatem eveniet, quisquam ullam et voluptatibus delectus quod quibusdam aspernatur esse! Ad, odit dicta! Expedita velit itaque sunt, esse illo omnis ipsum est blanditiis minus. Quibusdam illum delectus cumque, beatae minus asperiores doloribus repellat similique architecto fugit dolor commodi nulla est deserunt repudiandae dolorem reiciendis eaque distinctio totam obcaecati ea ab tenetur magnam. Praesentium eos placeat voluptatibus? Repellendus ad deserunt eos asperiores vero illo inventore dolorum. Perspiciatis quos blanditiis quibusdam nostrum optio, cum quisquam tempore similique quod? Labore quibusdam perspiciatis, iste ratione recusandae maxime consequuntur amet ducimus. Optio illum iusto beatae quibusdam dolore consectetur, officiis repellendus asperiores explicabo! Mollitia, aliquid inventore repellat recusandae ex dolorum iste! Impedit recusandae nostrum nobis aliquid doloribus. Odit beatae quia, quo, unde doloribus deleniti debitis dolores molestias asperiores, placeat error accusantium dolor et! Est, qui eius accusantium dolore nulla incidunt maxime repellat doloribus, ullam assumenda, explicabo reprehenderit enim alias quisquam exercitationem commodi! Voluptas quidem explicabo vel mollitia expedita ipsam! Ullam quisquam similique officia dolores natus quos illum maxime? Enim adipisci, porro tempora dolorem doloribus labore! Dolorem, iste! Facere ex minus voluptatibus?
-                        </Desc>
-                    </Content>
-                </Row>
+                        { item.id }
+                        <Row key={uuid.v4()} >
+                            <Img src={item.src} />
+                            <Content>
+                                <ProductName>
+                                    {item.name}
+                                </ProductName>
+                                <Row>
+                                    <Price>
+                                        {item.price}
+                                    </Price>
+                                    <BuyBtn onClick={() => addToCart(item.id)} >BUY </BuyBtn>
+                                </Row>
+                                <Desc>
+
+                                    {item.desc}
+                                </Desc>
+                            </Content>
+                        </Row>
+
+
+
+                    }
+
+
+
+
+                    )
+                    : "loading"
+                }
+
+
+                {console.log("data")}
+                {console.log(data)}
+
+
             </ProductPageWrapper>
-        </ProductPageSection>
+        </ProductPageSection >
     )
 }
 
