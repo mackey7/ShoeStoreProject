@@ -29,11 +29,11 @@ class Products extends React.Component<Iprops, IState> {
         this.props.sortPrice(e.target.value, key)
     }
     handleSortBrands = (e: any) => {
-        // console.log(this.props.sortBrands(e))
+        // this.props.fetchProductsToSorted();
         this.props.sortBrands(e.target.value)
     }
     handleSortCategories = (e: any) => {
-        // console.log(this.props.sortCategories(e))
+        // this.props.fetchProductsToSorted();
         this.props.sortCategories(e.target.value)
     }
     componentDidMount() {
