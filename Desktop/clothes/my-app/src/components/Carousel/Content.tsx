@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import { Link } from 'react-router-dom'
 const ContentWrapper = Styled.section`
 
 width:80%;
@@ -76,7 +76,13 @@ const Content: React.SFC<Iprops> = ({ price, title, description, productID, addT
             <ProductTitle>{title}</ProductTitle>
             <Description>{description} </Description>
             <div>
-                <Icon className="far fa-eye"></Icon>
+
+
+                <Link to={`/product/${productID}`}>
+
+                    <Icon className="far fa-eye"> </Icon>
+
+                </Link>
                 <Icon className="far fa-star" onClick={() => addToFavourite(productID)}></Icon>
                 <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productID)}></Icon>
             </div>
