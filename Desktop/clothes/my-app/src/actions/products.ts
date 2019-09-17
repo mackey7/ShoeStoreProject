@@ -121,15 +121,16 @@ export const sortPrice = (e: any, key: any) => {
         key
     }
 }
-export const sortBrands = (e: any) => {
+export const sortBrands = (e: any, brands: string) => {
     return {
         type: SORT_BRANDS,
-        e
+        e, brands
     }
 }
-export const sortCategories = (e: any) => {
+export const sortCategories = (e: any, gender: string) => {
     return {
         type: SORT_CATEGORIES,
-        e
+        e, gender
+
     }
 }

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import ProductsCategory from '../../components/ProductsCategory/ProductsCategory'
 import SortComponent from '../../components/SortComponent/SortComponent'
 import { fetchProductsToSorted, addToCart, addToFavourite, sortPrice, sortCategories, sortBrands } from '../../actions/products'
-
+import filterSortedArray from '../../Utils/filterSortedArray'
 
 interface Iprops {
     sorted: any;
@@ -28,13 +28,13 @@ class Products extends React.Component<Iprops, IState> {
     handleSortPrice = (e: any, key: any) => {
         this.props.sortPrice(e.target.value, key)
     }
-    handleSortBrands = (e: any) => {
+    handleSortBrands = (e: any, brands: string) => {
         // this.props.fetchProductsToSorted();
-        this.props.sortBrands(e.target.value)
+        this.props.sortBrands(e.target.value, brands)
     }
-    handleSortCategories = (e: any) => {
+    handleSortCategories = (e: any, gender: string) => {
         // this.props.fetchProductsToSorted();
-        this.props.sortCategories(e.target.value)
+        this.props.sortCategories(e.target.value, gender)
     }
     componentDidMount() {
         this.props.fetchProductsToSorted();
@@ -56,14 +56,14 @@ const mapDispatchToProps = (dispatch: any) => {
         addToCart: (id: number) => dispatch(addToCart(id)),
         addToFavourite: (id: number) => dispatch(addToFavourite(id)),
         sortPrice: (e: any, key: any) => dispatch(sortPrice(e, key)),
-        sortBrands: (e: any) => dispatch(sortBrands(e)),
-        sortCategories: (e: any) => dispatch(sortCategories(e))
+        sortBrands: (e: any, brands: string) => dispatch(sortBrands(e, brands)),
+        sortCategories: (e: any, gender: string) => dispatch(sortCategories(e, gender))
     }
 }
 const mapStateToProps = (state: any) => {
     return {
-        sorted: state.products.sorted
-    }
+        sorted: filterSortedArray(state)
+    };
 }
 
 

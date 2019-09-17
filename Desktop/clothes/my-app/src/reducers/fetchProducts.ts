@@ -4,6 +4,7 @@ import { Reducer } from 'redux'
 
 
 
+
 interface IPropsState {
     products?: any;
     cart?: any;
@@ -19,6 +20,8 @@ interface IPropsAction {
     a: any;
     key: any;
     e: any;
+    brands: string,
+    gender: string;
 }
 
 const initial: IPropsState = {
@@ -176,31 +179,24 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
 
         }
         case SORT_BRANDS: {
-            console.log(" odpalenie SORT_BRANDS ")
+
             if (state.sorted.length > 0) {
                 if (actions.e === "-") {
-                    console.log(actions.e)
+
                     const sortedTable = [...state.sorted]
                     return {
                         ...state, sorted: [...sortedTable]
                     }
                 } else {
-                    console.log(actions.e)
-
-                    const initState = state.sorted.slice()
-                    const selectedBrands = initState.filter(
-                        (item: any) => actions.e === item.brands
-                    );
-                    console.log("posortowana")
-                    console.log(initState)
-                    console.log("selected")
-                    console.log(selectedBrands)
-                    console.log("state")
-                    console.log(state.sorted)
+                    // console.log("actions.brands")
+                    // console.log(actions.brands)
 
                     return {
                         ...state,
-                        sorted: selectedBrands
+
+                        filterParam: actions.e,
+                        category: actions.brands,
+
                     };
                 }
             } else {
@@ -208,7 +204,7 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             }
         }
         case SORT_CATEGORIES: {
-            console.log(" odpalenie SORT_CATEGORIES ")
+
             if (state.sorted.length > 0) {
                 if (actions.e === "-") {
                     console.log(actions.e)
@@ -217,14 +213,11 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
                         ...state, sorted: sortedTable
                     }
                 } else {
-                    console.log(actions.e)
-                    const initState = [...state.sorted]
-                    const selectedCategories = initState.filter(
-                        (item: any) => actions.e === item.gender
-                    );
+
                     return {
                         ...state,
-                        sorted: selectedCategories
+                        filterParam: actions.e,
+                        category: actions.gender,
                     };
                 }
 

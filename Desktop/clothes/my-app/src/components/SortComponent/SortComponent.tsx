@@ -72,7 +72,7 @@ class SortComponent extends React.Component<Iprops, IState> {
                 <SortSection>
 
                     <Span> Sort by  </Span>
-                    <Select onClick={(e) => sortBrands(e)} >
+                    <Select onClick={(e) => sortBrands(e, "brands")} >
                         <option value="-"> Brands</option>
                         <option value="All Star"> All Star</option>
                         <option value="Big Star"> Big Star</option>
@@ -83,7 +83,7 @@ class SortComponent extends React.Component<Iprops, IState> {
 
 
                     </Select>
-                    <Select onClick={(e) => sortCategories(e)} >
+                    <Select onClick={(e) => sortCategories(e, "gender")} >
                         <option value="-"> Categories</option>
                         <option value="woman"> woman</option>
                         <option value="man"> man</option>
