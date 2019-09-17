@@ -3,6 +3,7 @@ import Dot from './Dot'
 import Styled from 'styled-components'
 
 
+
 const CarouselDotsWrapper = Styled.section`
 background:#2e2e2e;
 `
@@ -27,14 +28,16 @@ width:80%;
 
 interface IProps {
     data: any;
+    activeIndex: number;
+    goToSlide: any;
 }
-const CarouselDots: React.SFC<IProps> = ({ data }) => {
+const CarouselDots: React.SFC<IProps> = ({ data, activeIndex, goToSlide }) => {
     return (
         <CarouselDotsWrapper>
             <CarouselDotsSection>
-                {data.slice(3, 7).map((item: any) =>
+                {data.slice(3, 7).map((item: any, index: any) =>
 
-                    <Dot DotTitle={item.name} DotDesc={item.price} />
+                    <Dot DotTitle={item.name} DotDesc={item.price} activeIndex={activeIndex} slideNumber={index} goToSlide={goToSlide} />
 
                 )}
 
