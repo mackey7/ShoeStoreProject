@@ -5,10 +5,12 @@ import uuid from 'uuid'
 
 const BlogCategorySection = Styled.section`
 background:#ebe7df;
+margin:0;
 `
 const BlogCategoryWrapper = Styled.section`
 width:80%;
 margin:auto;
+padding:20px 0px;
 `
 
 interface IProps {

@@ -107,7 +107,7 @@ const ProductPageComponent: React.SFC<IProps> = ({ postID, addToCart, data }) =>
         < ProductPageSection >
             <ProductPageWrapper>
                 {data.length > 0 ? DataMapToItem : "loading"}
-                {console.log(data)}
+
 
 
 
