@@ -6,6 +6,7 @@ import {
     addToCart, addToFavourite
 } from '../../actions/products'
 import { connect } from "react-redux";
+
 interface Iprops {
     fetchProductsResponse: any;
     products: any;
@@ -16,6 +17,10 @@ interface IState {
 
 }
 class HeaderContainer extends React.Component<Iprops, IState> {
+    state = {
+        activeIndex: 0,
+
+    };
     handleAddToCart = (id: number) => {
         this.props.addToCart(id)
     }
@@ -24,12 +29,43 @@ class HeaderContainer extends React.Component<Iprops, IState> {
     }
     componentDidMount() {
         this.props.fetchProductsResponse();
+        setInterval(this.nextSlide, 5000)
     }
+    goToSlide = (index: number) => {
+        this.setState({
+            activeIndex: index
+        });
+    };
+
+
+
+    nextSlide = (e: any) => {
+        // e.preventDefault();
+
+        let index = this.state.activeIndex;
+        let { products } = this.props;
+        let slidesLength = products.slice(0, 3).length;
+
+        if (index === slidesLength) {
+            index = -1;
+        }
+
+        ++index;
+
+        this.setState({
+            activeIndex: index
+        });
+    };
+
+
+
     render() {
+
         const { products } = this.props
+        const { activeIndex } = this.state
         return (
             <React.Fragment>
-                <Carousel data={products} addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} />
+                <Carousel data={products} addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} activeIndex={activeIndex} goToSlide={this.goToSlide} />
             </React.Fragment >
         )
     }

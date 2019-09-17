@@ -78,19 +78,25 @@ background:#57c5a0;
 interface Iprops {
     DotTitle: string;
     DotDesc: string;
+    activeIndex: number;
+    slideNumber: number;
+    goToSlide: any;
 }
 
-const Dot: React.SFC<Iprops> = ({ DotTitle, DotDesc }) => {
+const Dot: React.SFC<Iprops> = ({ DotTitle, DotDesc, activeIndex, slideNumber, goToSlide }) => {
+    // { console.log("slideNumber") }
+    // { console.log(slideNumber) }
     return (
-        <DotWrapper>
+
+        < DotWrapper onClick={() => goToSlide(slideNumber)} >
             <SlideWrapper>
-                <Slide></Slide>
+                {activeIndex == slideNumber ? <Slide></Slide> : null}
             </SlideWrapper>
             <DotInfo>
                 <p>{DotTitle}</p>
                 <p>{DotDesc}</p>
             </DotInfo>
-        </DotWrapper>
+        </DotWrapper >
     )
 }
 
