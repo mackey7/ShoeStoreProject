@@ -18,15 +18,15 @@ display:${(props: any) => (props.isDisplay ? "flex" : "none")};
 flex-direction:column;
 
 
-@media only screen and(min - width: 300px) {
+@media only screen and (min-width: 300px) {
 
 }
-@media only screen and(min - width: 600px) {
+@media only screen and (min-width: 600px) {
 
 }
-@media only screen and(min - width: 900px) {
-    display:flex;
-   flex-direction:row;
+@media only screen and (min-width: 900px) {
+
+flex-direction:row;
 }
 `
 
@@ -42,8 +42,6 @@ interface IProps {
 
 
 const Slide: React.SFC<IProps> = ({ data, addToFavourite, addToCart, activeIndex }) => {
-    // { console.log("activeIndex") }
-    // { console.log(activeIndex) }
     return (
         <Wrapper>
             {data.slice(3, 7).map((item: any, index: number) =>

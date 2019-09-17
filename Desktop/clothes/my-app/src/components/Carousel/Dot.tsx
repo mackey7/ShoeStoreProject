@@ -5,6 +5,7 @@ import Styled from 'styled-components'
 const DotWrapper = Styled.div`
 margin-left:2px;
 width:100%;
+cursor:pointer;
 `
 
 const DotInfo = Styled.div`
