@@ -2,7 +2,6 @@ import React from 'react'
 import Styled from 'styled-components'
 import uuid from 'uuid'
 
-const IMG = "https://dsw.scene7.com/is/image/DSWShoes/404995_001_ss_01?$pdp-image$"
 
 const ProductName = Styled.h2`
 padding: 20px 0px;
@@ -22,6 +21,7 @@ padding:40px;
 
 const Img = Styled.img`
 width:50%;
+max-height:500px;
 border:2px solid #b8b8b8;
 `
 
@@ -59,6 +59,13 @@ font-weight:700;
     border:2px solid #7db71e;
 }
 `
+
+const RowPrice = Styled.div`
+width:100%;
+display:flex;
+justify-content: space-around;
+`
+
 interface IProps {
     data: any;
     addToCart: any;
@@ -69,47 +76,42 @@ interface IProps {
 const ProductPageComponent: React.SFC<IProps> = ({ postID, addToCart, data }) => {
     let elem1 = postID - 1
     let elem2 = postID
-    console.log(elem1, elem2)
+    const DataMapToItem = data.slice(elem1, elem2).map((item: any) => (
+
+        < Row key={uuid.v4()} >
+            <Img src={item.src} />
+            <Content>
+                <ProductName>
+                    {item.name}
+                </ProductName>
+                <RowPrice>
+                    <Price>
+                        {item.price}{item.currency}
+                    </Price>
+                    <BuyBtn onClick={() => addToCart(item.id)} >BUY </BuyBtn>
+                </RowPrice>
+                <Desc>
+
+                    {item.description}
+                </Desc>
+            </Content>
+        </Row>
+
+
+
+    ))
+
     return (
-        <ProductPageSection>
+
+
+        < ProductPageSection >
             <ProductPageWrapper>
-                {data.length > 0 ?
-                    data.slice(elem1, elem2).map((item: any) => {
-
-                        { item.id }
-                        <Row key={uuid.v4()} >
-                            <Img src={item.src} />
-                            <Content>
-                                <ProductName>
-                                    {item.name}
-                                </ProductName>
-                                <Row>
-                                    <Price>
-                                        {item.price}
-                                    </Price>
-                                    <BuyBtn onClick={() => addToCart(item.id)} >BUY </BuyBtn>
-                                </Row>
-                                <Desc>
-
-                                    {item.desc}
-                                </Desc>
-                            </Content>
-                        </Row>
-
-
-
-                    }
-
-
-
-
-                    )
-                    : "loading"
-                }
-
-
-                {console.log("data")}
+                {data.length > 0 ? DataMapToItem : "loading"}
                 {console.log(data)}
+
+
+
+
 
 
             </ProductPageWrapper>
