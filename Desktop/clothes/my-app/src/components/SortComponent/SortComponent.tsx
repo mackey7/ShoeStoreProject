@@ -76,8 +76,7 @@ class SortComponent extends React.Component<Iprops, IState> {
                         <option value="-"> Brands</option>
                         <option value="All Star"> All Star</option>
                         <option value="Big Star"> Big Star</option>
-                        <option value="Gucci"> Guccir</option>
-                        <option value="Reebok"> Reebok</option>
+                        <option value="reebok"> Reebok</option>
                         <option value="Gucci"> Gucci</option>
                         <option value="Nike"> Nike</option>
 
