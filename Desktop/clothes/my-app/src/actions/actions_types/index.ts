@@ -10,3 +10,5 @@ export const SORT_BRANDS: string = "SORT_BRANDS";
 export const SORT_CATEGORIES: string = "SORT_CATEGORIES";
 export const FETCH_SORTED: string = "FETCH_SORTED";
 export const FETCH_BLOG_POSTS_SUCCESS: string = "FETCH_SORTED";
+export const FETCH_PRODUCTS_TO_SEARCH: string = "FETCH_PRODUCTS_TO_SEARCH";
+export const SEARCH_PRODUCTS_IN_PRODUCTS: string = "SEARCH_PRODUCTS_IN_PRODUCTS";

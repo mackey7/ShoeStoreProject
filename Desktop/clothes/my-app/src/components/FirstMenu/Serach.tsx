@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import SearchModal from './SearchModal'
+// import SearchModal from './SearchModal'
+import SearchContainer from '../../containers/SearchContainer/SearchContainer';
 
 const Icon = styled.i`
 color:white;
@@ -37,7 +38,7 @@ class Search extends Component<{}, IState> {
         return (
             <div>
                 <Icon onClick={switchOpenSearch} className="fa fa-search" ></Icon>
-                {OpenSearch ? <SearchModal switchOpenSearch={switchOpenSearch} /> : null}
+                {OpenSearch ? <SearchContainer switchOpenSearch={switchOpenSearch} /> : null}
             </div>
 
         )

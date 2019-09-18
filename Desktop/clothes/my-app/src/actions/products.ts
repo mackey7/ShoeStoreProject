@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_SORTED, SORT_PRICE, SORT_BRANDS, SORT_CATEGORIES, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from './actions_types'
+import { FETCH_PRODUCTS_TO_SEARCH, SEARCH_PRODUCTS_IN_PRODUCTS, FETCH_SORTED, SORT_PRICE, SORT_BRANDS, SORT_CATEGORIES, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from './actions_types'
 
 const API = "https://api.myjson.com/bins/17kfov"
 
@@ -131,6 +131,41 @@ export const sortCategories = (e: any, gender: string) => {
     return {
         type: SORT_CATEGORIES,
         e, gender
+
+    }
+}
+
+
+
+
+
+
+export const fetchProductsToSearchSucces = () => {
+    return (dispatch: any) => {
+        return axios.get(API)
+            .then(response => {
+                dispatch(fetchProductsToSearch(response.data));
+            })
+            .catch(error => {
+                throw error;
+            })
+    }
+}
+
+export const fetchProductsToSearch = (payload: any) => {
+    return {
+        type: FETCH_PRODUCTS_TO_SEARCH,
+        payload
+
+    }
+}
+
+
+
+export const searchProductsInProducts = (e: any) => {
+    return {
+        type: SEARCH_PRODUCTS_IN_PRODUCTS,
+        e,
 
     }
 }
