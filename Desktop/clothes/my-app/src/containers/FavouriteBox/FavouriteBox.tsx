@@ -52,8 +52,6 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state)
-
     return {
         favourite: state.products.favourite,
 

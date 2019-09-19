@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import uuid from 'uuid';
 
 const UL = styled.ul`
 
@@ -65,7 +66,7 @@ class MenuListItem extends React.Component<Iprops, IState> {
     render() {
         return (
             <UL>
-                {this.state.menu.map(x => <LI><LINK to={`/${x}`}>{x}</LINK></LI>)}
+                {this.state.menu.map(x => <LI key={uuid.v4()}><LINK to={`/${x}`}>{x}</LINK></LI>)}
 
             </UL>
         )

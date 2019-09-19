@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-const PIC = "https://n1.sdlcdn.com/imgs/h/1/7/Wdl-Sneakers-Red-Casual-Shoes-SDL039762466-1-2a564.jpg"
+import uuid from 'uuid';
 const CartPageSection = Styled.section`
 background:#ebe7df;
 `
@@ -56,7 +56,7 @@ const CartPageComponent: React.SFC<IProps> = ({ removeItemFromCart, cart }) => {
         <CartPageSection>
             <CartPageWrapper>
                 {cart.map((item: any) =>
-                    <ProductItem>
+                    <ProductItem key={uuid.v4()}>
                         <ProductImg src={item.src} />
                         <ProductName>
                             {item.name}

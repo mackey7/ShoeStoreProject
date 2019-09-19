@@ -1,6 +1,7 @@
 import React from 'react'
 import NewsItem from './NewsItem'
 import Styled from 'styled-components'
+import uuid from 'uuid';
 
 const Section = Styled.section`
 background:#dfdbd4;
@@ -27,7 +28,7 @@ const BlogNews: React.SFC<IProps> = ({ data }) => {
     return (
         <Section>
             <h2> Blog News </h2>
-            {data.map(item => <NewsItem data={item} />)}
+            {data.map(item => <NewsItem key={uuid.v4()} data={item} />)}
 
         </Section>
     )

@@ -31,7 +31,8 @@ class Home extends React.Component<Iprops, IState> {
     }
     render() {
         return (
-            <div> <CarouselContainer />
+            <div>
+                <CarouselContainer />
 
                 <HomeCategory title="New arrivals on FooseShoes" data={this.props.products.products} RouteName="/newArrivals" addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} />
                 <HomeCategory title="Best sellers of the month" data={this.props.products.products} RouteName="/bestSellers" addToCart={this.handleAddToCart} addToFavourite={this.handleAddToFavourite} />

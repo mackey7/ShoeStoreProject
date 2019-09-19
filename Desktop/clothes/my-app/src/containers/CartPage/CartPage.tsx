@@ -3,6 +3,7 @@ import CartPageComponent from "../../components/CartPageComponent/CartPageCompon
 import { connect } from "react-redux";
 import { removeItemFromCart } from '../../actions/products'
 
+
 interface Iprops {
     cart?: any;
     removeItemFromCart: any;

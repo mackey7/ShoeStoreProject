@@ -1,8 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
-
-const PIC = "https://n1.sdlcdn.com/imgs/h/1/7/Wdl-Sneakers-Red-Casual-Shoes-SDL039762466-1-2a564.jpg"
+import uuid from 'uuid';
 const Section = Styled.div`
     padding:10px;
     position:relative;
@@ -102,7 +101,7 @@ const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeIt
 
 
                 {cart.map((item: any) =>
-                    <ProductItem key={item.id}>
+                    <ProductItem key={uuid.v4()}>
                         <ProductImg src={item.src} />
                         <ProductName >
                             {item.name}

@@ -2,6 +2,7 @@ import React from 'react'
 import BlogNews from './BlogNews/BlogNews'
 import TextBox from './TextBox/TextBox'
 import Styled from 'styled-components'
+import uuid from 'uuid';
 
 const SectionWrapper = Styled.section`
 background:#ebe7df;
@@ -42,7 +43,7 @@ class AddonSection extends React.Component<{}, IState> {
 
     render() {
         const { BlogNewsContent, TextBoxContent } = this.state;
-        const TextBoxs = TextBoxContent.map(item => <TextBox data={item} />)
+        const TextBoxs = TextBoxContent.map(item => <TextBox key={uuid.v4()} data={item} />)
         return (
             <SectionWrapper>
                 <Section>
