@@ -162,10 +162,3 @@ export const fetchProductsToSearch = (payload: any) => {
 
 
 
-export const searchProductsInProducts = (e: any) => {
-    return {
-        type: SEARCH_PRODUCTS_IN_PRODUCTS,
-        e,
-
-    }
-}

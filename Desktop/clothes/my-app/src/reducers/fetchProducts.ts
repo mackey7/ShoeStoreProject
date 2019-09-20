@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS_TO_SEARCH, SEARCH_PRODUCTS_IN_PRODUCTS, FETCH_SORTED, SORT_PRICE, SORT_BRANDS, SORT_CATEGORIES, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from '../actions/actions_types'
+import { FETCH_PRODUCTS_TO_SEARCH, FETCH_SORTED, SORT_PRICE, SORT_BRANDS, SORT_CATEGORIES, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from '../actions/actions_types'
 import { Reducer } from 'redux'
 
 
@@ -230,17 +230,7 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             }
 
         }
-        case SEARCH_PRODUCTS_IN_PRODUCTS: {
-            if (state.products.length > 0) {
-                console.log("actions.e")
-                console.log(actions.e)
-                return {
-                    ...state,
-                    filterParam: actions.e,
 
-                }
-            }
-        }
         default:
             return state;
     }
