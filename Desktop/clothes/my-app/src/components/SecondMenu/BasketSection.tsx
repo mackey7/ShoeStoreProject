@@ -89,7 +89,18 @@ interface IProps {
 
 
 const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeItemFromCart }) => {
-
+    const MapCart = cart.map((item: any) =>
+        <ProductItem key={uuid.v4()}>
+            <ProductImg src={item.src} />
+            <ProductName >
+                {item.name}
+            </ProductName >
+            <span>{item.quantity}</span>
+            <DeleteProduct >
+                <i className="fas fa-trash-alt" onClick={() => removeItemFromCart(item.id)}></i>
+            </DeleteProduct >
+        </ProductItem>
+    )
     return (
         <Section>
             <div onClick={SwitchIsOpen}>
@@ -98,19 +109,13 @@ const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeIt
             </div>
             <Box isOpen={isOpen}>
 
+                {cart.length > 0 ? MapCart : <div> no products </div>}
 
 
-                {cart.map((item: any) =>
-                    <ProductItem key={uuid.v4()}>
-                        <ProductImg src={item.src} />
-                        <ProductName >
-                            {item.name}
-                        </ProductName >
-                        <DeleteProduct >
-                            <i className="fas fa-trash-alt" onClick={() => removeItemFromCart(item.id)}></i>
-                        </DeleteProduct >
-                    </ProductItem>
-                )}
+
+
+
+
 
 
                 <More><LINK to="/cart">More</LINK> </More>

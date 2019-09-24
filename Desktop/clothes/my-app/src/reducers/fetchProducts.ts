@@ -14,6 +14,7 @@ interface IPropsState {
     newArrival?: any;
     sorted?: any
     searchProducts?: any;
+    cartTotal: number;
 }
 interface IPropsAction {
     id?: any;
@@ -27,6 +28,7 @@ interface IPropsAction {
 }
 
 const initial: IPropsState = {
+    cartTotal: 0,
     searchProducts: [],
     sorted: [],
     products: [],
@@ -37,7 +39,7 @@ const initial: IPropsState = {
         "price": 49.99,
         "currency": "$",
         "onSale": "false",
-        "quantity": 10,
+        "quantity": 1,
         "category": "shoes",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, quidem? Excepturi suscipit quo dolores, debitis quae omnis quas a eos inventore repudiandae eaque aliquam cumque accusantium facilis quibusdam necessitatibus amet nam alias minus similique illo dignissimos impedit. Asperiores veniam doloremque quas natus ipsam et quam necessitatibus. Cumque quae iusto explicabo dolorem animi ratione repellendus enim sed esse cupiditate. Minima eaque, perspiciatis rerum praesentium, dicta maiores laudantium eveniet possimus laborum laboriosam eligendi suscipit ducimus, ipsum distinctio corrupti sequi veniam repellat nemo. Voluptates eum porro exercitationem sequi cum, ullam vitae reprehenderit fuga officiis mollitia velit delectus quod eaque soluta nam voluptatem totam?",
         "gender": "man",
@@ -51,7 +53,7 @@ const initial: IPropsState = {
         "price": 49.99,
         "currency": "$",
         "onSale": false,
-        "quantity": 10,
+        "quantity": 1,
         "category": "shoes",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, quidem? Excepturi suscipit quo dolores, debitis quae omnis quas a eos inventore repudiandae eaque aliquam cumque accusantium facilis quibusdam necessitatibus amet nam alias minus similique illo dignissimos impedit. Asperiores veniam doloremque quas natus ipsam et quam necessitatibus. Cumque quae iusto explicabo dolorem animi ratione repellendus enim sed esse cupiditate. Minima eaque, perspiciatis rerum praesentium, dicta maiores laudantium eveniet possimus laborum laboriosam eligendi suscipit ducimus, ipsum distinctio corrupti sequi veniam repellat nemo. Voluptates eum porro exercitationem sequi cum, ullam vitae reprehenderit fuga officiis mollitia velit delectus quod eaque soluta nam voluptatem totam?",
         "gender": "man",
@@ -114,37 +116,84 @@ const fetchProducts: Reducer<IPropsState, IPropsAction> = (state = initial, acti
             return { ...state, searchProducts: actions.payload }
         }
         case ADD_TO_CART: {
-
             let addedProduct = state.products.find((item: any) => item.id === actions.id)
-
-            return {
-                ...state,
-                cart: [...state.cart, addedProduct]
-
+            let existedProduct = state.cart.find((item: any) => actions.id === item.id)
+            if (existedProduct) {
+                addedProduct.quantity += 1
+                return {
+                    ...state, cart: [...state.cart],
+                    cartTotal: state.cartTotal + addedProduct.price
+                }
             }
+            else {
+                addedProduct.quantity = 1;
+                let newTotal = state.cartTotal + addedProduct.price
+                return {
+                    ...state, cart: [...state.cart, addedProduct],
+                    cartTotal: newTotal
+                }
+            }
+
 
         }
         case ADD_TO_FAVOURITE: {
-
             let addedProduct = state.products.find((item: any) => item.id === actions.id)
+            let existedProduct = state.favourite.find((item: any) => actions.id === item.id)
 
-            return {
-                ...state,
-                favourite: [...state.favourite, addedProduct]
+            if (existedProduct) {
+                existedProduct.quantity += 1;
+                return {
+                    ...state, favourite: [...state.favourite]
+
+                }
+
+            } else {
+                addedProduct.quantity = 1;
+                return {
+                    ...state,
+                    favourite: [...state.favourite, addedProduct]
+
+                }
 
             }
 
         }
         case REMOVE_ITEM_FROM_CART: {
+            let productToRemove = state.cart.find((item: any) => actions.id === item.id)
             let new_Array = state.cart.filter((item: any) => actions.id !== item.id)
-            return {
-                ...state, cart: new_Array,
+            let NewCartTotal = state.cartTotal - (productToRemove.price * productToRemove.quantity)
+            if (productToRemove.quantity > 1) {
+                productToRemove.quantity -= 1
+                return {
+                    ...state, cart: [...state.cart],
+                    cartTotal: NewCartTotal
+                }
+            } else {
+                return {
+                    ...state, cart: new_Array,
+                    cartTotal: NewCartTotal
+
+                }
             }
+
+
         }
         case REMOVE_ITEM_FROM_FAVOURITE: {
+            let productToRemove = state.favourite.find((item: any) => actions.id === item.id)
             let new_Array = state.favourite.filter((item: any) => actions.id !== item.id)
-            return {
-                ...state, favourite: new_Array,
+
+            if (productToRemove.quantity > 1) {
+                productToRemove.quantity -= 1
+                return {
+                    ...state, favourite: [...state.favourite]
+
+                }
+            } else {
+                return {
+                    ...state, favourite: new_Array,
+
+
+                }
             }
         }
         case SORT_PRICE: {

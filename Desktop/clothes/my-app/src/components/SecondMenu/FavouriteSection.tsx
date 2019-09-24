@@ -88,7 +88,18 @@ interface IProps {
 
 
 const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite, removeItemFromFavourite }) => {
-
+    const MapFavourite = favourite.map((item: any) =>
+        <ProductItem key={uuid.v4()}>
+            <ProductImg src={item.src} />
+            <ProductName >
+                {item.name}
+            </ProductName >
+            <span>{item.quantity}</span>
+            <DeleteProduct >
+                <i className="fas fa-trash-alt" onClick={() => removeItemFromFavourite(item.id)}></i>
+            </DeleteProduct >
+        </ProductItem>
+    )
     return (
         <Section>
             <div onClick={SwitchIsOpen}>
@@ -96,17 +107,8 @@ const FavouriteSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, favourite, 
                 <Span> {favourite.length}</Span>
             </div>
             <Box isOpen={isOpen} >
-                {favourite.map((item: any) =>
-                    <ProductItem key={uuid.v4()}>
-                        <ProductImg src={item.src} />
-                        <ProductName >
-                            {item.name}
-                        </ProductName >
-                        <DeleteProduct >
-                            <i className="fas fa-trash-alt" onClick={() => removeItemFromFavourite(item.id)}></i>
-                        </DeleteProduct >
-                    </ProductItem>
-                )}
+                {favourite.length > 0 ? MapFavourite : <div> no products </div>}
+
 
                 <More><LINK to="/favourite">More</LINK> </More>
             </Box>
