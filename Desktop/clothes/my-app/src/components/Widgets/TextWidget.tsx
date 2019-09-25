@@ -3,11 +3,11 @@ import WidgetTitle from './WidgetTitle'
 import Styled from 'styled-components'
 
 const TextWidgetWrapper = Styled.section`
-width:100%;
-padding-bottom:20px;
-@media only screen and (min-width: 900px) {
- width:33%;
-}
+    width:100%;
+    padding-bottom:20px;
+        @media only screen and (min-width: 900px) {
+            width:33%;
+        }
 `
 
 

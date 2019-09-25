@@ -1,20 +1,20 @@
 import React from "react";
 import SearchModal from "./../../components/FirstMenu/SearchModal";
 import {
-    fetchProductsToSearchSucces
+    fetchProductsResponse
 } from "../../actions/products";
 import { connect } from "react-redux";
 
 
 interface Iprops {
     products: any;
-    fetchProductsToSearchSucces: any;
+    fetchProductsResponse: any;
     switchOpenSearch: any;
     searchProductsInProducts?: any;
 }
 
-interface IState { }
-class SeaarchContainer extends React.Component<Iprops, IState> {
+
+class SeaarchContainer extends React.Component<Iprops> {
     state = {
         inputValue: "",
         searchedProducts: []
@@ -38,7 +38,7 @@ class SeaarchContainer extends React.Component<Iprops, IState> {
         });
     };
     componentDidMount() {
-        this.props.fetchProductsToSearchSucces();
+        this.props.fetchProductsResponse();
     }
     render() {
         const { switchOpenSearch } = this.props;
@@ -57,7 +57,7 @@ class SeaarchContainer extends React.Component<Iprops, IState> {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        fetchProductsToSearchSucces: () => dispatch(fetchProductsToSearchSucces()),
+        fetchProductsResponse: () => dispatch(fetchProductsResponse()),
 
     };
 };

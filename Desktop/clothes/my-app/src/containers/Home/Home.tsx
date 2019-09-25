@@ -6,19 +6,14 @@ import HomeCategory from '../../components/HomeCategory/HomeCategory';
 import { fetchProductsResponse, addToCart, addToFavourite } from '../../actions/products'
 import { connect } from "react-redux";
 
-
-
-
 interface Iprops {
     products: any;
     fetchProductsResponse: any;
     addToCart: any;
     addToFavourite: any;
 }
-interface IState {
 
-}
-class Home extends React.Component<Iprops, IState> {
+class Home extends React.Component<Iprops> {
     handleAddToCart = (id: number) => {
         this.props.addToCart(id)
     }

@@ -5,24 +5,24 @@ import Styled from 'styled-components'
 import uuid from 'uuid';
 
 const SectionWrapper = Styled.section`
-background:#ebe7df;
+    width:100%;
+    background:#ebe7df;
 `;
 
 
 const Section = Styled.section`
-display:flex;
-flex-direction:column;
-width:90%;
-margin:0 auto;
-padding:30px 0;
-border-top:1px solid black;
+    display:flex;
+    flex-direction:column;
+    width:90%;
+    margin:0 auto;
+    padding:30px 0;
+    border-top:1px solid black;
 @media only screen and (min-width: 900px) {
     width:80%;
- display:flex;
- flex-direction:row;
- 
-}
+    display:flex;
+    flex-direction:row;
 
+}
 `
 
 interface IState {

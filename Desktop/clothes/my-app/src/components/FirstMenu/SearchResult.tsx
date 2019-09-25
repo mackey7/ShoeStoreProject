@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import Styled from 'styled-components'
 
 const Result = Styled(Link)`
-text-decoration:none;
-color:#bbbbbb;
-padding:20px 0px;
-font-size:25px;
-&:hover{
-   color:#fff; 
-}
+    text-decoration:none;
+    color:#bbbbbb;
+    padding:30px 20px;
+    font-size:25px;
+    &:hover{
+    color:#fff; 
+    }
 `
 
 

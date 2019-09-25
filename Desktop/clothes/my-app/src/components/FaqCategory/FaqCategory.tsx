@@ -2,39 +2,38 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const FaqCategorySection = Styled.section`
-background: #ebe7df;
-padding:40px 0px;
+    background: #ebe7df;
+    padding:40px 0px;
 `
 
 const FaqCategoryWrapper = Styled.div`
-width:80%;
-margin:auto;
-background: #f5f2ec;
-padding:40px;
+    width:80%;
+    margin:auto;
+    background: #f5f2ec;
+    padding:40px;
 
 `
 const H2 = Styled.h2`
-padding:30px 0px;
-font-size:40px;
-text-align:center;
+    padding:30px 0px;
+    font-size:40px;
+    text-align:center;
 
 `
 const Row = Styled.div`
-display:flex;
-flex-direction:column;
-padding:40px 0px;
-border-bottom:2px solid #a6a6a6;
+    display:flex;
+    flex-direction:column;
+    padding:40px 0px;
+    border-bottom:2px solid #a6a6a6;
 `
 
 const MiddleRow = Styled.div`
-display:flex;
-flex-direction:row;
-padding:10px 0px;
-
+    display:flex;
+    flex-direction:row;
+    padding:10px 0px;
 `
 const Sign = Styled.span`
-font-weight:900;
-margin-right:30px;
+    font-weight:900;
+    margin-right:30px;
 `
 
 const QuestionText = Styled.p``
@@ -98,13 +97,7 @@ const FaqCategory: React.SFC = () => {
                         <AnswerText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit a mollitia eligendi id, iusto alias dicta sint tempora optio ad animi omnis perspiciatis fugit quae doloremque! Cupiditate magnam fuga modi illo excepturi natus. Pariatur excepturi autem doloribus totam cupiditate officia. Cupiditate tempore sapiente ad dolorem. Distinctio dolore dolores ducimus explicabo ad nisi at, veritatis tempora, ex laborum nobis pariatur ea quia temporibus. Ea eveniet vero vel iure expedita, architecto explicabo odio commodi repellat dicta recusandae quidem dolore corporis. Corporis assumenda obcaecati minus necessitatibus voluptatem aut pariatur esse sequi. Dolorem adipisci commodi culpa omnis nihil, sequi quisquam non beatae quo.</AnswerText>
                     </MiddleRow>
                 </Row>
-
-
-
-
-
             </FaqCategoryWrapper>
-
         </FaqCategorySection>
     )
 }

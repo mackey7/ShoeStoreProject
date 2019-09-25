@@ -8,10 +8,8 @@ interface Iprops {
     posts: any;
     fetchBlogResponse: any;
 }
-interface IState {
 
-}
-class Blog extends React.Component<Iprops, IState> {
+class Blog extends React.Component<Iprops> {
     componentDidMount() {
         this.props.fetchBlogResponse();
     }

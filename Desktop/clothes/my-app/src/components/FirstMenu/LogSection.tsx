@@ -1,20 +1,21 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+
 const LoginWrapper = Styled.div`
-color:white;
-margin-left:10px;
-display: flex;
-justify-content: center;
-align-items: center; 
-padding:0px 20px;
+    color:white;
+    margin-left:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding:0px 20px;
 `
 const LINK = Styled(Link)`
-color:white;
-text-decoration:none;
-margin-left:10px;
-margin-right:10px;
-font-size:24px;
+    color:white;
+    text-decoration:none;
+    margin-left:10px;
+    margin-right:10px;
+    font-size:24px;
 `
 
 

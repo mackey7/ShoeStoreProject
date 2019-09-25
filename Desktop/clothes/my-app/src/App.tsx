@@ -22,7 +22,7 @@ import CartPage from './containers/CartPage/CartPage'
 import FavouritePage from './containers/FavouritePage/FavouritePage'
 import BestSellers from './containers/BestSellers/BestSellers'
 import NewArrivals from './containers/NewArrivals/NewArrivals'
-import './App.css'
+
 
 const App: React.FC = () => {
   return (

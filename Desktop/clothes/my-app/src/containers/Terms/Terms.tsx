@@ -1,13 +1,7 @@
 import React from 'react'
 import TermsCategory from '../../components/TermsCategory/TermsCategory'
-interface Iprops {
 
-}
-interface IState {
-
-}
-class Terms extends React.Component<Iprops, IState> {
-
+class Terms extends React.Component {
     render() {
         return (
             <div>

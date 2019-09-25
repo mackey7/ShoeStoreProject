@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
-// import SearchModal from './SearchModal'
 import SearchContainer from '../../containers/SearchContainer/SearchContainer';
 
 const Icon = styled.i`
-color:white;
-display: flex;
-justify-content: center;
-align-items: center; 
-font-size:24px;
-cursor: pointer;
-position:relative;
-
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size:24px;
+    cursor: pointer;
+    position:relative;
 `
 interface IState {
     OpenSearch: boolean;

@@ -8,10 +8,8 @@ interface Iprops {
     match: any;
     posts: any;
 }
-interface IState {
 
-}
-class ArticlePage extends React.Component<Iprops, IState> {
+class ArticlePage extends React.Component<Iprops> {
     componentWillMount() {
         let postId = this.props.match.params.id;
         console.log(postId)

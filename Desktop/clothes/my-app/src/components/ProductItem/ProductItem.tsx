@@ -4,24 +4,17 @@ import ProductImage from './ProductImage'
 import ProductPrice from './ProductPrice'
 import ProductInfo from './ProductInfo'
 
-
-
 const ProductDetails = Styled.div`
-display:flex;
-border-top:1px solid black;
-height:70px;
+    display:flex;
+    border-top:1px solid black;
+    height:70px;
 `
 const ProductItemWrapper = Styled.section`
-background:#fff;
-width:300px;
-height:300px;
-margin: 0px 30px 30px 0px;
-
+    background:#fff;
+    width:300px;
+    height:300px;
+    margin: 0px 30px 30px 0px;
 `
-
-
-
-
 interface Iprops {
     src: string;
     alt: string;
@@ -49,14 +42,11 @@ class ProductItem extends React.Component<Iprops, IState> {
         }
     }
     handleMove = (arg: boolean) => {
-
         this.setState(() => {
             return {
                 isMove: arg
             }
         });
-
-
     }
 
     render() {

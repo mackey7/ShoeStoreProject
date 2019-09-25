@@ -2,15 +2,17 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Section = Styled.section`
-display:flex;
-margin-bottom:20px;
+    display:flex;
+    margin-bottom:20px;
+    align-items:center;
 `
-
-
 const DateWrapper = Styled.section`
-background-color:#84d4b9;
-margin-right:20px;
-color:white;
+    background-color:#84d4b9;
+    margin-right:20px;
+    color:white;
+    padding:20px;
+    font-weight:600;
+    font-size:25px;
 `
 interface IProps {
     data: any

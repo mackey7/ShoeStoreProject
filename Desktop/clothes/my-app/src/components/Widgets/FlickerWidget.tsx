@@ -5,24 +5,22 @@ import Styled from 'styled-components'
 import uuid from 'uuid';
 
 const FlickerWidgetWrapper = Styled.section`
-width:100%;
-padding-bottom:20px;
-@media only screen and (min-width: 900px) {
- width:33%;
-}
+    width:100%;
+    padding-bottom:20px;
+    @media only screen and (min-width: 900px) {
+        width:33%;
+    }
 `
 const Images = Styled.section`
-margin-top:20px;
-display:flex;
-flex-wrap:wrap;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-@media only screen and (min-width: 900px) {
- display:flex;
- flex-direction:row;
- justify-content:flex-start;
-}
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    align-content:center;
+    @media only screen and (min-width: 900px) {
+        display:flex;
+        justify-content:flex-start;
+    }
 `
 
 interface IState {
@@ -47,8 +45,7 @@ class FlickerWidget extends React.Component<{}, IState> {
             <FlickerWidgetWrapper>
                 <WidgetTitle title="flickr widget" />
                 <Images>
-                    {ImageLink.map(item => <WidgetImage key={uuid.v4()} src={item.src} alt={item.alt} height={'100'} width={'100'} />)}
-
+                    {ImageLink.map(item => <WidgetImage key={uuid.v4()} src={item.src} alt={item.alt} />)}
                 </Images>
             </FlickerWidgetWrapper >
         )

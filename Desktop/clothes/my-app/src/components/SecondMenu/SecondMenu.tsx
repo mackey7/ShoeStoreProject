@@ -4,13 +4,13 @@ import RightSection from './RightSection';
 import Styled from 'styled-components'
 
 const NavWrapper = Styled.nav`
-border-bottom:4px solid #ebe7df;
+    border-bottom:4px solid #ebe7df;
 `
 const Nav = Styled.div`
-width:80%;
-margin:0 auto;
-display:flex;
-flex-direction:row;
+    width:80%;
+    margin:0 auto;
+    display:flex;
+    flex-direction:row;
 `
 const Menu: any = Styled.div`
     display: ${(props: any) => (props.HideMenu ? 'none' : 'flex')}
@@ -24,14 +24,13 @@ const Menu: any = Styled.div`
     }
 `
 const HamburgerIcon = Styled.i`
-display: block;
-font-size: 30px;
-cursor: pointer;
-@media only screen and (min-width: 900px) {
-    display: none;
-}
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+        @media only screen and (min-width: 900px) {
+            display: none;
+        }
 `
-
 
 interface IState {
     HideMenu: boolean;
@@ -55,8 +54,6 @@ class SecondMenu extends Component<IProps, IState> {
                 HideMenu: !PrevState.HideMenu
             }
         });
-        console.log(this.state.HideMenu)
-
     }
 
     render() {

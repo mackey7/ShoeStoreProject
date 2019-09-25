@@ -2,26 +2,24 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Section = Styled.section`
-background:#dfdbd4;
-padding:20px;
-width:100%;
-margin:10px;
-
-h2{
-margin-bottom:15px;
-color:#535250;
-}
-p{
-color:#535250;
-padding-bottom:20px;
-}
-span{
-color:#535250;
-}
-@media only screen and (min-width: 900px) {
-    width:20%
-
-}
+    background:#dfdbd4;
+    padding:20px;
+    max-width:100%;
+    margin:10px;
+    h2{
+        margin-bottom:15px;
+        color:#535250;
+    }
+    p{
+        color:#535250;
+        padding-bottom:20px;
+    }
+    span{
+    
+    }
+    @media only screen and (min-width: 900px) {
+        width:20%
+    }
 `
 interface IProps {
     data: any

@@ -5,52 +5,61 @@ import { Link } from 'react-router-dom'
 import uuid from 'uuid'
 
 const CategoryWrapper = Styled.section`
-padding: 30px 20px;
-background:#ebe7df;
+    padding: 30px 20px;
+    background:#ebe7df;
 `
 const Category = Styled.section`
- margin:0 auto;
-@media screen and (min-width: 600px) {
- width:80%; 
-}
+    margin:0 auto;
+    @media screen and (min-width: 600px) {
+        width:80%; 
+    }
 `
 const CategoryHeader = Styled.div`
-display:flex;
-flex-direction:column;
-@media screen and (min-width: 600px) {
-  display:flex;
-flex-direction:row;
-justify-content:space-between;
-}
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    flex-wrap:wrap;
+    align-items:center;
+    @media screen and (min-width: 600px) {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+    }
 `
 const ProductsItems = Styled.div`
-padding:40px 0px;
-  display:flex;
-flex-direction:column;
-justify-content:space-between;
-@media screen and (min-width: 600px) {
-  display:flex;
-flex-direction:row;
-justify-content:space-between;
+    padding:40px 0px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+@media screen and (min-width: 900px) {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
 }
 `
 const EmptyArray = Styled.p`
-font-size:50px;
-text-align:center;
+    font-size:50px;
+    text-align:center;
 `
 const LINK = Styled(Link)`
-border:0;
-background:inherit;
-border:1px solid #bcb5a7;
-padding:5px 20px;
-text-decoration:none;
-font-weight:700;
- color:#bcb5a7;  
-&:hover{  
- background:#bcb5a7;
- cursor: pointer;
- color:#000;
-}
+    width:70px;
+    border:0;
+    background:inherit;
+    border:1px solid #bcb5a7;
+    padding:5px 20px;
+    text-decoration:none;
+    font-weight:700;
+    color:#bcb5a7;  
+    margin-top:20px;
+    &:hover{  
+        background:#bcb5a7;
+        cursor: pointer;
+        color:#000; 
+    }   
+    @media screen and (min-width: 600px) {
+        margin-top:0px
+    }
 `
 
 
@@ -74,8 +83,6 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart, ad
 
             <EmptyArray> No products</EmptyArray>;
 
-
-
     return (
         <CategoryWrapper>
             <Category>
@@ -83,13 +90,10 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart, ad
                     <h2> {title}</h2>
                     <LINK to={RouteName}>Show All</LINK>
                 </CategoryHeader>
-
                 <ProductsItems>
                     {products}
                 </ProductsItems>
-
             </Category >
-
         </CategoryWrapper >
     )
 }

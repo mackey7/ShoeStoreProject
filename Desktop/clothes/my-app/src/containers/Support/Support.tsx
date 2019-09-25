@@ -1,13 +1,7 @@
 import React from 'react'
 import SupportCategory from '../../components/SupportCategory/SupportCategory'
-interface Iprops {
 
-}
-interface IState {
-
-}
-class Support extends React.Component<Iprops, IState> {
-
+class Support extends React.Component {
     render() {
         return (
             <div>

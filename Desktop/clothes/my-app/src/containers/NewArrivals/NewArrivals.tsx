@@ -12,10 +12,8 @@ interface Iprops {
     fetchProductsResponse: any;
 }
 
-interface IState {
 
-}
-class NewArrivals extends React.Component<Iprops, IState> {
+class NewArrivals extends React.Component<Iprops> {
     handleAddToCart = (id: number) => {
         this.props.addToCart(id)
     }

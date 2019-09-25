@@ -4,66 +4,65 @@ import uuid from 'uuid'
 
 
 const ProductName = Styled.h2`
-padding: 20px 0px;
-font-size:25px;
+    padding: 20px 0px;
+    font-size:25px;
 `
 
 const ProductPageSection = Styled.section`
-background:#ebe7df;
+    background:#ebe7df;
 `
 const ProductPageWrapper = Styled.div`
-margin:0 auto;
-width:80%;
-background:#f2f0ed;
-padding:40px;
-
+    margin:0 auto;
+    width:80%;
+    background:#f2f0ed;
+    padding:40px;
 `
 
 const Img = Styled.img`
-width:50%;
-max-height:500px;
-border:2px solid #b8b8b8;
+    width:50%;
+    max-height:500px;
+    border:2px solid #b8b8b8;
 `
 
 const Content = Styled.div`
-width:50%;
-margin-left:30px;
+    width:50%;
+    margin-left:30px;
 `
 
 const Row = Styled.div`
-display:flex;
-justify-content:center;
+    display:flex;
+    justify-content:center;
 `
 const Desc = Styled.p`
-padding: 20px 0px;
+    padding: 20px 0px;
 `;
 
 const Price = Styled.span`
-padding: 20px 0px;
-font-weight:600;
-font-size:25px;
+    padding: 20px 0px;
+    font-weight:600;
+    font-size:25px;
 `;
 
 
 const BuyBtn = Styled.button`
-margin-top:5px ;
-padding:10px 40px;
-font-size:20px;
-background:#7db71e;
-border:2px solid #c5c9bd;
-cursor:pointer;
-color:#fff;
-font-weight:700;
-&:hover{
-    background:#08b438;
-    border:2px solid #7db71e;
-}
+    margin-top:5px ;
+    padding:10px 40px;
+    font-size:20px;
+    background:#7db71e;
+    border:2px solid #c5c9bd;
+    cursor:pointer;
+    color:#fff;
+    font-weight:700;
+    &:hover{
+        background:#08b438;
+        border:2px solid #7db71e;
+    }
 `
 
 const RowPrice = Styled.div`
-width:100%;
-display:flex;
-justify-content: space-around;
+    width:100%;
+    display:flex;
+    justify-content: space-around;
 `
 
 interface IProps {
@@ -102,18 +101,9 @@ const ProductPageComponent: React.SFC<IProps> = ({ postID, addToCart, data }) =>
     ))
 
     return (
-
-
         < ProductPageSection >
             <ProductPageWrapper>
                 {data.length > 0 ? DataMapToItem : "loading"}
-
-
-
-
-
-
-
             </ProductPageWrapper>
         </ProductPageSection >
     )

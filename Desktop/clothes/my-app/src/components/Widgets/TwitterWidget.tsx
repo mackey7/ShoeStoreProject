@@ -4,24 +4,24 @@ import Styled from 'styled-components'
 import styled from 'styled-components';
 
 const TwitterWidgetWrapper = Styled.section`
-width:100%;
-padding:0px 20px ;
+    width:100%;
+    padding:0px ;
 @media only screen and (min-width: 900px) {
- width:33%;
+    width:33%;
 }
 @media only screen and (min-width: 900px) {
-padding:0px 40px;
+    padding:0px 40px;
 }
 `
 const TwitUser = Styled.span`
-color:#57c5a0;
+    color:#57c5a0;
 `
 const Post = styled.section`
-margin-bottom:10px;
+    margin-bottom:10px;
 `
 
 const Time = styled.span`
-font-weight:600;
+    font-weight:600;
 `
 
 const TwitterWidget: React.SFC = () => {

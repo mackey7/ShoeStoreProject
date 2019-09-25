@@ -2,19 +2,16 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Wrapper = Styled.section`
-background:#242424;
+    background:#242424;
 `
 const Section = Styled.section`
-width:90%;
-margin:0 auto;
-
-
-@media only screen and (min-width: 600px) {
-  display:flex;
-  flex-direction:row;
-  width:80%;
-}
-
+    width:90%;
+    margin:0 auto;
+    @media only screen and (min-width: 600px) {
+        display:flex;
+        flex-direction:row;
+        width:80%;
+    }
 `
 
 import CategoryItem from './CategoryItem'

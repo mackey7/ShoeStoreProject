@@ -2,45 +2,41 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const TermsCategorySection = Styled.section`
-background: #ebe7df;
-padding:40px 0px;
+    background: #ebe7df;
+    padding:40px 0px;
 `
 
 const TermsCategoryWrapper = Styled.div`
-width:80%;
-margin:auto;
-background: #f5f2ec;
-padding:40px;
+    width:80%;
+    margin:auto;
+    background: #f5f2ec;
+    padding:40px;
 `
 
 const H2 = Styled.h2`
-text-align:center;
-padding:30px 0px;
-font-size:40px;
+    text-align:center;
+    padding:30px 0px;
+    font-size:40px;
 `
 
 const P = Styled.p`
-margin:30px 0px;
+    margin:30px 0px;
 `
 
 const OL = Styled.ol`
-margin:20px 0px 20px 40px;
+    margin:20px 0px 20px 40px;
 `
 const LI = Styled.li`
-font-weight:600;
-padding-bottom:6px;
-
+    font-weight:600;
+    padding-bottom:6px;
 `
 
 const TermsCategory: React.SFC = () => {
 
     return (
         <TermsCategorySection>
-
             <TermsCategoryWrapper>
-
                 <H2>Terms</H2>
-
                 <P> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quo maxime dolor dignissimos laudantium expedita culpa officia iste, voluptatum neque libero consequuntur assumenda cum cumque. Sed consequuntur libero obcaecati odit nesciunt repellat doloremque aspernatur excepturi facilis impedit ea quam quae placeat dolorum rerum ipsum optio qui, esse neque ut inventore atque. Voluptatem unde eius dolores voluptate officiis cupiditate a possimus iusto architecto est? Esse, accusamus aliquid rem ducimus repellendus cupiditate modi voluptatum dolorum iste odit distinctio amet nam aspernatur molestias provident, est non eos. Incidunt velit consequatur, at vitae itaque quia natus error voluptate porro explicabo enim modi esse quos ratione voluptates perspiciatis alias? Sed itaque quas similique amet quos in incidunt omnis, quidem labore. Facilis quaerat, nostrum porro recusandae, expedita error maxime nihil corrupti quisquam ipsum laborum provident corporis dolore culpa libero laudantium ab sed velit vero at inventore, quo cumque perspiciatis! Enim provident sunt dolorum alias, aut magnam? In vero nobis aspernatur, dolorem eum laudantium accusantium quas animi ab sed provident quasi enim omnis est natus, cupiditate consectetur quod tenetur incidunt nostrum facere odio ut! Ad perspiciatis sint esse id nemo libero autem cumque inventore, qui modi tempora obcaecati molestiae doloribus, alias neque at accusantium, magni quasi possimus.</P>
                 <OL>
                     <LI>
@@ -86,7 +82,6 @@ const TermsCategory: React.SFC = () => {
                 </OL>
 
             </TermsCategoryWrapper>
-
         </TermsCategorySection>
     )
 }

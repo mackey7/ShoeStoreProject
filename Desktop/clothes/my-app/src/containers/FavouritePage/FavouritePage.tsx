@@ -6,10 +6,8 @@ interface Iprops {
     favourite: any;
     removeItemFromFavourite: any;
 }
-interface IState {
 
-}
-class FavouritePage extends React.Component<Iprops, IState> {
+class FavouritePage extends React.Component<Iprops> {
     handleRemove = (id: number) => {
         this.props.removeItemFromFavourite(id)
     }

@@ -3,19 +3,14 @@ import ProductPageComponent from '../../components/ProductPageComponent/ProductP
 import { fetchProductsResponse, addToCart } from '../../actions/products'
 import { connect } from "react-redux";
 
-
-
-
 interface Iprops {
     match: any,
     fetchProductsResponse: any;
     addToCart: any;
     products: any;
 }
-interface IState {
 
-}
-class ProductPage extends React.Component<Iprops, IState> {
+class ProductPage extends React.Component<Iprops> {
     componentWillMount() {
         let postId = this.props.match.params.id
     }

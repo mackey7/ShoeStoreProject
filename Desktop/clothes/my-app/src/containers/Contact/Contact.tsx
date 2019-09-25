@@ -1,12 +1,7 @@
 import React from 'react'
 import ContactCategory from '../../components/ContactCategory/ContactCategory'
-interface Iprops {
 
-}
-interface IState {
-
-}
-class Contact extends React.Component<Iprops, IState> {
+class Contact extends React.Component {
 
     render() {
         return (

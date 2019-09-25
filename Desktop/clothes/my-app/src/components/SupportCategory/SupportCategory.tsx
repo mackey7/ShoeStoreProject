@@ -2,47 +2,45 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const SupportCategorySection = Styled.section`
-background: #ebe7df;
-padding:40px 0px;
+    background: #ebe7df;
+    padding:40px 0px;
 `
 
 const SupportCategoryWrapper = Styled.div`
-width:80%;
-margin:auto;
-background: #f5f2ec;
-padding:30px;
+    width:80%;
+    margin:auto;
+    background: #f5f2ec;
+    padding:30px;
 `
 const P = Styled.p`
-margin:40px 0px;
+    margin:40px 0px;
 `
 
 const H2 = Styled.h2`
-text-align:center;
-margin:0px 0px 20px 0px;
-font-size:40px;
+    text-align:center;
+    margin:0px 0px 20px 0px;
+    font-size:40px;
 `
 const OL = Styled.ol`
-margin: 20px 0px  0px 40px;
+    margin: 20px 0px  0px 40px;
 `
 const UL = Styled.ol`
-margin: 20px 0px  0px 40px;
+    margin: 20px 0px  0px 40px;
 `
 
 const LI = Styled.li`
-margin-bottom:5px;
-font-weight:500;
+    margin-bottom:5px;
+    font-weight:500;
 `
 
 const ListTitle = Styled.h3`
-padding-bottom:10px;
-margin-left:-30px;
+    padding-bottom:10px;
+    margin-left:-30px;
 `
 
 const SupportCategory: React.SFC = () => {
-
     return (
         <SupportCategorySection>
-
             <SupportCategoryWrapper>
 
                 <H2>Support</H2>
@@ -96,7 +94,6 @@ const SupportCategory: React.SFC = () => {
 </P>
 
             </SupportCategoryWrapper>
-
         </SupportCategorySection>
             )
         }

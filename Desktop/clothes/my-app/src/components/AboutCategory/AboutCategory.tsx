@@ -2,23 +2,23 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const AboutCategoryWrapper = Styled.section`
-background:#ebe7df;
-padding:30px 0px;
+    background:#ebe7df;
+    padding:30px 0px;
 `
 const AboutCategorySection = Styled.section`
-width:80%;
-margin:0 auto;
-padding:30px 20px;
-background:#fdfbf6;
+    width:80%;
+    margin:0 auto;
+    padding:30px 20px;
+    background:#fdfbf6;
 
 `
 const H2 = Styled.h2`
-text-align:center;
-font-size:40px;
+    text-align:center;
+    font-size:40px;
 
 `
 const P = Styled.p`
-padding:30px 0px;
+    padding:30px 0px;
 `
 
 const AboutCategory: React.SFC = () => {

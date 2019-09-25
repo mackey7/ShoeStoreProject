@@ -13,10 +13,8 @@ interface Iprops {
     addToCart: any;
     addToFavourite: any;
 }
-interface IState {
 
-}
-class HeaderContainer extends React.Component<Iprops, IState> {
+class HeaderContainer extends React.Component<Iprops> {
     state = {
         activeIndex: 0,
 
@@ -39,9 +37,7 @@ class HeaderContainer extends React.Component<Iprops, IState> {
 
 
 
-    nextSlide = (e: any) => {
-        // e.preventDefault();
-
+    nextSlide = () => {
         let index = this.state.activeIndex;
         let { products } = this.props;
         let slidesLength = products.slice(0, 3).length;

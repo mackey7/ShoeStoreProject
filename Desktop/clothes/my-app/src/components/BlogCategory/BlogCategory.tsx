@@ -4,13 +4,13 @@ import PostShortItem from './PostShortItem'
 import uuid from 'uuid'
 
 const BlogCategorySection = Styled.section`
-background:#ebe7df;
-margin:0;
+    background:#ebe7df;
+    margin:0;
 `
 const BlogCategoryWrapper = Styled.section`
-width:80%;
-margin:auto;
-padding:20px 0px;
+    width:80%;
+    margin:auto;
+    padding:20px 0px;
 `
 
 interface IProps {
@@ -18,16 +18,13 @@ interface IProps {
 }
 
 const BlogCategory: React.SFC<IProps> = ({ data }) => {
-
+    const MapData = data.map((item: any) =>
+        <PostShortItem key={uuid.v4()} data={item} />
+    )
     return (
         <BlogCategorySection>
             <BlogCategoryWrapper>
-                {data.map((item: any) =>
-                    <PostShortItem key={uuid.v4()} data={item} />
-
-                )}
-
-
+                {MapData}
             </BlogCategoryWrapper>
         </BlogCategorySection>
     )

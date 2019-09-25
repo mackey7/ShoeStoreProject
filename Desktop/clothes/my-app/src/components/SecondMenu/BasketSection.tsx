@@ -2,6 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import uuid from 'uuid';
+
 const Section = Styled.div`
     padding:10px;
     position:relative;
@@ -9,6 +10,7 @@ const Section = Styled.div`
 
 const Icon = Styled.i`
     font-size:24px;
+    cursor:pointer;
 `
 const Span = Styled.span`
     background:#57c5a0;
@@ -23,17 +25,21 @@ const Span = Styled.span`
 const Box: any = Styled.section`
     position:absolute;
     top:45px;
-    right:-130px;
+    right:-50px;
     background:#fff;
     width:300px;
     border:2px solid #9a9a9a;
     display: ${(props: any) => (props.isOpen ? "block" : "none")};
     z-index:3;
+    @media only screen and (min-width: 900px) {
+      right:-130px;
+}
 `
 const ProductItem = Styled.div`
     display:flex;
+    flex-direction:row;
     align-items:center;
-    justify-content: space-around;
+    justify-content: space-between;
     border-bottom:2px solid #9a9a9a;
 `
 const ProductImg = Styled.img`
@@ -41,42 +47,46 @@ const ProductImg = Styled.img`
     width:50px;
 `
 const ProductName = Styled.p`
+    padding-left:10px;
 `
 const DeleteProduct = Styled.button`
-background:inherit;
-border:0;
-font-size:20px;
-cursor: pointer;
-font-weight:400;
-    i{
-        color:red;
-            &:hover{
-            color:#ea0f0f;
-            }
-}
+    background:inherit;
+    border:0;
+    font-size:20px;
+    cursor: pointer;
+    padding: 0px 10px 0px 10px
+    font-weight:400;
+        i{
+            color:red;
+                &:hover{
+                color:#ea0f0f;
+                }
+    }
 `
 const More = Styled.button`
-width: 100%;
-padding:8px 0px;
-background:#da2121;
-font-size:18px;
-cursor: pointer;
-border:0px;
-font-weight:600;
-color:#fff;
+    width: 100%;
+    padding:8px 0px;
+    background:#da2121;
+    font-size:18px;
+    cursor: pointer;
+    border:0px;
+    font-weight:600;
+    color:#fff;
 
-&:hover{
+    &:hover{
 
-    background:#ea0f0f;
-}
+        background:#ea0f0f;
+    }
 `
 
 const LINK = Styled(Link)`
-        text-decoration: none;
-        color:#fff;
+    text-decoration: none;
+    color:#fff;
         
 `
-
+const Row = Styled.div`
+    display:flex;
+`
 
 interface IProps {
     SwitchIsOpen: any;
@@ -95,10 +105,12 @@ const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeIt
             <ProductName >
                 {item.name}
             </ProductName >
-            <span>{item.quantity}</span>
-            <DeleteProduct >
-                <i className="fas fa-trash-alt" onClick={() => removeItemFromCart(item.id)}></i>
-            </DeleteProduct >
+            <Row>
+                <span>{item.quantity}</span>
+                <DeleteProduct >
+                    <i className="fas fa-trash-alt" onClick={() => removeItemFromCart(item.id)}></i>
+                </DeleteProduct >
+            </Row>
         </ProductItem>
     )
     return (
@@ -108,16 +120,7 @@ const BasketSection: React.SFC<IProps> = ({ SwitchIsOpen, isOpen, cart, removeIt
                 <Span> {cart.length}</Span>
             </div>
             <Box isOpen={isOpen}>
-
                 {cart.length > 0 ? MapCart : <div> no products </div>}
-
-
-
-
-
-
-
-
                 <More><LINK to="/cart">More</LINK> </More>
             </Box>
         </Section>

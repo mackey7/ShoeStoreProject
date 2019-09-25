@@ -3,33 +3,31 @@ import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const ProductInfoWrapper = Styled.div`
-height:60px;
-width:200px;
-display:flex;
-align-items:center;
-justify-content:center;
+    height:60px;
+    width:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 `
 const Icons = Styled.div`
-display:flex;
-align-items:center;
-justify-content:center;
-i{
-    color:#c0c0c0;
-    cursor:pointer;
-    margin:4px;
-    &:hover{
-        color:#57c5a0;
-        
-
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    i{
+        color:#c0c0c0;
+        cursor:pointer;
+        margin:4px;
+        &:hover{
+            color:#57c5a0;
+        }
     }
-}
 `
 
 const P = Styled.p`
-font-weight:700;
+    font-weight:700;
 `
 const Icon = Styled.i`
-font-size:25px;
+    font-size:25px;
 `
 
 interface Iprops {
@@ -46,11 +44,8 @@ const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove, prod
     const conatiner = isMove ?
         <Icons>
             <Link to={`/product/${productId}`}>
-
                 <Icon className="far fa-eye"> </Icon>
-
             </Link>
-
             <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
             <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
         </Icons >

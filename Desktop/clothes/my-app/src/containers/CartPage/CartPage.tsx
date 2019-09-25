@@ -8,10 +8,8 @@ interface Iprops {
     cart?: any;
     removeItemFromCart: any;
 }
-interface IState {
 
-}
-class CartPage extends React.Component<Iprops, IState> {
+class CartPage extends React.Component<Iprops> {
     handleRemove = (id: number) => {
         this.props.removeItemFromCart(id)
     }
