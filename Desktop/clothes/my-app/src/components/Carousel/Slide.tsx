@@ -3,6 +3,8 @@ import Image from './Image'
 import Content from './Content'
 import Styled from 'styled-components'
 import uuid from 'uuid';
+import "animate.css/animate.min.css";
+import { Animated } from "react-animated-css";
 
 const Wrapper = Styled.div`
     background:#e9e8e3;
@@ -30,10 +32,12 @@ interface IProps {
 
 const Slide: React.SFC<IProps> = ({ data, addToFavourite, addToCart, activeIndex }) => {
     const MapDat = data.slice(3, 7).map((item: any, index: number) =>
-        <SlideWrapper key={uuid.v4()} isDisplay={index == activeIndex} >
-            <Image src={item.src} alt={item.name} />
-            <Content price={item.price} title={item.name} description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores repellendus cum aperiam eos, quibusdam consequatur ." addToFavourite={addToFavourite} addToCart={addToCart} productID={item.id} />
-        </SlideWrapper>
+        <Animated animationIn="zoomIn" animationOut="fadeOut" isVisible={index == activeIndex}>
+            <SlideWrapper key={uuid.v4()} isDisplay={index == activeIndex} >
+                <Image src={item.src} alt={item.name} />
+                <Content price={item.price} title={item.name} description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores repellendus cum aperiam eos, quibusdam consequatur ." addToFavourite={addToFavourite} addToCart={addToCart} productID={item.id} />
+            </SlideWrapper>
+        </Animated >
     )
 
     return (

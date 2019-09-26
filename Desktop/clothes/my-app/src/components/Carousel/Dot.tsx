@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import "animate.css/animate.min.css";
+import { Animated } from "react-animated-css";
 const DotWrapper = Styled.div`
     margin-left:2px;
     width:100%;
@@ -60,15 +61,19 @@ interface Iprops {
 
 const Dot: React.SFC<Iprops> = ({ DotTitle, DotDesc, activeIndex, slideNumber, goToSlide }) => {
     return (
+
         < DotWrapper onClick={() => goToSlide(slideNumber)} >
-            <SlideWrapper>
-                {activeIndex == slideNumber ? <Slide></Slide> : null}
-            </SlideWrapper>
-            <DotInfo>
-                <p>{DotTitle}</p>
-                <p>{DotDesc}</p>
-            </DotInfo>
+            <Animated animationIn="zoomIn" animationOut="fadeOut" animationOutDuration={0} isVisible={true}>
+                <SlideWrapper>
+                    {activeIndex == slideNumber ? <Slide></Slide> : null}
+                </SlideWrapper>
+                <DotInfo>
+                    <p>{DotTitle}</p>
+                    <p>{DotDesc}</p>
+                </DotInfo>
+            </Animated>
         </DotWrapper >
+
     )
 }
 

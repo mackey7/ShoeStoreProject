@@ -26,7 +26,9 @@ interface IProps {
 }
 const CarouselDots: React.SFC<IProps> = ({ data, activeIndex, goToSlide }) => {
     const MapData = data.slice(3, 7).map((item: any, index: any) =>
+
         <Dot key={uuid.v4()} DotTitle={item.name} DotDesc={item.price} activeIndex={activeIndex} slideNumber={index} goToSlide={goToSlide} />
+
     )
     return (
         <CarouselDotsWrapper>
