@@ -3,6 +3,8 @@ import WidgetTitle from './WidgetTitle'
 import WidgetImage from './WidgetImage'
 import Styled from 'styled-components'
 import uuid from 'uuid';
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const FlickerWidgetWrapper = Styled.section`
     width:100%;
@@ -43,7 +45,9 @@ class FlickerWidget extends React.Component<{}, IState> {
         const { ImageLink } = this.state
         return (
             <FlickerWidgetWrapper>
-                <WidgetTitle title="flickr widget" />
+                <ScrollAnimation animateIn='zoomInRight' animateOnce={true} >
+                    <WidgetTitle title="flickr widget" />
+                </ScrollAnimation>
                 <Images>
                     {ImageLink.map(item => <WidgetImage key={uuid.v4()} src={item.src} alt={item.alt} />)}
                 </Images>

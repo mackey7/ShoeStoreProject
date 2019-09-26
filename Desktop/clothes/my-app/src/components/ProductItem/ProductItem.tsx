@@ -3,6 +3,8 @@ import Styled from 'styled-components'
 import ProductImage from './ProductImage'
 import ProductPrice from './ProductPrice'
 import ProductInfo from './ProductInfo'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const ProductDetails = Styled.div`
     display:flex;
@@ -52,13 +54,15 @@ class ProductItem extends React.Component<Iprops, IState> {
     render() {
         const { src, alt, price, productName, addToCart, productId, addToFavourite } = this.props
         return (
-            <ProductItemWrapper>
-                <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} addToCart={addToCart} productId={productId} addToFavourite={addToFavourite} />
-                <ProductDetails>
-                    <ProductPrice price={price} />
-                    <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} addToCart={addToCart} productId={productId} addToFavourite={addToFavourite} />
-                </ProductDetails>
-            </ProductItemWrapper>
+            <ScrollAnimation animateIn='zoomIn' animateOnce={true} >
+                <ProductItemWrapper>
+                    <ProductImage onMouseMove={this.handleMove} isMove={this.state.isMove} src={src} alt={alt} addToCart={addToCart} productId={productId} addToFavourite={addToFavourite} />
+                    <ProductDetails>
+                        <ProductPrice price={price} />
+                        <ProductInfo onMouseMove={this.handleMove} isMove={this.state.isMove} productName={productName} addToCart={addToCart} productId={productId} addToFavourite={addToFavourite} />
+                    </ProductDetails>
+                </ProductItemWrapper>
+            </ScrollAnimation>
         )
     }
 }

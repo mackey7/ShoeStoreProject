@@ -1,6 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const ProductInfoWrapper = Styled.div`
     height:60px;
@@ -43,11 +45,17 @@ const ProductInfo: React.SFC<Iprops> = ({ productName, onMouseMove, isMove, prod
 
     const conatiner = isMove ?
         <Icons>
-            <Link to={`/product/${productId}`}>
-                <Icon className="far fa-eye"> </Icon>
-            </Link>
-            <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
-            <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
+            <ScrollAnimation animateIn="zoomInLeft" duration={1}>
+                <Link to={`/product/${productId}`}>
+                    <Icon className="far fa-eye"> </Icon>
+                </Link>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="zoomInUp" >
+                <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="zoomInRight">
+                <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
+            </ScrollAnimation>
         </Icons >
         :
         <P>  {productName}  </P>

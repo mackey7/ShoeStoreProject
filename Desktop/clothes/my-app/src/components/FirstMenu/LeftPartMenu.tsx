@@ -7,10 +7,12 @@ const Logo = styled(Link)`
     font-size:24px;
     padding:14px;
     text-decoration:none;
+
 `
 
 const LeftPartMenu: React.SFC = () => {
     return (
+
         <Logo to="/">FOOSESHOES</Logo>
 
     )

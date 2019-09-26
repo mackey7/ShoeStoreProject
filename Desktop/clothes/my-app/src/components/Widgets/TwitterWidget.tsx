@@ -2,6 +2,8 @@ import React from 'react'
 import WidgetTitle from './WidgetTitle'
 import Styled from 'styled-components'
 import styled from 'styled-components';
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const TwitterWidgetWrapper = Styled.section`
     width:100%;
@@ -29,19 +31,24 @@ const TwitterWidget: React.SFC = () => {
         <TwitterWidgetWrapper>
             <WidgetTitle title="twitter widget" />
             <Post>
-                <p>
-                    <TwitUser>@ericfustero</TwitUser>
-                    Why thank you. Your work looks awasome by the way!
+                <ScrollAnimation animateIn='zoomInLeft' animateOnce={true} >
+                    <p>
+                        <TwitUser>@ericfustero</TwitUser>
+                        Why thank you. Your work looks awasome by the way!
                 </p>
-                <Time> 19 days ago</Time>
+                    <Time> 19 days ago</Time>
+                </ScrollAnimation>
             </Post>
             <Post>
-                <p>
-                    <TwitUser>@roymarvelous</TwitUser>
-                    You can seek a refund through. TF if is it not as advertised - but it is :)
+                <ScrollAnimation animateIn='zoomInLeft' animateOnce={true} >
+                    <p>
+                        <TwitUser>@roymarvelous</TwitUser>
+                        You can seek a refund through. TF if is it not as advertised - but it is :)
                 </p>
-                <Time> 21 days ago</Time>
+                    <Time> 21 days ago</Time>
+                </ScrollAnimation>
             </Post>
+
         </TwitterWidgetWrapper >
     )
 }

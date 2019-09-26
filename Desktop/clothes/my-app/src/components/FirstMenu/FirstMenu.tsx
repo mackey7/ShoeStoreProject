@@ -7,6 +7,7 @@ const NavWrapper = styled.nav`
     min-width:100%;
     min-height:60px;
     background:#242424;
+
 `
 
 const Nav = styled.div`

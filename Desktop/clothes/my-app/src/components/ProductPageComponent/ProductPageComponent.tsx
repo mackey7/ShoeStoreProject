@@ -1,7 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components'
 import uuid from 'uuid'
-
+import "animate.css/animate.min.css";
+import { Animated } from "react-animated-css";
 
 const ProductName = Styled.h2`
     padding: 20px 0px;
@@ -102,9 +103,11 @@ const ProductPageComponent: React.SFC<IProps> = ({ postID, addToCart, data }) =>
 
     return (
         < ProductPageSection >
-            <ProductPageWrapper>
-                {data.length > 0 ? DataMapToItem : "loading"}
-            </ProductPageWrapper>
+            <Animated animationIn="zoomIn" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                <ProductPageWrapper>
+                    {data.length > 0 ? DataMapToItem : "loading"}
+                </ProductPageWrapper>
+            </Animated>
         </ProductPageSection >
     )
 }

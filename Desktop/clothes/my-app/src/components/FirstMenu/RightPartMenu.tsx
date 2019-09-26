@@ -5,6 +5,8 @@ import LogSection from './LogSection'
 
 const Section = styled.section`
     display:flex;
+   
+  
 `
 
 
@@ -14,7 +16,7 @@ const RightPartMenu: React.SFC = () => {
         <Section>
             <Search />
             <LogSection />
-        </Section>
+        </Section >
     )
 }
 

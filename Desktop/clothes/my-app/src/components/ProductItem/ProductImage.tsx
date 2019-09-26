@@ -1,5 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const Image = Styled.figure`
     width:300px;
@@ -47,8 +49,12 @@ const ProductImage: React.SFC<Iprops> = ({ src, alt, onMouseMove, isMove, addToC
             <img src={src} alt={alt} width="100%" height="100%" />
             {isMove ?
                 <Icons>
-                    <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
-                    <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
+                    <ScrollAnimation animateIn="jackInTheBox" >
+                        <Icon className="far fa-star" onClick={() => addToFavourite(productId)}></Icon>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn="jackInTheBox" >
+                        <Icon className="fas fa-shopping-cart" onClick={() => addToCart(productId)} ></Icon>
+                    </ScrollAnimation>
                 </Icons>
                 :
                 null}

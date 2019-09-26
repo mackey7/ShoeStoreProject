@@ -1,5 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const Section = Styled.section`
     display:flex;
@@ -21,13 +23,17 @@ interface IProps {
 const NewsItem: React.SFC<IProps> = ({ data }) => {
     return (
         <Section>
-            <DateWrapper>
-                {data.date}
+            <ScrollAnimation animateIn='zoomInRight' animateOnce={true} >
+                <DateWrapper>
+                    {data.date}
 
-            </DateWrapper>
+                </DateWrapper>
+            </ScrollAnimation>
             <div>
-                <h2> {data.title} </h2>
-                <p> {data.content} </p>
+                <ScrollAnimation animateIn='zoomInRight' animateOnce={true} >
+                    <h2> {data.title} </h2>
+                    <p> {data.content} </p>
+                </ScrollAnimation>
             </div>
         </Section>
     )

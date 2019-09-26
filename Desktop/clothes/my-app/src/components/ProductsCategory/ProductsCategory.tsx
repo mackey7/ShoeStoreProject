@@ -2,6 +2,8 @@ import React from 'react'
 import Styled from 'styled-components';
 import ProductItem from '../ProductItem/ProductItem'
 import uuid from 'uuid'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const ProductsCategorySection = Styled.section`
     width:90%;
@@ -40,7 +42,9 @@ const ProductsCategory: React.SFC<IProps> = ({ data, CategoryTitle, addToFavouri
     )
     return (
         <ProductsCategoryWrapper>
-            <H2> {CategoryTitle} </H2>
+            <ScrollAnimation animateIn='zoomInDown' animateOnce={true} >
+                <H2> {CategoryTitle} </H2>
+            </ScrollAnimation>
             <ProductsCategorySection>
                 {mapProducts}
             </ProductsCategorySection>

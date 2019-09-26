@@ -1,6 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Formik } from 'formik'
+import "animate.css/animate.min.css";
+import { Animated } from "react-animated-css";
 
 const LoginPagesection = Styled.section`
     background:#ebe7df;
@@ -26,6 +28,7 @@ const H2 = Styled.h2`
 
 const Form = Styled.form`
     display:flex;
+     min-width:100%;
     flex-direction:column;
 `
 const Input = Styled.input`
@@ -68,11 +71,13 @@ const LoginPageComponent: React.SFC = () => {
                         handleChange,
                         handleSubmit
                     }) => (
-                            <Form onSubmit={handleSubmit}>
-                                <Input placeholder="login" type="text" name="login" onChange={handleChange} value={values.login} />
-                                <Input placeholder="password" type="password" name="password" onChange={handleChange} value={values.password} />
-                                <Button type="submit" value="Login" />
-                            </Form>
+                            <Animated animationIn="zoomInLeft" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                                <Form onSubmit={handleSubmit}>
+                                    <Input placeholder="login" type="text" name="login" onChange={handleChange} value={values.login} />
+                                    <Input placeholder="password" type="password" name="password" onChange={handleChange} value={values.password} />
+                                    <Button type="submit" value="Login" />
+                                </Form>
+                            </Animated>
                         )
                     }
                 />

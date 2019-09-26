@@ -63,7 +63,7 @@ const Dot: React.SFC<Iprops> = ({ DotTitle, DotDesc, activeIndex, slideNumber, g
     return (
 
         < DotWrapper onClick={() => goToSlide(slideNumber)} >
-            <Animated animationIn="zoomIn" animationOut="fadeOut" animationOutDuration={0} isVisible={true}>
+            <Animated animationIn="fadeIn" animationOut="swing" isVisible={activeIndex == slideNumber} animationInDuration={1000} animationOutDuration={0} >
                 <SlideWrapper>
                     {activeIndex == slideNumber ? <Slide></Slide> : null}
                 </SlideWrapper>

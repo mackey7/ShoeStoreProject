@@ -3,7 +3,8 @@ import Styled from 'styled-components'
 import ProductItem from '../ProductItem/ProductItem'
 import { Link } from 'react-router-dom'
 import uuid from 'uuid'
-
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 const CategoryWrapper = Styled.section`
     padding: 30px 20px;
     background:#ebe7df;
@@ -87,8 +88,12 @@ const HomeCategory: React.SFC<IProps> = ({ title, data, RouteName, addToCart, ad
         <CategoryWrapper>
             <Category>
                 < CategoryHeader >
-                    <h2> {title}</h2>
-                    <LINK to={RouteName}>Show All</LINK>
+                    <ScrollAnimation animateIn='zoomInLeft' animateOnce={true} >
+                        <h2> {title}</h2>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='zoomInRight' animateOnce={true} >
+                        <LINK to={RouteName}>Show All</LINK>
+                    </ScrollAnimation>
                 </CategoryHeader>
                 <ProductsItems>
                     {products}

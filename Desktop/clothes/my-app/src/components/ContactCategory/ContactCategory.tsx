@@ -1,6 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Formik } from 'formik'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const ContactCategorySection = Styled.section`
     background:#ebe7df;
@@ -16,11 +18,13 @@ const Form = Styled.form`
     width:100%;
 `
 const ContactInput = Styled.input`
+    width:100%;
     padding:20px;
     margin:10px 0px;
     border:2px solid #c5c9bd;
 `
 const ContactTextArea = Styled.textarea`
+    width:100%;
     padding:20px;
     margin:10px 0px;
     border:2px solid #c5c9bd;
@@ -28,6 +32,7 @@ const ContactTextArea = Styled.textarea`
 
 `
 const ContactButton = Styled.input`
+    width:100%; 
     margin:10px 0px;
     padding:20px;
     font-size:30px;
@@ -59,8 +64,12 @@ const ContactCategory: React.SFC<{}> = () => {
     return (
         <ContactCategorySection>
             <ContactCategoryWrapper>
-                <H2>Contact</H2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos natus atque eius nesciunt vitae quas architecto a ut at neque eligendi impedit, magnam nisi sit ducimus nihil delectus cum dolorem minima inventore sed similique animi. Sequi, rerum ipsam! Commodi esse ratione eum dolores sint voluptatem totam eius doloribus officia praesentium?</p>
+                <ScrollAnimation animateIn='bounceIn' animateOnce={true}>
+                    <H2>Contact</H2>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn='bounceIn' animateOnce={true}>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos natus atque eius nesciunt vitae quas architecto a ut at neque eligendi impedit, magnam nisi sit ducimus nihil delectus cum dolorem minima inventore sed similique animi. Sequi, rerum ipsam! Commodi esse ratione eum dolores sint voluptatem totam eius doloribus officia praesentium?</p>
+                </ScrollAnimation>
                 <Formik
 
                     initialValues={{ email: '', subject: "", content: "" }}
@@ -75,17 +84,25 @@ const ContactCategory: React.SFC<{}> = () => {
                         handleSubmit
                     }) => (
                             <Form onSubmit={handleSubmit}>
-                                <ContactInput placeholder="E-mail" type="text" name="email" onChange={handleChange} value={values.email} />
-                                <ContactInput placeholder="Subject" type="text" name="subject" onChange={handleChange} value={values.subject} />
-                                <ContactTextArea placeholder="Content..." name="content" onChange={handleChange} value={values.content} ></ContactTextArea>
-                                <ContactButton type="submit" value="Send" />
+                                <ScrollAnimation animateIn='slideInLeft' animateOnce={true}>
+                                    <ContactInput placeholder="E-mail" type="text" name="email" onChange={handleChange} value={values.email} />
+                                </ScrollAnimation>
+                                <ScrollAnimation animateIn='slideInRight' animateOnce={true}>
+                                    <ContactInput placeholder="Subject" type="text" name="subject" onChange={handleChange} value={values.subject} />
+                                </ScrollAnimation>
+                                <ScrollAnimation animateIn='slideInLeft' animateOnce={true}>
+                                    <ContactTextArea placeholder="Content..." name="content" onChange={handleChange} value={values.content} ></ContactTextArea>
+                                </ScrollAnimation>
+                                <ScrollAnimation animateIn='slideInRight' animateOnce={true}>
+                                    <ContactButton type="submit" value="Send" />
+                                </ScrollAnimation>
                             </Form>
                         )
                     }
                 />
 
             </ContactCategoryWrapper>
-        </ContactCategorySection>
+        </ContactCategorySection >
 
     )
 }

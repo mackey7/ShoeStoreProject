@@ -1,6 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const PostShortItemWrapper = Styled.section`
     border:1px solid #9d9d9c;
@@ -42,13 +44,21 @@ interface IProps {
 const PostShortItem: React.SFC<IProps> = ({ data }) => {
 
     return (
-        <PostShortItemWrapper>
-            <H2>{data.title}</H2>
-            <P> {data.decs}</P>
-            <MoreBtn to={`/blog/article/${data.id}`} >
-                More
+        <ScrollAnimation animateIn='bounceIn' animateOnce={true}>
+            <PostShortItemWrapper>
+                <ScrollAnimation animateIn='bounceIn' animateOnce={true}>
+                    <H2>{data.title}</H2>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn='bounceIn' animateOnce={true}>
+                    <P> {data.decs}</P>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn='bounceIn' animateOnce={true}>
+                    <MoreBtn to={`/blog/article/${data.id}`} >
+                        More
             </MoreBtn>
-        </PostShortItemWrapper>
+                </ScrollAnimation>
+            </PostShortItemWrapper>
+        </ScrollAnimation >
 
     )
 }

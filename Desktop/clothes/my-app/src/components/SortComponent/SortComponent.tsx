@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import "animate.css/animate.min.css";
+import { Animated } from "react-animated-css";
 
 const SortWrapper = Styled.section`
     background:#2e2e2e;
@@ -54,32 +55,36 @@ class SortComponent extends React.Component<Iprops> {
         return (
             <SortWrapper>
                 <SortSection>
+                    <Animated animationIn="zoomIn" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                        <Span> Sort by  </Span>
+                    </Animated>
+                    <Animated animationIn="zoomIn" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                        <Select onClick={(e) => sortBrands(e, "brands")} >
+                            <option value="-"> Brands</option>
+                            <option value="All Star"> All Star</option>
+                            <option value="Big Star"> Big Star</option>
+                            <option value="reebok"> Reebok</option>
+                            <option value="Gucci"> Gucci</option>
+                            <option value="Nike"> Nike</option>
+                        </Select>
+                    </Animated>
+                    <Animated animationIn="zoomIn" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                        <Select onClick={(e) => sortCategories(e, "gender")} >
+                            <option value="-"> Categories</option>
+                            <option value="woman"> woman</option>
+                            <option value="man"> man</option>
+                        </Select>
+                    </Animated>
+                    <Animated animationIn="zoomIn" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                        <Select onClick={(e) => sortPrice(e, 'price')}>
 
-                    <Span> Sort by  </Span>
-                    <Select onClick={(e) => sortBrands(e, "brands")} >
-                        <option value="-"> Brands</option>
-                        <option value="All Star"> All Star</option>
-                        <option value="Big Star"> Big Star</option>
-                        <option value="reebok"> Reebok</option>
-                        <option value="Gucci"> Gucci</option>
-                        <option value="Nike"> Nike</option>
-
-
-                    </Select>
-                    <Select onClick={(e) => sortCategories(e, "gender")} >
-                        <option value="-"> Categories</option>
-                        <option value="woman"> woman</option>
-                        <option value="man"> man</option>
-                    </Select>
-                    <Select onClick={(e) => sortPrice(e, 'price')}>
-
-                        <option value="-"> Price</option>
-                        <option value="min-max"> min-max</option>
-                        <option value="max-min"> max-min</option>
-                    </Select>
-
-                </SortSection>
-            </SortWrapper>
+                            <option value="-"> Price</option>
+                            <option value="min-max"> min-max</option>
+                            <option value="max-min"> max-min</option>
+                        </Select>
+                    </Animated>
+                </SortSection >
+            </SortWrapper >
         )
     }
 

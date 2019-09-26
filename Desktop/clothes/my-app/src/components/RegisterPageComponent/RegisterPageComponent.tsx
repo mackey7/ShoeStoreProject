@@ -1,6 +1,8 @@
 import React from 'react'
 import Styled from 'styled-components'
 import { Formik } from 'formik'
+import "animate.css/animate.min.css";
+import { Animated } from "react-animated-css";
 
 const RegisterPageSection = Styled.section`
     background:#ebe7df;
@@ -66,15 +68,17 @@ const RegisterPageComponent: React.SFC = () => {
                         handleChange,
                         handleSubmit
                     }) => (
-                            <Form onSubmit={handleSubmit}>
-                                <Input placeholder="Name" type="text" name="name" onChange={handleChange} value={values.name} />
-                                <Input placeholder="Surname" type="text" name="surname" onChange={handleChange} value={values.surname} />
-                                <Input placeholder="Email" type="text" name="email" onChange={handleChange} value={values.email} />
-                                <Input placeholder="Login" type="text" name="login" onChange={handleChange} value={values.login} />
-                                <Input placeholder="Password" type="password" name="password" onChange={handleChange} value={values.password} />
-                                <Input placeholder="Retype password" type="password" name="retypePassword" onChange={handleChange} value={values.retypePassword} />
-                                <Button type="submit" value="Register" />
-                            </Form>
+                            <Animated animationIn="zoomIn" animationOut="swing" isVisible={true} animationInDuration={1500} animationOutDuration={0} >
+                                <Form onSubmit={handleSubmit}>
+                                    <Input placeholder="Name" type="text" name="name" onChange={handleChange} value={values.name} />
+                                    <Input placeholder="Surname" type="text" name="surname" onChange={handleChange} value={values.surname} />
+                                    <Input placeholder="Email" type="text" name="email" onChange={handleChange} value={values.email} />
+                                    <Input placeholder="Login" type="text" name="login" onChange={handleChange} value={values.login} />
+                                    <Input placeholder="Password" type="password" name="password" onChange={handleChange} value={values.password} />
+                                    <Input placeholder="Retype password" type="password" name="retypePassword" onChange={handleChange} value={values.retypePassword} />
+                                    <Button type="submit" value="Register" />
+                                </Form>
+                            </Animated>
                         )
                     }
                 />
