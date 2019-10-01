@@ -1,17 +1,14 @@
 import React from 'react'
 import FaqCategory from '../../components/FaqCategory/FaqCategory'
 
-class Faq extends React.Component {
-
-    render() {
-        return (
-            <div>
-                <FaqCategory />
-            </div>
-        )
-    }
-
+const Faq = () => {
+    return (
+        <div>
+            <FaqCategory />
+        </div>
+    )
 }
+
 
 
 
