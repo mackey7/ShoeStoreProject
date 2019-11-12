@@ -61,10 +61,11 @@ const CartPageComponent: React.SFC<IProps> = ({ removeItemFromCart, cart }) => {
             </DeleteBtn>
         </ProductItem>
     )
+    const condition = cart.length < 0 ? "No products" : MapData;
     return (
         <CartPageSection>
             <CartPageWrapper>
-                {MapData}
+                {condition}
             </CartPageWrapper>
         </CartPageSection>
     )

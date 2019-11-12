@@ -60,10 +60,11 @@ const FavouritePageComponent: React.SFC<IProps> = ({ removeItemFromFavourite, fa
             </DeleteBtn>
         </ProductItem>
     )
+    const condition = favourite.length < 0 ? "No products" : MapData;
     return (
         <CartPageSection>
             <CartPageWrapper>
-                {MapData}
+                {condition}
             </CartPageWrapper>
         </CartPageSection>
     )
