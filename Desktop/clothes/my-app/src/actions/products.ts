@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_PRODUCTS_TO_SEARCH, SEARCH_PRODUCTS_IN_PRODUCTS, FETCH_SORTED, SORT_PRICE, SORT_BRANDS, SORT_CATEGORIES, FETCH_POSTS_SUCCESS, ADD_TO_CART, ADD_TO_FAVOURITE, FETCH_BESTSELLERS, FETCH_NEW_ARRIVALS, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_FROM_FAVOURITE } from './actions_types'
 
-const API = "https://api.myjson.com/bins/7d40a"
+const API = "https://api.myjson.com/bins/kbfb2"
 
 
 export const fetchProductsResponse = () => {
