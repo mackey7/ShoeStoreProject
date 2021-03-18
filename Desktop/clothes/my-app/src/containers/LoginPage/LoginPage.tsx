@@ -3,7 +3,7 @@ import LoginPageComponent from '../../components/LoginPageComponent/LoginPageCom
 
 
 
-const LoginPage: React.SFC = () => {
+const LoginPage = () => {
 
     return (
         <div>
