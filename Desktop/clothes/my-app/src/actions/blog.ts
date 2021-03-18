@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_BLOG_POSTS_SUCCESS } from './actions_types'
 
-const API = "https://api.myjson.com/bins/1fjoqn"
+const API = "https://mackey7.github.io/clothesAPi/blog.json"
 
 
 export const fetchBlogResponse = () => {
